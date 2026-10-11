@@ -1,265 +1,164 @@
 /**
  * ViCli Website Configuratie
  * ==============================
- * Pas hier eenvoudig alle teksten, prijzen, contactgegevens en links aan.
- * De website leest deze gegevens automatisch in!
+ * Centrale instellingen voor teksten, links en platformen.
  */
 
 window.VICLI_CONFIG = {
   brand: {
     name: "ViCli",
-    tagline: "Salon Management & Kassa Systeem",
-    slogan: "De alles-in-één kassa & management app voor de moderne beauty professional.",
-    description: "Van moeiteloos afspraken plannen en razendsnelle kassa-bonnen tot digitaal klantenbeheer, BTW-rapportages en multi-device cloud sync. Ontworpen voor de veeleisende beauty salon, skin clinic en stylist.",
+    tagline: "CRM • Calendar • POS",
+    slogan: "Het slimme CRM, agendabeheer & kassa voor elke ZZP'er met terugkerende klanten.",
+    description: "Alles wat je als zelfstandige dienstverlener nodig hebt: moeiteloos afspraken inplannen, klantenkaarten met strippen bijhouden, snelle kassa-bonnen en sluitende BTW-rapportages. Native gebouwd voor iOS en Android.",
     rating: "4.9 / 5",
-    reviewCount: "250+ tevreden salons",
-    platforms: ["iOS (iPhone & iPad)", "Android (Telefoon & Tablet)"]
+    trialDays: "14 dagen gratis",
+    appStoreUrl: "https://apps.apple.com", // Link naar iOS App Store
+    playStoreUrl: "https://play.google.com", // Link naar Google Play Store
   },
 
   contact: {
     email: "info@vicli.nl",
-    phone: "+31 (0)6 12 34 56 78",
-    whatsappUrl: "https://wa.me/31612345678?text=Hallo%20ViCli,%20ik%20heb%20interesse%20in%20een%20demo!",
-    address: "Amsterdam & heel Nederland / België",
+    whatsappUrl: "https://wa.me/31612345678?text=Hallo%20ViCli,%20ik%20heb%20een%20vraag%20over%20de%20app!",
     instagram: "https://instagram.com/vicli.app",
     linkedin: "https://linkedin.com/company/vicli"
   },
 
   hero: {
-    badge: "✨ De nieuwe standaard voor beauty salons & clinics",
-    ctaPrimary: "Start 14 dagen gratis",
-    ctaSecondary: "Vraag demo aan",
-    stats: [
-      { value: "0%", label: "Commissie per afspraak" },
-      { value: "80%", label: "Minder no-shows door SMS" },
-      { value: "100%", label: "BTW-conform & export" },
-      { value: "2 min", label: "Installatie & startklaar" }
+    badge: "✨ Voor elke ZZP'er met terugkerende klanten",
+    title: "Minder administratie, meer tijd voor je klanten.",
+    subtitle: "Of je nu kapper, pedicure, coach, personal trainer of beautyspecialist bent: ViCli brengt jouw agenda, klantenbeheer en kassa samen in één vloeiende app.",
+    ctaPrimary: "Download de app",
+    ctaSecondary: "Ontdek alle functies",
+    highlights: [
+      "14 dagen gratis proefperiode",
+      "Geen commissies per klant",
+      "Voor iPhone, iPad & Android",
+      "Lokaal & offline werkend"
     ]
   },
 
+  targetAudience: [
+    { title: "Beauty & Salons", desc: "Schoonheidsspecialistes, nagelstudio's, kappers & brow bars", icon: "sparkles" },
+    { title: "Therapeuten & Zorg", desc: "Pedicures, huidtherapeuten, masseurs & fysiotherapie", icon: "heart-pulse" },
+    { title: "Coaches & Trainers", desc: "Personal trainers, lifestyle coaches & yogadocenten", icon: "dumbbell" },
+    { title: "Vakspecialisten", desc: "Hondentrimmers, fotografen & zelfstandig dienstverleners", icon: "scissors" }
+  ],
+
   features: [
     {
-      id: "pos",
-      tabTitle: "Kassa & Bonnen",
-      title: "Slimme kassa, razendsnelle bonnen & retouren",
-      subtitle: "Geen trage kassa meer bij het afrekenen. Reken direct behandelingen en producten af met barcodescanner of productzoeker.",
+      id: "crm",
+      tabTitle: "Klanten & Strippen",
+      title: "Digitale klantenkaart met strippenkaarten & historie",
+      subtitle: "Houd al je terugkerende klanten overzichtelijk bij. Zie direct contactgegevens, notities, eerdere bezoeken en hoeveel strippen iemand nog over heeft.",
       highlights: [
-        "Producten toevoegen via camera barcodescanner of snelle zoekbalk",
-        "Eenvoudig retouren en terugstortingen registreren op bestaande bonnen",
-        "Automatische BTW uitsplitsing (21%, 9%, 0%) volgens belastingrichtlijnen",
-        "Bon direct printen of als professionele PDF e-mailen naar de klant"
+        "Compleet overzicht van al je klanten met telefoonnummer en e-mail",
+        "Geïntegreerde strippenkaarten en pakketten (direct inzicht in saldo)",
+        "Notities en voorkeuren per klant direct bij de hand",
+        "Klanten snel vinden via zoekbalk of handige check-in"
       ],
-      tag: "POS & Kassa"
+      tag: "Klantenbeheer (CRM)",
+      image: "./assets/vicli-ipad-klanten.png"
     },
     {
       id: "agenda",
-      tabTitle: "Agenda & Afspraken",
-      title: "Moeiteloos plannen & automatische SMS herinneringen",
-      subtitle: "Houd overzicht over je dag, behandelstoelen en medewerkers. Voorkom dure no-shows met slimme sms-berichten.",
+      tabTitle: "Agenda & Planning",
+      title: "Overzichtelijke dag- en weekplanning zonder gedoe",
+      subtitle: "Plan afspraken in een oogwenk in. Schakel soepel tussen dagoverzicht, komende afspraken en eerdere bezoeken.",
       highlights: [
-        "Overzichtelijke dag- en weekkalender op maat voor salons",
-        "Automatische SMS-bevestigingen en herinneringen voorafgaand aan de afspraak",
-        "Koppeling met strippenkaarten en behandelpakketten van klanten",
-        "Beschikbaar op al je apparaten: altijd je agenda bij de hand"
+        "Duidelijke weergave van komende en voltooide afspraken",
+        "Moeiteloos nieuwe afspraken toevoegen met één tik op het plusje",
+        "Automatische herinneringen zodat klanten hun afspraak niet vergeten",
+        "Werkt razendsnel en reageert direct op al je apparaten"
       ],
-      tag: "Planning & SMS"
+      tag: "Agenda & Kalender",
+      image: "./assets/vicli-iphone-agenda.png"
     },
     {
-      id: "crm",
-      tabTitle: "Digitale Klantenkaart",
-      title: "Bouw een hechte band met al je klanten",
-      subtitle: "Alle klantgegevens, eerdere behandelingen, allergieën en productvoorkeuren op één centrale plek.",
+      id: "pos",
+      tabTitle: "Kassa & Bonnen",
+      title: "Snelle kassa met BTW-splitsing, barcodes en retouren",
+      subtitle: "Reken diensten en producten binnen seconden af. Maak direct professionele bonnen aan met de juiste belastingpercentages.",
       highlights: [
-        "Snelle klant check-in via persoonlijke QR-code of NFC badge",
-        "Uitgebreide behandelhistorie en notities per klant",
-        "Automatische Google Review uitnodigingen na een geslaagde afspraak",
-        "AVG/GDPR-veilig opgeslagen met lokale bescherming en optionele pincode-applock"
+        "Producten toevoegen via barcodescanner óf snelle zoekfunctie",
+        "Eenvoudig retouren en terugstortingen registreren",
+        "Automatische BTW-berekening (21%, 9%, 0%) volgens de belastingregels",
+        "Bon direct mailen als PDF of afdrukken voor de klant"
       ],
-      tag: "Klanten & Loyaliteit"
+      tag: "Kassa (POS)",
+      image: "./assets/vicli-ipad-klanten.png"
     },
     {
       id: "finance",
-      tabTitle: "BTW & Boekhouding",
-      title: "Nooit meer stress aan het einde van het kwartaal",
-      subtitle: "ViCli berekent automatisch al je omzet- en belastingcijfers. Met één druk op de knop klaar voor je boekhouder.",
+      tabTitle: "Boekhouding & Export",
+      title: "Klaar voor je belastingaangifte en boekhouder",
+      subtitle: "Nooit meer bonnetjes handmatig overtypen of urenlang optellen. ViCli houdt al je cijfers sluitend bij.",
       highlights: [
-        "Automatische maand- en kwartaaloverzichten met BTW-splitsing",
-        "1-klik export naar PDF of CSV voor je boekhoudprogramma",
-        "Inzicht in omzet per medewerker, productcategorie en behandeling",
-        "Sluitende kasopmaak en overzicht van betalingen"
+        "Direct inzicht in je omzet per dag, maand en kwartaal",
+        "1-klik export van bonnen en BTW-specificaties naar PDF en CSV",
+        "Volledig fiscaal betrouwbare registratie",
+        "Rust en controle over je zakelijke administratie"
       ],
-      tag: "Boekhouding & Rapportage"
+      tag: "Financieel & Export",
+      image: "./assets/vicli-ipad-klanten.png"
     },
     {
       id: "sync",
       tabTitle: "Multi-Device Sync",
-      title: "Werk samen in de salon via veilige Cloud Sync",
-      subtitle: "Gebruik ViCli gelijktijdig op de iPad bij de balie, je eigen iPhone en de tablets van je collega's.",
+      title: "Synchroniseer tussen iPhone, iPad en Android",
+      subtitle: "Werk met meerdere apparaten tegelijk: je iPad op je werkplek en je telefoon onderweg.",
       highlights: [
-        "Koppel eenvoudig nieuwe apparaten via een veilige werkgroep QR-code",
-        "Offline-first: blijft gewoon werken als de wifi even wegvalt",
+        "Koppel eenvoudig apparaten via een veilige werkgroep QR-code",
+        "Werkt altijd door: offline-first ontwerp als internet even wegvalt",
         "Automatische synchronisatie zodra er weer verbinding is",
-        "Volledige synchronisatie tussen zowel iOS als Android apparaten"
+        "Volledige synchronisatie tussen iOS én Android"
       ],
-      tag: "Werkgroep & Cloud"
+      tag: "Cloud & Apparaten",
+      image: "./assets/vicli-ipad-klanten.png"
     }
   ],
 
   pricing: {
-    monthly: [
-      {
-        name: "Solo Specialist",
-        price: 29,
-        period: "per maand",
-        description: "Ideaal voor zzp'ers en zelfstandig werkende beauty ondernemers.",
-        badge: null,
-        features: [
-          "1 gebruiker & 1 apparaat",
-          "Onbeperkt afspraken & klanten",
-          "Kassa & bonnen genereren (PDF)",
-          "Producten- & voorraadbeheer",
-          "Basis BTW- en omzetrapportages",
-          "E-mail ondersteuning"
-        ],
-        cta: "Start 14 dagen gratis",
-        popular: false
-      },
-      {
-        name: "Salon Pro",
-        price: 49,
-        period: "per maand",
-        description: "Voor groeiende salons die maximale efficiëntie en automatisering willen.",
-        badge: "Meest Gekozen",
-        features: [
-          "Tot 3 apparaten (Multi-device sync)",
-          "Automatische SMS-herinneringen & campagnes",
-          "Geavanceerde kassa (retouren & barcode scanner)",
-          "Google Review verzoeken automatiseren",
-          "Uitgebreide BTW- en kwartaalexport",
-          "App-vergrendeling met pincode",
-          "Prioriteitsondersteuning via WhatsApp"
-        ],
-        cta: "Start 14 dagen gratis",
-        popular: true
-      },
-      {
-        name: "Salon Team",
-        price: 79,
-        period: "per maand",
-        description: "Voor klinieken en salons met meerdere behandelaren en stoelen.",
-        badge: null,
-        features: [
-          "Onbeperkt aantal apparaten & medewerkers",
-          "Werkgroepen met Master/Member rechten",
-          "Omzetrapportage per medewerker",
-          "Onbeperkte SMS-berichten",
-          "Persoonlijke onboarding & data-import",
-          "24/7 dedicated support"
-        ],
-        cta: "Vraag demo aan",
-        popular: false
-      }
-    ],
-    yearly: [
-      {
-        name: "Solo Specialist",
-        price: 24,
-        period: "per maand (jaarlijks gefactureerd)",
-        description: "Ideaal voor zzp'ers en zelfstandig werkende beauty ondernemers.",
-        badge: "Bespaar €60/jaar",
-        features: [
-          "1 gebruiker & 1 apparaat",
-          "Onbeperkt afspraken & klanten",
-          "Kassa & bonnen genereren (PDF)",
-          "Producten- & voorraadbeheer",
-          "Basis BTW- en omzetrapportages",
-          "E-mail ondersteuning"
-        ],
-        cta: "Start 14 dagen gratis",
-        popular: false
-      },
-      {
-        name: "Salon Pro",
-        price: 39,
-        period: "per maand (jaarlijks gefactureerd)",
-        description: "Voor groeiende salons die maximale efficiëntie en automatisering willen.",
-        badge: "Meest Gekozen • Bespaar €120/jaar",
-        features: [
-          "Tot 3 apparaten (Multi-device sync)",
-          "Automatische SMS-herinneringen & campagnes",
-          "Geavanceerde kassa (retouren & barcode scanner)",
-          "Google Review verzoeken automatiseren",
-          "Uitgebreide BTW- en kwartaalexport",
-          "App-vergrendeling met pincode",
-          "Prioriteitsondersteuning via WhatsApp"
-        ],
-        cta: "Start 14 dagen gratis",
-        popular: true
-      },
-      {
-        name: "Salon Team",
-        price: 65,
-        period: "per maand (jaarlijks gefactureerd)",
-        description: "Voor klinieken en salons met meerdere behandelaren en stoelen.",
-        badge: "Bespaar €168/jaar",
-        features: [
-          "Onbeperkt aantal apparaten & medewerkers",
-          "Werkgroepen met Master/Member rechten",
-          "Omzetrapportage per medewerker",
-          "Onbeperkte SMS-berichten",
-          "Persoonlijke onboarding & data-import",
-          "24/7 dedicated support"
-        ],
-        cta: "Vraag demo aan",
-        popular: false
-      }
+    title: "Toegankelijk en transparant. Geen verborgen kosten.",
+    subtitle: "Een eerlijk maandelijks abonnement voor minder dan een tientje. Geen commissies per afspraak of percentage over jouw omzet.",
+    notice: "* De exacte abonnementsprijs wordt beheerd via de Apple App Store en Google Play Store en kan per regio of valuta licht variëren (vanaf ca. €9,49 op Android en €9,99 op iOS in Nederland/België).",
+    trialText: "Inclusief 14 dagen gratis proefperiode via de App Store & Google Play",
+    allFeaturesIncluded: [
+      "Alle CRM klantenkaarten & notities",
+      "Strippenkaarten & pakketbeheer",
+      "Volledige agenda & afsprakenplanning",
+      "Kassasysteem met PDF-bonnen & retouren",
+      "Barcode scanner & productbeheer",
+      "BTW-overzichten & export voor je boekhouder",
+      "Multi-device cloud synchronisatie",
+      "Offline-first betrouwbaarheid",
+      "Regelmatige updates op iOS & Android"
     ]
   },
 
-  testimonials: [
-    {
-      name: "Cynthia van Dijk",
-      salon: "Skin & Glow Aesthetics",
-      quote: "Sinds we ViCli gebruiken zijn onze no-shows met bijna 80% gedaald dankzij de automatische sms'jes. De kassa is zó stijlvol en makkelijk, een verademing vergeleken met logge software.",
-      rating: 5,
-      city: "Utrecht"
-    },
-    {
-      name: "Elena de Vries",
-      salon: "Maison de Beauté",
-      quote: "Mijn boekhouder is dolblij met de kwartaalexport. Aan het einde van de maand druk ik op één knop en alle BTW-specificaties kloppen exact. Ik wil nooit meer iets anders.",
-      rating: 5,
-      city: "Rotterdam"
-    },
-    {
-      name: "Sabine Martens",
-      salon: "Studio Brow & Lash",
-      quote: "We werken met 3 iPads in de salon en de synchronisatie via werkgroep QR werkt vlekkeloos. Super professioneel voor onze klanten en enorm snel in gebruik.",
-      rating: 5,
-      city: "Antwerpen"
-    }
-  ],
-
   faq: [
     {
+      q: "Voor wie is ViCli bedoeld?",
+      a: "ViCli is speciaal ontworpen voor élke ZZP'er en zelfstandig ondernemer met terugkerende klanten. Denk aan schoonheidsspecialistes, kappers, nagelstylistes en pedicures, maar ook personal trainers, masseurs, coaches, therapeuten en hondentrimmers. Iedereen die klanten, afspraken en kassa-bonnen overzichtelijk op één plek wil hebben."
+    },
+    {
+      q: "Hoeveel kost de ViCli app?",
+      a: "ViCli kost minder dan een tientje per maand (ca. €9,49 op Android en €9,99 op iOS in Nederland/België). De exacte prijs wordt bepaald door de App Store en Google Play Store op basis van jouw land en valuta. Je betaalt géén commissie per afspraak of transactiekosten over jouw omzet."
+    },
+    {
       q: "Hoe werkt de gratis proefperiode van 14 dagen?",
-      a: "Je kunt ViCli 14 dagen lang volledig gratis en vrijblijvend uitproberen. Je hebt geen creditcard nodig en zit nergens aan vast. Pas na 14 dagen beslis je of je door wilt gaan met een betaald abonnement."
+      a: "Wanneer je de app downloadt in de App Store of Google Play Store, kun je direct starten met een gratis proefperiode van 14 dagen. Je kunt alle functies onbeperkt testen. Besluit je niet door te gaan? Dan zeg je eenvoudig op via je accountinstellingen zonder dat er kosten in rekening worden gebracht."
     },
     {
       q: "Kan ik ViCli op zowel iPhone/iPad als Android gebruiken?",
-      a: "Ja, absoluut! ViCli is speciaal native gebouwd voor zowel iOS (iPhone & iPad) als Android (telefoons en tablets). Je kunt verschillende apparaten binnen één salon naadloos met elkaar synchroniseren."
+      a: "Ja! ViCli heeft volwaardige apps voor zowel iOS (iPhone en iPad) als Android (smartphones en tablets). Je kunt ze zelfs tegelijkertijd gebruiken en naadloos met elkaar synchroniseren via een werkgroep."
     },
     {
-      q: "Voldoet de kassa en de BTW-bon aan de eisen van de Belastingdienst?",
-      a: "Ja. ViCli registreert alle transacties conform de fiscale richtlijnen, inclusief juiste BTW-percentages (21%, 9%, 0%), datum, uniek bonnummer en exportmogelijkheden naar PDF en CSV voor je boekhouder."
+      q: "Blijft ViCli werken als mijn internetverbinding wegvalt?",
+      a: "Ja, ViCli is gebouwd volgens een 'offline-first' principe. Al je gegevens worden lokaal op je toestel bewaard en functioneren altijd. Zodra je weer verbinding hebt, synchroniseert de app automatisch met de cloud en je andere apparaten."
     },
     {
-      q: "Hoe werkt het koppelen van meerdere apparaten via werkgroepen?",
-      a: "Heel eenvoudig: op je hoofdapparaat (bijv. de iPad aan de balie) genereer je een werkgroep-uitnodiging met een QR-code. Vervolgens scan je deze code met het tweede apparaat en binnen enkele seconden synchroniseren alle afspraken, klanten en bonnen!"
-    },
-    {
-      q: "Kan ik overstappen vanaf een ander systeem en mijn klanten meenemen?",
-      a: "Zeker. Je kunt je bestaande klantenbestand eenvoudig exporteren vanuit je oude software en laten inlezen in ViCli. We helpen je hier graag kosteloos bij tijdens de start."
+      q: "Hoe zit het met de BTW en kassa-bonnen voor mijn belastingaangifte?",
+      a: "ViCli berekent automatisch de BTW per regel (bijv. 21%, 9% of 0%) en genereert nette bonnen met unieke nummering. Je kunt aan het einde van de maand of het kwartaal met één druk op de knop een compleet rapport exporteren voor je boekhouder."
     }
   ]
 };
