@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViCli — Luxe Salon Management & Kassa Systeem</title>
+  <meta name="description" content="Het alles-in-één kassa- en managementplatform voor moderne salons, skin clinics, nagelstudio's en beauty professionals. Afspraken, kassa, BTW-rapportages en multi-device sync.">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="ViCli — Luxe Salon Management & Kassa Systeem">
+  <meta property="og:description" content="De ultieme kassa & management app voor beauty professionals.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/hero-mockup.jpg">
+
+  <!-- Google Fonts: Cormorant Garamond & Nunito Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vicli: {
+              cream: '#FAF7F2',
+              warm: '#F4ECE1',
+              sand: '#EAE1D5',
+              gold: '#B8875A',
+              goldDark: '#9C6E44',
+              goldLight: '#D6AE88',
+              dark: '#1D1714',
+              charcoal: '#2D2420',
+              muted: '#736962',
+              border: '#E8DFD5'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Nunito Sans"', '"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background-color: #FAF7F2;
+      color: #1D1714;
+      font-family: 'Nunito Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-cormorant {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .glass-nav {
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .badge-shimmer {
+      background: linear-gradient(90deg, rgba(184,135,90,0.08) 0%, rgba(184,135,90,0.18) 50%, rgba(184,135,90,0.08) 100%);
+    }
+    .card-shadow {
+      box-shadow: 0 10px 30px -10px rgba(29, 23, 20, 0.05), 0 4px 12px -2px rgba(29, 23, 20, 0.03);
+    }
+    .hero-shadow {
+      box-shadow: 0 25px 60px -15px rgba(29, 23, 20, 0.12), 0 10px 20px -5px rgba(29, 23, 20, 0.04);
+    }
+    .tab-active {
+      background-color: #1D1714 !important;
+      color: #FAF7F2 !important;
+    }
+  </style>
+</head>
+<body class="selection:bg-vicli-gold/20 selection:text-vicli-dark flex flex-col min-h-screen">
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="sticky top-0 z-50 glass-nav border-b border-vicli-border transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-vicli-dark flex items-center justify-center text-vicli-cream font-serif font-bold text-xl tracking-wider shadow-sm group-hover:bg-vicli-gold transition-colors">
+          V
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl font-bold tracking-wider text-vicli-dark leading-none">ViCli</span>
+          <span class="text-[10px] tracking-[0.2em] uppercase text-vicli-muted font-medium mt-0.5">Salon Management</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-vicli-charcoal">
+        <a href="#functies" class="hover:text-vicli-gold transition-colors">Functies</a>
+        <a href="#waarom" class="hover:text-vicli-gold transition-colors">Waarom ViCli</a>
+        <a href="#prijzen" class="hover:text-vicli-gold transition-colors">Prijzen</a>
+        <a href="#reviews" class="hover:text-vicli-gold transition-colors">Reviews</a>
+        <a href="#faq" class="hover:text-vicli-gold transition-colors">Veelgestelde vragen</a>
+      </nav>
+
+      <!-- Desktop CTAs -->
+      <div class="hidden md:flex items-center gap-4">
+        <button onclick="openDemoModal()" class="text-sm font-semibold text-vicli-charcoal hover:text-vicli-gold px-4 py-2.5 transition-colors">
+          Demo aanvragen
+        </button>
+        <a href="#prijzen" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-vicli-dark text-vicli-cream text-sm font-semibold hover:bg-vicli-gold transition-all duration-300 shadow-sm hover:shadow-md">
+          <span>Start gratis</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-vicli-dark hover:bg-vicli-sand/50" aria-label="Menu openen">
+        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pt-4 pb-8 bg-vicli-cream border-b border-vicli-border shadow-xl">
+      <div class="flex flex-col gap-4 text-base font-medium text-vicli-dark">
+        <a href="#functies" onclick="toggleMobileMenu()" class="py-2 border-b border-vicli-border/50">Functies</a>
+        <a href="#waarom" onclick="toggleMobileMenu()" class="py-2 border-b border-vicli-border/50">Waarom ViCli</a>
+        <a href="#prijzen" onclick="toggleMobileMenu()" class="py-2 border-b border-vicli-border/50">Prijzen</a>
+        <a href="#reviews" onclick="toggleMobileMenu()" class="py-2 border-b border-vicli-border/50">Reviews</a>
+        <a href="#faq" onclick="toggleMobileMenu()" class="py-2 border-b border-vicli-border/50">Veelgestelde vragen</a>
+        <div class="flex flex-col gap-3 pt-3">
+          <button onclick="toggleMobileMenu(); openDemoModal()" class="w-full py-3 text-center border border-vicli-dark rounded-full font-semibold">
+            Demo aanvragen
+          </button>
+          <a href="#prijzen" onclick="toggleMobileMenu()" class="w-full py-3 text-center bg-vicli-dark text-vicli-cream rounded-full font-semibold">
+            Start 14 dagen gratis
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+    <!-- Subtle Background Elements -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-vicli-warm/60 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute top-1/2 right-0 w-[400px] h-[400px] bg-vicli-sand/30 rounded-full blur-2xl pointer-events-none -z-10"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <!-- Announcement Pill -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-vicli-gold/30 bg-vicli-warm/80 text-xs sm:text-sm font-medium text-vicli-charcoal mb-8 animate-fade-in shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-vicli-gold animate-pulse"></span>
+        <span>✨ De nieuwe standaard voor luxe beauty salons & clinics</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-vicli-dark max-w-5xl mx-auto leading-[1.12] mb-6">
+        De alles-in-één kassa & management app die jouw salon laat <span class="italic font-normal text-vicli-gold">bloeien</span>.
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-base sm:text-lg md:text-xl text-vicli-muted max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+        Van moeiteloos afspraken plannen en razendsnelle kassa-bonnen tot digitaal klantenbeheer, BTW-rapportages en multi-device cloud sync. Ontworpen voor de veeleisende beautyprofessional.
+      </p>
+
+      <!-- Primary Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
+        <a href="#prijzen" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-vicli-dark text-vicli-cream text-base font-semibold hover:bg-vicli-gold transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5">
+          <span>Start 14 dagen gratis</span>
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+        <button onclick="openDemoModal()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white border border-vicli-border text-vicli-dark text-base font-semibold hover:border-vicli-gold hover:bg-vicli-warm/40 transition-all duration-300 card-shadow">
+          <i data-lucide="sparkles" class="w-5 h-5 text-vicli-gold"></i>
+          <span>Vraag persoonlijke demo aan</span>
+        </button>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm text-vicli-muted font-medium mb-16">
+        <div class="flex items-center gap-2">
+          <div class="flex text-amber-500">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+          </div>
+          <span><strong>4.9 / 5</strong> (250+ salons)</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i data-lucide="check-circle" class="w-4 h-4 text-vicli-gold"></i>
+          <span>0% commissie per afspraak</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i data-lucide="smartphone" class="w-4 h-4 text-vicli-gold"></i>
+          <span>Geschikt voor iOS & Android</span>
+        </div>
+      </div>
+
+      <!-- Hero Visual (High-Res Realistic App Mockup) -->
+      <div class="relative max-w-5xl mx-auto rounded-3xl overflow-hidden hero-shadow border border-vicli-border/80 group">
+        <img 
+          src="./assets/hero-mockup.jpg" 
+          alt="ViCli Salon POS en Afspraken App op iPad en iPhone" 
+          class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700"
+          loading="eager"
+        >
+        
+        <!-- Floating Highlight Badge on Mockup -->
+        <div class="absolute bottom-6 left-6 md:bottom-8 md:left-8 bg-white/95 backdrop-blur-md border border-vicli-border p-4 rounded-2xl shadow-xl flex items-center gap-4 text-left max-w-xs sm:max-w-sm hidden sm:flex">
+          <div class="w-12 h-12 rounded-xl bg-vicli-warm flex items-center justify-center text-vicli-gold shrink-0">
+            <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="text-sm font-bold text-vicli-dark">Realtime Multi-Device Sync</h4>
+            <p class="text-xs text-vicli-muted mt-0.5">Koppel de balie-iPad en al je telefoons in 1 klik met de werkgroep QR.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= LOGOS / CATEGORIES BAR ================= -->
+  <section class="py-10 bg-white border-y border-vicli-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-xs uppercase tracking-[0.25em] font-semibold text-vicli-muted mb-6">
+        Gemaakt voor gepassioneerde ondernemers in de beautybranche
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-14 text-sm font-medium text-vicli-charcoal">
+        <span class="flex items-center gap-2"><i data-lucide="sparkle" class="w-4 h-4 text-vicli-gold"></i> Huidtherapie & Skin Clinics</span>
+        <span class="flex items-center gap-2"><i data-lucide="sparkle" class="w-4 h-4 text-vicli-gold"></i> Schoonheidssalons</span>
+        <span class="flex items-center gap-2"><i data-lucide="sparkle" class="w-4 h-4 text-vicli-gold"></i> Nagelstudio's</span>
+        <span class="flex items-center gap-2"><i data-lucide="sparkle" class="w-4 h-4 text-vicli-gold"></i> Lash & Brow Bars</span>
+        <span class="flex items-center gap-2"><i data-lucide="sparkle" class="w-4 h-4 text-vicli-gold"></i> Kappers & Haarsalons</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATS SECTION ================= -->
+  <section class="py-16 bg-vicli-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="p-6 rounded-2xl bg-white border border-vicli-border card-shadow">
+          <div class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-vicli-gold mb-2">0%</div>
+          <div class="text-xs sm:text-sm font-medium text-vicli-muted">Geen commissie per geboekte klant</div>
+        </div>
+        <div class="p-6 rounded-2xl bg-white border border-vicli-border card-shadow">
+          <div class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-vicli-gold mb-2">-80%</div>
+          <div class="text-xs sm:text-sm font-medium text-vicli-muted">Minder no-shows dankzij SMS</div>
+        </div>
+        <div class="p-6 rounded-2xl bg-white border border-vicli-border card-shadow">
+          <div class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-vicli-gold mb-2">100%</div>
+          <div class="text-xs sm:text-sm font-medium text-vicli-muted">BTW & belastingdienst conform</div>
+        </div>
+        <div class="p-6 rounded-2xl bg-white border border-vicli-border card-shadow">
+          <div class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-vicli-gold mb-2">2 min</div>
+          <div class="text-xs sm:text-sm font-medium text-vicli-muted">Installatietijd & direct operationeel</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FEATURES INTERACTIVE TABS ================= -->
+  <section id="functies" class="py-20 md:py-32 bg-white border-t border-vicli-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3">Krachtige Functionaliteiten</div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5 leading-tight">
+          Alles wat je salon nodig heeft. <br class="hidden sm:inline"/>Niets wat in de weg zit.
+        </h2>
+        <p class="text-base sm:text-lg text-vicli-muted font-light">
+          ViCli combineert een intuïtieve kassa met professioneel agendabeheer, klanthistorie en financiële overzichten.
+        </p>
+      </div>
+
+      <!-- Feature Tab Navigation Buttons -->
+      <div class="flex items-center justify-start md:justify-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none" id="tabs-container">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Feature Tab Content Card -->
+      <div id="tab-content" class="rounded-3xl bg-vicli-cream border border-vicli-border p-6 sm:p-10 lg:p-14 card-shadow">
+        <!-- Injected via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= WAAROM VICLI (COMPARISON / ADVANTAGES) ================= -->
+  <section id="waarom" class="py-20 md:py-32 bg-vicli-cream border-t border-vicli-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3">Het Verschil</div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5">
+          Waarom salons overstappen naar ViCli
+        </h2>
+        <p class="text-base sm:text-lg text-vicli-muted font-light">
+          Oude kassasystemen zijn vaak log, complex en rekenen hoge commissies op jouw eigen vaste klanten. ViCli doet het anders.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="bg-white rounded-3xl p-8 border border-vicli-border card-shadow flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-vicli-warm flex items-center justify-center text-vicli-gold mb-6">
+              <i data-lucide="piggy-bank" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-vicli-dark mb-3">Geen commissies per klant</h3>
+            <p class="text-sm text-vicli-muted leading-relaxed mb-6 font-light">
+              Waar andere platforms tot wel €5 tot €10 per boeking in rekening brengen, betaal je bij ViCli een vast transparant maandbedrag. Jouw omzet blijft 100% van jou.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-vicli-border/60 text-xs font-semibold text-vicli-gold flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4"></i> Vaste eerlijke prijs
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-3xl p-8 border border-vicli-border card-shadow flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-vicli-warm flex items-center justify-center text-vicli-gold mb-6">
+              <i data-lucide="wifi-off" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-vicli-dark mb-3">Offline-first betrouwbaarheid</h3>
+            <p class="text-sm text-vicli-muted leading-relaxed mb-6 font-light">
+              Valt de internetverbinding in de salon even weg? Geen probleem. ViCli blijft direct lokaal werken en synchroniseert zodra je weer online bent. Nooit een vastlopende kassa.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-vicli-border/60 text-xs font-semibold text-vicli-gold flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4"></i> Altijd bereikbaar
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-3xl p-8 border border-vicli-border card-shadow flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-vicli-warm flex items-center justify-center text-vicli-gold mb-6">
+              <i data-lucide="sparkles" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-vicli-dark mb-3">Luxe design voor jouw salon</h3>
+            <p class="text-sm text-vicli-muted leading-relaxed mb-6 font-light">
+              Je salon is met zorg ingericht. Waarom zou je een lelijke grijze computer aan de balie zetten? ViCli straalt dezelfde rust en elegantie uit als jouw saloninterieur.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-vicli-border/60 text-xs font-semibold text-vicli-gold flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4"></i> Esthetisch & intuïtief
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PRICING SECTION ================= -->
+  <section id="prijzen" class="py-20 md:py-32 bg-white border-t border-vicli-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3">Transparante Tarieven</div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5">
+          Eenvoudige prijzen, geen verrassingen
+        </h2>
+        <p class="text-base sm:text-lg text-vicli-muted font-light mb-8">
+          Start met 14 dagen gratis. Geen creditcard vereist en op ieder moment maandelijks opzegbaar.
+        </p>
+
+        <!-- Billing Toggle -->
+        <div class="inline-flex items-center gap-3 p-1.5 rounded-full bg-vicli-cream border border-vicli-border">
+          <button id="toggle-monthly" onclick="setBilling('monthly')" class="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 bg-vicli-dark text-white shadow-sm">
+            Maandelijks
+          </button>
+          <button id="toggle-yearly" onclick="setBilling('yearly')" class="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 text-vicli-charcoal hover:text-vicli-dark flex items-center gap-1.5">
+            <span>Jaarlijks</span>
+            <span class="text-[11px] font-bold text-vicli-gold bg-vicli-gold/15 px-2 py-0.5 rounded-full">2 mnd gratis</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch" id="pricing-grid">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Additional Guarantee Info -->
+      <div class="mt-14 text-center text-xs sm:text-sm text-vicli-muted flex flex-wrap items-center justify-center gap-6">
+        <span class="flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-vicli-gold"></i> 14 dagen gratis proefperiode</span>
+        <span class="flex items-center gap-2"><i data-lucide="credit-card" class="w-4 h-4 text-vicli-gold"></i> Geen creditcard vereist</span>
+        <span class="flex items-center gap-2"><i data-lucide="x-circle" class="w-4 h-4 text-vicli-gold"></i> Altijd direct opzegbaar</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS / REVIEWS ================= -->
+  <section id="reviews" class="py-20 md:py-32 bg-vicli-cream border-t border-vicli-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3">Ervaringen van Salons</div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5">
+          Wat saloneigenaren over ViCli zeggen
+        </h2>
+        <p class="text-base sm:text-lg text-vicli-muted font-light">
+          Ontdek hoe beautyspecialisten hun dagelijkse werkdruk verminderen en meer omzet behalen met ViCli.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="testimonials-grid">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FAQ SECTION ================= -->
+  <section id="faq" class="py-20 md:py-32 bg-white border-t border-vicli-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-16">
+        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3">Vragen & Antwoorden</div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5">
+          Veelgestelde vragen
+        </h2>
+        <p class="text-base text-vicli-muted font-light">
+          Heb je een andere vraag? Neem gerust contact op met ons team.
+        </p>
+      </div>
+
+      <div class="space-y-4" id="faq-container">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA BANNER ================= -->
+  <section class="py-20 bg-vicli-dark text-vicli-cream relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#B8875A_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-vicli-gold/40 text-xs text-vicli-gold font-medium mb-6">
+        Klaar voor de volgende stap?
+      </div>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-6xl font-normal mb-6 tracking-tight">
+        Ervaar de rust en luxe van ViCli in jouw eigen salon.
+      </h2>
+      <p class="text-base sm:text-lg text-vicli-sand/80 max-w-2xl mx-auto mb-10 font-light">
+        Start vandaag nog je 14 dagen gratis proefperiode. Binnen 2 minuten geïnstalleerd en direct klaar om afspraken en kassa-bonnen te beheren.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#prijzen" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-vicli-gold text-white text-base font-semibold hover:bg-vicli-goldLight transition-all duration-300 shadow-lg">
+          <span>Start 14 dagen gratis</span>
+          <i data-lucide="arrow-right" class="w-5 h-5"></i>
+        </a>
+        <button onclick="openDemoModal()" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-vicli-sand/30 text-vicli-cream text-base font-semibold hover:bg-white/10 transition-all duration-300">
+          <i data-lucide="calendar" class="w-5 h-5 text-vicli-gold"></i>
+          <span>Plan een persoonlijke demo</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-vicli-dark border-t border-white/10 text-vicli-sand/70 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Brand Column -->
+        <div class="md:col-span-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 rounded-full bg-vicli-gold flex items-center justify-center text-white font-serif font-bold text-lg">
+              V
+            </div>
+            <span class="font-serif text-2xl font-bold tracking-wider text-white">ViCli</span>
+          </div>
+          <p class="text-xs leading-relaxed text-vicli-sand/60 mb-6">
+            Het alles-in-één kassa & salon management systeem ontworpen voor de veeleisende beautyprofessional.
+          </p>
+          <div class="flex items-center gap-3 text-vicli-sand/60">
+            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:text-vicli-gold hover:bg-white/10 transition-colors" aria-label="Instagram">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:text-vicli-gold hover:bg-white/10 transition-colors" aria-label="LinkedIn">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+            </a>
+            <a id="footer-whatsapp" href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:text-vicli-gold hover:bg-white/10 transition-colors" aria-label="WhatsApp">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links: Functies -->
+        <div>
+          <h4 class="text-xs uppercase tracking-widest font-bold text-white mb-4">Functies</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#functies" class="hover:text-white transition-colors">Kassa & Bonnen (POS)</a></li>
+            <li><a href="#functies" class="hover:text-white transition-colors">Salon Agenda & Afspraken</a></li>
+            <li><a href="#functies" class="hover:text-white transition-colors">Digitale Klantenkaart (CRM)</a></li>
+            <li><a href="#functies" class="hover:text-white transition-colors">BTW & Boekhouding Export</a></li>
+            <li><a href="#functies" class="hover:text-white transition-colors">Multi-Device Cloud Sync</a></li>
+          </ul>
+        </div>
+
+        <!-- Links: Platform -->
+        <div>
+          <h4 class="text-xs uppercase tracking-widest font-bold text-white mb-4">Platform</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#prijzen" class="hover:text-white transition-colors">Prijzen & Pakketten</a></li>
+            <li><a href="#waarom" class="hover:text-white transition-colors">Waarom ViCli</a></li>
+            <li><a href="#faq" class="hover:text-white transition-colors">Veelgestelde Vragen</a></li>
+            <li><button onclick="openDemoModal()" class="hover:text-white transition-colors">Demo Aanvragen</button></li>
+          </ul>
+        </div>
+
+        <!-- Links: Contact -->
+        <div>
+          <h4 class="text-xs uppercase tracking-widest font-bold text-white mb-4">Contact & Support</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li class="flex items-center gap-2">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-vicli-gold"></i>
+              <span id="footer-email">info@vicli.nl</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="phone" class="w-3.5 h-3.5 text-vicli-gold"></i>
+              <span id="footer-phone">+31 (0)6 12 34 56 78</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-vicli-gold"></i>
+              <span>Nederland & België</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-vicli-sand/50">
+        <p>&copy; <span id="year"></span> ViCli. Alle rechten voorbehouden.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacybeleid</a>
+          <a href="#" class="hover:text-white transition-colors">Algemene Voorwaarden</a>
+          <a href="#" class="hover:text-white transition-colors">Beveiliging & AVG</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= DEMO / LEAD CAPTURE MODAL ================= -->
+  <div id="demo-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-vicli-dark/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-3xl max-w-lg w-full p-8 card-shadow border border-vicli-border relative transform scale-95 transition-transform duration-300" id="modal-box">
+      
+      <!-- Close Button -->
+      <button onclick="closeDemoModal()" class="absolute top-6 right-6 p-2 rounded-full text-vicli-muted hover:text-vicli-dark hover:bg-vicli-cream transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-vicli-warm text-vicli-gold flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="sparkles" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-vicli-dark">Vraag een persoonlijke demo aan</h3>
+        <p class="text-xs text-vicli-muted mt-1 font-light">
+          Ontdek binnen 15 minuten hoe ViCli jouw salon efficiënter en eleganter maakt.
+        </p>
+      </div>
+
+      <!-- Netlify-ready Form -->
+      <form name="demo-aanvraag" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleFormSubmit(event)" class="space-y-4">
+        <input type="hidden" name="form-name" value="demo-aanvraag">
+        <p class="hidden">
+          <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+        </p>
+
+        <div>
+          <label class="block text-xs font-semibold text-vicli-dark mb-1">Jouw naam</label>
+          <input type="text" name="naam" required placeholder="Bijv. Cynthia van Dijk" class="w-full px-4 py-3 rounded-xl border border-vicli-border focus:border-vicli-gold focus:ring-1 focus:ring-vicli-gold outline-none text-sm transition-all bg-vicli-cream/30">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-vicli-dark mb-1">Naam van de salon</label>
+          <input type="text" name="salon" required placeholder="Bijv. Skin & Beauty Studio" class="w-full px-4 py-3 rounded-xl border border-vicli-border focus:border-vicli-gold focus:ring-1 focus:ring-vicli-gold outline-none text-sm transition-all bg-vicli-cream/30">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-vicli-dark mb-1">E-mailadres</label>
+            <input type="email" name="email" required placeholder="naam@salon.nl" class="w-full px-4 py-3 rounded-xl border border-vicli-border focus:border-vicli-gold focus:ring-1 focus:ring-vicli-gold outline-none text-sm transition-all bg-vicli-cream/30">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-vicli-dark mb-1">Telefoonnummer</label>
+            <input type="tel" name="telefoon" placeholder="06 - 123 456 78" class="w-full px-4 py-3 rounded-xl border border-vicli-border focus:border-vicli-gold focus:ring-1 focus:ring-vicli-gold outline-none text-sm transition-all bg-vicli-cream/30">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-vicli-dark mb-1">Type salon</label>
+          <select name="type_salon" class="w-full px-4 py-3 rounded-xl border border-vicli-border focus:border-vicli-gold focus:ring-1 focus:ring-vicli-gold outline-none text-sm transition-all bg-vicli-cream/30 text-vicli-charcoal">
+            <option value="Schoonheidsspecialiste">Schoonheidssalon / Skin Clinic</option>
+            <option value="Nagelstudio">Nagelstudio</option>
+            <option value="Lash & Brow">Lash & Brow Bar</option>
+            <option value="Kapsalon">Kapsalon / Hair Salon</option>
+            <option value="Anders">Overig / Combinatie</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-vicli-dark text-vicli-cream font-semibold text-sm hover:bg-vicli-gold transition-colors duration-200 mt-2 shadow-md">
+          Aanvraag versturen
+        </button>
+      </form>
+
+      <!-- Feedback Banner -->
+      <div id="form-success" class="hidden text-center py-6">
+        <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="check" class="w-6 h-6"></i>
+        </div>
+        <h4 class="font-serif text-xl font-bold text-vicli-dark mb-1">Bedankt voor je aanvraag!</h4>
+        <p class="text-xs text-vicli-muted">We nemen binnen 24 uur contact met je op voor een vrijblijvende demonstratie.</p>
+        <button onclick="closeDemoModal()" class="mt-4 px-6 py-2 rounded-full bg-vicli-dark text-white text-xs font-semibold">
+          Sluiten
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Load Configuration & Interactive Logic -->
+  <script src="./site-config.js"></script>
+  <script>
+    // Initialize Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Populate Contact Elements from site-config
+    if (window.VICLI_CONFIG) {
+      const cfg = window.VICLI_CONFIG;
+      if (cfg.contact) {
+        const fe = document.getElementById('footer-email');
+        const fp = document.getElementById('footer-phone');
+        const fw = document.getElementById('footer-whatsapp');
+        if (fe) fe.textContent = cfg.contact.email;
+        if (fp) fp.textContent = cfg.contact.phone;
+        if (fw) fw.href = cfg.contact.whatsappUrl || '#';
+      }
+    }
+
+    // Tab State
+    let currentTab = 0;
+    const features = window.VICLI_CONFIG ? window.VICLI_CONFIG.features : [];
+
+    function renderTabs() {
+      const tabsContainer = document.getElementById('tabs-container');
+      if (!tabsContainer || !features.length) return;
+
+      tabsContainer.innerHTML = features.map((f, idx) => `
+        <button 
+          onclick="selectTab(${idx})"
+          class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 border ${
+            idx === currentTab 
+              ? 'bg-vicli-dark text-white border-vicli-dark shadow-sm' 
+              : 'bg-white text-vicli-charcoal border-vicli-border hover:border-vicli-gold hover:bg-vicli-warm/40'
+          }"
+        >
+          ${f.tabTitle}
+        </button>
+      `).join('');
+
+      renderTabContent();
+    }
+
+    function selectTab(idx) {
+      currentTab = idx;
+      renderTabs();
+    }
+
+    function renderTabContent() {
+      const content = document.getElementById('tab-content');
+      if (!content || !features[currentTab]) return;
+      const f = features[currentTab];
+
+      content.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="lg:col-span-7">
+            <span class="inline-block px-3 py-1 rounded-full bg-vicli-gold/15 text-vicli-gold font-bold text-xs uppercase tracking-wider mb-4">
+              ${f.tag}
+            </span>
+            <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-vicli-dark mb-4 leading-tight">
+              ${f.title}
+            </h3>
+            <p class="text-sm sm:text-base text-vicli-muted font-light leading-relaxed mb-8">
+              ${f.subtitle}
+            </p>
+            <ul class="space-y-3.5 mb-8">
+              ${f.highlights.map(h => `
+                <li class="flex items-start gap-3 text-xs sm:text-sm text-vicli-charcoal">
+                  <div class="w-5 h-5 rounded-full bg-vicli-gold/20 text-vicli-gold flex items-center justify-center shrink-0 mt-0.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <span class="leading-relaxed font-normal">${h}</span>
+                </li>
+              `).join('')}
+            </ul>
+            <div class="flex flex-wrap items-center gap-4">
+              <a href="#prijzen" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-vicli-dark text-white text-xs sm:text-sm font-semibold hover:bg-vicli-gold transition-colors">
+                <span>Ontdek met 14 dagen gratis</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+              <button onclick="openDemoModal()" class="text-xs sm:text-sm font-semibold text-vicli-dark hover:text-vicli-gold px-3 py-2 transition-colors">
+                Vraag live demonstratie aan &rarr;
+              </button>
+            </div>
+          </div>
+          <div class="lg:col-span-5">
+            <div class="relative rounded-2xl overflow-hidden card-shadow border border-vicli-border group">
+              <img 
+                src="${currentTab === 0 ? './assets/feature-pos.jpg' : './assets/hero-mockup.jpg'}" 
+                alt="${f.title}" 
+                class="w-full h-72 sm:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-500"
+              >
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white text-xs font-medium">
+                ${f.tabTitle} • ViCli App
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    // Pricing Billing Toggle
+    let currentBilling = 'monthly';
+
+    function setBilling(mode) {
+      currentBilling = mode;
+      const btnM = document.getElementById('toggle-monthly');
+      const btnY = document.getElementById('toggle-yearly');
+
+      if (mode === 'monthly') {
+        btnM.className = 'px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 bg-vicli-dark text-white shadow-sm';
+        btnY.className = 'px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 text-vicli-charcoal hover:text-vicli-dark flex items-center gap-1.5';
+      } else {
+        btnY.className = 'px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 bg-vicli-dark text-white shadow-sm flex items-center gap-1.5';
+        btnM.className = 'px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 text-vicli-charcoal hover:text-vicli-dark';
+      }
+      renderPricing();
+    }
+
+    function renderPricing() {
+      const grid = document.getElementById('pricing-grid');
+      if (!grid || !window.VICLI_CONFIG) return;
+      const plans = window.VICLI_CONFIG.pricing[currentBilling];
+
+      grid.innerHTML = plans.map(p => `
+        <div class="relative rounded-3xl p-8 border ${
+          p.popular 
+            ? 'bg-white border-vicli-gold shadow-2xl ring-2 ring-vicli-gold/20' 
+            : 'bg-white border-vicli-border card-shadow'
+        } flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+          
+          ${p.badge ? `
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-vicli-gold text-white text-[11px] font-bold uppercase tracking-wider px-3.5 py-1 rounded-full shadow-sm">
+              ${p.badge}
+            </div>
+          ` : ''}
+
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-serif text-2xl font-bold text-vicli-dark">${p.name}</h3>
+            </div>
+            <p class="text-xs text-vicli-muted mb-6 font-light">${p.description}</p>
+            
+            <div class="flex items-baseline gap-1 mb-6 pb-6 border-b border-vicli-border/70">
+              <span class="text-xs font-semibold text-vicli-dark">€</span>
+              <span class="font-serif text-4xl sm:text-5xl font-bold text-vicli-dark">${p.price}</span>
+              <span class="text-xs text-vicli-muted ml-1">/ maand</span>
+            </div>
+
+            <ul class="space-y-3 mb-8">
+              ${p.features.map(f => `
+                <li class="flex items-start gap-2.5 text-xs sm:text-sm text-vicli-charcoal">
+                  <i data-lucide="check" class="w-4 h-4 text-vicli-gold shrink-0 mt-0.5"></i>
+                  <span>${f}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <div>
+            <button 
+              onclick="${p.cta.includes('demo') ? 'openDemoModal()' : 'openDemoModal()'}" 
+              class="w-full py-3.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
+                p.popular 
+                  ? 'bg-vicli-dark text-white hover:bg-vicli-gold shadow-md' 
+                  : 'bg-vicli-warm text-vicli-dark hover:bg-vicli-gold hover:text-white'
+              }"
+            >
+              ${p.cta}
+            </button>
+          </div>
+
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    // Render Testimonials
+    function renderTestimonials() {
+      const grid = document.getElementById('testimonials-grid');
+      if (!grid || !window.VICLI_CONFIG) return;
+      const tests = window.VICLI_CONFIG.testimonials;
+
+      grid.innerHTML = tests.map(t => `
+        <div class="bg-white rounded-3xl p-8 border border-vicli-border card-shadow flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-500 mb-4">
+              ${Array(t.rating).fill('<i data-lucide="star" class="w-4 h-4 fill-current"></i>').join('')}
+            </div>
+            <p class="text-sm text-vicli-charcoal italic leading-relaxed mb-6 font-light">
+              "${t.quote}"
+            </p>
+          </div>
+          <div class="pt-4 border-t border-vicli-border/60">
+            <h4 class="font-bold text-sm text-vicli-dark">${t.name}</h4>
+            <p class="text-xs text-vicli-muted">${t.salon} • ${t.city}</p>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    // Render FAQ Accordion
+    function renderFAQ() {
+      const container = document.getElementById('faq-container');
+      if (!container || !window.VICLI_CONFIG) return;
+      const faqs = window.VICLI_CONFIG.faq;
+
+      container.innerHTML = faqs.map((item, idx) => `
+        <div class="border border-vicli-border rounded-2xl overflow-hidden bg-vicli-cream/30 transition-colors">
+          <button 
+            onclick="toggleFAQ(${idx})" 
+            class="w-full text-left px-6 py-5 flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-vicli-dark hover:text-vicli-gold transition-colors"
+          >
+            <span>${item.q}</span>
+            <div id="faq-icon-${idx}" class="w-6 h-6 rounded-full bg-vicli-warm flex items-center justify-center shrink-0 text-vicli-dark transition-transform duration-300">
+              <i data-lucide="chevron-down" class="w-4 h-4"></i>
+            </div>
+          </button>
+          <div id="faq-answer-${idx}" class="px-6 pb-5 text-xs sm:text-sm text-vicli-muted font-light leading-relaxed hidden">
+            ${item.a}
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function toggleFAQ(idx) {
+      const ans = document.getElementById(`faq-answer-${idx}`);
+      const icon = document.getElementById(`faq-icon-${idx}`);
+      if (!ans) return;
+      const isHidden = ans.classList.contains('hidden');
+
+      // Close others
+      document.querySelectorAll('[id^="faq-answer-"]').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('[id^="faq-icon-"]').forEach(el => el.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        ans.classList.remove('hidden');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // Modal Logic
+    function openDemoModal() {
+      const m = document.getElementById('demo-modal');
+      const box = document.getElementById('modal-box');
+      if (!m || !box) return;
+      m.classList.remove('hidden');
+      setTimeout(() => {
+        m.classList.remove('opacity-0');
+        box.classList.remove('scale-95');
+      }, 10);
+    }
+
+    function closeDemoModal() {
+      const m = document.getElementById('demo-modal');
+      const box = document.getElementById('modal-box');
+      if (!m || !box) return;
+      m.classList.add('opacity-0');
+      box.classList.add('scale-95');
+      setTimeout(() => {
+        m.classList.add('hidden');
+        document.getElementById('form-success').classList.add('hidden');
+        const form = document.querySelector('form[name="demo-aanvraag"]');
+        if (form) form.classList.remove('hidden');
+      }, 300);
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      if (menu) menu.classList.toggle('hidden');
+    }
+
+    // Handle Form Submit
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+
+      // Submit via fetch to Netlify Forms
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        form.classList.add('hidden');
+        document.getElementById('form-success').classList.remove('hidden');
+        lucide.createIcons();
+      })
+      .catch((error) => {
+        // Fallback friendly message
+        form.classList.add('hidden');
+        document.getElementById('form-success').classList.remove('hidden');
+        lucide.createIcons();
+      });
+    }
+
+    // Initial Renders
+    renderTabs();
+    renderPricing();
+    renderTestimonials();
+    renderFAQ();
+    lucide.createIcons();
+  </script>
+</body>
+</html>
