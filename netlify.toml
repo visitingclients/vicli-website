@@ -10,6 +10,21 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacybeleid"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/voorwaarden"
+  to = "/voorwaarden.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/voorwaarden.html"
   status = 200

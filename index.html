@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ViCli — CRM, Agenda & Kassa voor elke ZZP'er</title>
-  <meta name="description" content="Het alles-in-één platform voor elke zelfstandig ondernemer met terugkerende klanten. Klantenbeheer, strippenkaarten, agenda en kassa op iOS en Android.">
+  <meta name="description" content="Het alles-in-één platform voor elke zelfstandig ondernemer met terugkerende klanten. Klantenbeheer, strippenkaarten, agenda en kassa op iOS en Android. 30 dagen gratis proberen in de app.">
   
   <!-- Open Graph -->
   <meta property="og:title" content="ViCli — CRM • Calendar • POS">
-  <meta property="og:description" content="Voor elke ZZP'er met terugkerende klanten. Klantenbeheer, strippenkaarten, agenda en kassa op iOS en Android.">
+  <meta property="og:description" content="Voor elke ZZP'er met terugkerende klanten. 30 dagen gratis in de app.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="./assets/vicli-banner.png">
 
@@ -80,7 +80,6 @@
       
       <!-- Logo -->
       <a href="#" class="flex items-center gap-3.5 group">
-        <!-- Geometric Gold V Icon -->
         <div class="w-10 h-10 rounded-xl bg-vicli-dark flex items-center justify-center text-vicli-gold font-serif font-bold text-xl tracking-wider shadow-sm group-hover:scale-105 transition-transform">
           <svg class="w-6 h-6 text-amber-300" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2L4 16h4.5l3.5-7 3.5 7H20L12 2z"/>
@@ -94,20 +93,47 @@
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-vicli-charcoal">
-        <a href="#doelgroep" class="hover:text-vicli-gold transition-colors">Voor wie</a>
-        <a href="#functies" class="hover:text-vicli-gold transition-colors">Functies</a>
-        <a href="#tarieven" class="hover:text-vicli-gold transition-colors">Abonnement</a>
-        <a href="#faq" class="hover:text-vicli-gold transition-colors">Veelgestelde vragen</a>
+        <a href="#doelgroep" id="nav-forWhom" class="hover:text-vicli-gold transition-colors">Voor wie</a>
+        <a href="#functies" id="nav-features" class="hover:text-vicli-gold transition-colors">Functies</a>
+        <a href="#tarieven" id="nav-pricing" class="hover:text-vicli-gold transition-colors">Abonnement</a>
+        <a href="#faq" id="nav-faq" class="hover:text-vicli-gold transition-colors">Veelgestelde vragen</a>
       </nav>
 
-      <!-- Desktop Download Buttons -->
+      <!-- Desktop Right (Language Selector + Download) -->
       <div class="hidden md:flex items-center gap-3">
-        <a href="#tarieven" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-vicli-border bg-white text-xs font-semibold text-vicli-charcoal hover:border-vicli-gold hover:text-vicli-gold transition-all shadow-sm">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-vicli-gold"></i>
-          <span>14 dagen gratis</span>
-        </a>
+        
+        <!-- Language Selector Dropdown -->
+        <div class="relative inline-block text-left" id="lang-menu-wrapper">
+          <button onclick="toggleLangDropdown()" id="lang-btn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full border border-vicli-border bg-white text-xs font-semibold text-vicli-charcoal hover:border-vicli-gold transition-all shadow-sm">
+            <span id="current-lang-flag">🇳🇱</span>
+            <span id="current-lang-code">NL</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-vicli-muted"></i>
+          </button>
+          
+          <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-44 rounded-2xl bg-white border border-vicli-border shadow-xl z-50 py-1.5 overflow-hidden">
+            <button onclick="selectLanguage('nl')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇳🇱</span> Nederlands (NL)
+            </button>
+            <button onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇬🇧</span> English (EN)
+            </button>
+            <button onclick="selectLanguage('de')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇩🇪</span> Deutsch (DE)
+            </button>
+            <button onclick="selectLanguage('fr')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇫🇷</span> Français (FR)
+            </button>
+            <button onclick="selectLanguage('es')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇪🇸</span> Español (ES)
+            </button>
+            <button onclick="selectLanguage('pt')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇵🇹</span> Português (PT)
+            </button>
+          </div>
+        </div>
+
         <a href="#tarieven" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-vicli-dark text-vicli-cream text-xs font-semibold hover:bg-vicli-gold transition-all duration-300 shadow-sm hover:shadow-md">
-          <span>Download App</span>
+          <span id="nav-downloadApp">Download App</span>
           <i data-lucide="arrow-down-circle" class="w-4 h-4"></i>
         </a>
       </div>
@@ -121,13 +147,24 @@
     <!-- Mobile Drawer -->
     <div id="mobile-menu" class="hidden md:hidden px-6 pt-4 pb-8 bg-vicli-cream border-b border-vicli-border shadow-xl">
       <div class="flex flex-col gap-4 text-base font-medium text-vicli-dark">
-        <a href="#doelgroep" onclick="toggleMobileMenu()" class="py-2 border-b border-vicli-border/50">Voor wie</a>
-        <a href="#functies" onclick="toggleMobileMenu()" class="py-2 border-b border-vicli-border/50">Functies</a>
-        <a href="#tarieven" onclick="toggleMobileMenu()" class="py-2 border-b border-vicli-border/50">Abonnement</a>
-        <a href="#faq" onclick="toggleMobileMenu()" class="py-2 border-b border-vicli-border/50">Veelgestelde vragen</a>
+        
+        <!-- Mobile Language Selector -->
+        <div class="flex flex-wrap gap-2 pb-3 border-b border-vicli-border/50">
+          <button onclick="selectLanguage('nl')" class="px-2.5 py-1 text-xs rounded-full border border-vicli-border bg-white font-semibold">🇳🇱 NL</button>
+          <button onclick="selectLanguage('en')" class="px-2.5 py-1 text-xs rounded-full border border-vicli-border bg-white font-semibold">🇬🇧 EN</button>
+          <button onclick="selectLanguage('de')" class="px-2.5 py-1 text-xs rounded-full border border-vicli-border bg-white font-semibold">🇩🇪 DE</button>
+          <button onclick="selectLanguage('fr')" class="px-2.5 py-1 text-xs rounded-full border border-vicli-border bg-white font-semibold">🇫🇷 FR</button>
+          <button onclick="selectLanguage('es')" class="px-2.5 py-1 text-xs rounded-full border border-vicli-border bg-white font-semibold">🇪🇸 ES</button>
+          <button onclick="selectLanguage('pt')" class="px-2.5 py-1 text-xs rounded-full border border-vicli-border bg-white font-semibold">🇵🇹 PT</button>
+        </div>
+
+        <a href="#doelgroep" onclick="toggleMobileMenu()" id="mobile-nav-forWhom" class="py-2 border-b border-vicli-border/50">Voor wie</a>
+        <a href="#functies" onclick="toggleMobileMenu()" id="mobile-nav-features" class="py-2 border-b border-vicli-border/50">Functies</a>
+        <a href="#tarieven" onclick="toggleMobileMenu()" id="mobile-nav-pricing" class="py-2 border-b border-vicli-border/50">Abonnement</a>
+        <a href="#faq" onclick="toggleMobileMenu()" id="mobile-nav-faq" class="py-2 border-b border-vicli-border/50">Veelgestelde vragen</a>
         <div class="pt-3">
           <a href="#tarieven" onclick="toggleMobileMenu()" class="block w-full py-3 text-center bg-vicli-dark text-vicli-cream rounded-full font-semibold">
-            Download App (14 dagen gratis)
+            Download App (30 dagen gratis in de app)
           </a>
         </div>
       </div>
@@ -136,7 +173,6 @@
 
   <!-- ================= HERO SECTION ================= -->
   <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
-    <!-- Subtle Background Glows -->
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[550px] bg-vicli-warm/60 rounded-full blur-3xl pointer-events-none -z-10"></div>
     <div class="absolute top-1/2 right-0 w-[400px] h-[400px] bg-vicli-sand/30 rounded-full blur-2xl pointer-events-none -z-10"></div>
 
@@ -145,28 +181,29 @@
       <!-- Pill Badge -->
       <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-vicli-gold/30 bg-vicli-warm/80 text-xs sm:text-sm font-medium text-vicli-charcoal mb-8 shadow-sm">
         <span class="w-2 h-2 rounded-full bg-vicli-gold animate-pulse"></span>
-        <span>Voor elke ZZP'er met terugkerende klanten</span>
+        <span id="hero-pill">✨ Voor elke ZZP'er met terugkerende klanten</span>
       </div>
 
       <!-- Main Title -->
       <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-vicli-dark max-w-5xl mx-auto leading-[1.12] mb-6">
-        Minder administratie, <br class="hidden sm:inline"/>meer tijd voor je <span class="italic font-normal text-vicli-gold">klanten</span>.
+        <span id="hero-title-base">Minder administratie, meer tijd voor je </span>
+        <span class="italic font-normal text-vicli-gold" id="hero-title-highlight">klanten</span>.
       </h1>
 
       <!-- Subtitle -->
-      <p class="text-base sm:text-lg md:text-xl text-vicli-muted max-w-3xl mx-auto mb-10 font-light leading-relaxed">
-        Of je nu schoonheidsspecialist, kapper, pedicure, coach, personal trainer of therapeut bent: ViCli brengt jouw agenda, strippenkaarten, klantenbeheer en kassa samen in één vloeiende app.
+      <p class="text-base sm:text-lg md:text-xl text-vicli-muted max-w-3xl mx-auto mb-10 font-light leading-relaxed" id="hero-subtitle">
+        Of je nu kapper, pedicure, coach, personal trainer of beautyspecialist bent: ViCli brengt jouw agenda, klantenbeheer, strippenkaarten en kassa samen in één vloeiende app.
       </p>
 
       <!-- Primary Action Buttons -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
         <a href="#tarieven" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-vicli-dark text-vicli-cream text-base font-semibold hover:bg-vicli-gold transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5">
-          <span>Start 14 dagen gratis</span>
+          <span id="hero-ctaPrimary">Probeer 30 dagen gratis in de app</span>
           <i data-lucide="arrow-right" class="w-5 h-5"></i>
         </a>
         <a href="#functies" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white border border-vicli-border text-vicli-dark text-base font-semibold hover:border-vicli-gold hover:bg-vicli-warm/40 transition-all duration-300 card-shadow">
           <i data-lucide="layers" class="w-5 h-5 text-vicli-gold"></i>
-          <span>Bekijk alle functionaliteiten</span>
+          <span id="hero-ctaSecondary">Bekijk functies</span>
         </a>
       </div>
 
@@ -174,31 +211,29 @@
       <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm text-vicli-muted font-medium mb-16">
         <div class="flex items-center gap-2">
           <i data-lucide="check-circle" class="w-4 h-4 text-vicli-gold"></i>
-          <span>14 dagen gratis proefperiode</span>
+          <span id="hero-badgeTrial">30 dagen gratis in de app</span>
         </div>
         <div class="flex items-center gap-2">
           <i data-lucide="tag" class="w-4 h-4 text-vicli-gold"></i>
-          <span>Minder dan €10 per maand</span>
+          <span id="hero-badgePrice">Minder dan €10 per maand</span>
         </div>
         <div class="flex items-center gap-2">
           <i data-lucide="ban" class="w-4 h-4 text-vicli-gold"></i>
-          <span>0% commissie over jouw klanten</span>
+          <span id="hero-badgeCommission">0% commissie over jouw klanten</span>
         </div>
         <div class="flex items-center gap-2">
           <i data-lucide="smartphone" class="w-4 h-4 text-vicli-gold"></i>
-          <span>Beschikbaar voor iOS & Android</span>
+          <span id="hero-badgePlatform">Voor iOS & Android</span>
         </div>
       </div>
 
       <!-- ================= HERO DEVICES SHOWCASE (ECHTE APP SCREENSHOTS) ================= -->
       <div class="relative max-w-5xl mx-auto mt-6">
-        
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           
-          <!-- ECHTE IPAD SCREENSHOT (Links / Groot) -->
+          <!-- ECHTE IPAD SCREENSHOT (Links) -->
           <div class="md:col-span-8 relative">
             <div class="relative rounded-2xl md:rounded-3xl overflow-hidden bg-white p-2.5 sm:p-4 border-2 border-vicli-border/80 device-shadow group">
-              <!-- iPad Top Camera Dot -->
               <div class="w-2.5 h-2.5 rounded-full bg-neutral-300 mx-auto mb-2 hidden sm:block"></div>
               
               <img 
@@ -207,17 +242,15 @@
                 class="w-full h-auto rounded-xl object-contain shadow-inner"
               >
 
-              <!-- Subtitle badge onder iPad -->
-              <div class="pt-3 pb-1 text-center text-xs font-semibold text-vicli-muted">
+              <div class="pt-3 pb-1 text-center text-xs font-semibold text-vicli-muted" id="hero-ipadLabel">
                 iPad & Tablet weergave • Klantenbeheer & Strippenkaarten
               </div>
             </div>
           </div>
 
-          <!-- ECHTE IPHONE SCREENSHOT (Rechts / Compact) -->
+          <!-- ECHTE IPHONE SCREENSHOT (Rechts) -->
           <div class="md:col-span-4 relative flex justify-center">
             <div class="relative w-64 sm:w-72 rounded-[40px] overflow-hidden bg-neutral-900 p-3 border-4 border-neutral-800 phone-shadow">
-              <!-- iPhone Dynamic Island Pill -->
               <div class="w-20 h-4 bg-black rounded-full mx-auto mb-2"></div>
               
               <img 
@@ -226,15 +259,13 @@
                 class="w-full h-auto rounded-[28px] object-contain shadow-inner"
               >
 
-              <!-- Subtitle badge onder iPhone -->
-              <div class="pt-3 pb-1 text-center text-xs font-semibold text-vicli-sand/80">
+              <div class="pt-3 pb-1 text-center text-xs font-semibold text-vicli-sand/80" id="hero-iphoneLabel">
                 iPhone & Android weergave • Agenda
               </div>
             </div>
           </div>
 
         </div>
-
       </div>
 
     </div>
@@ -245,81 +276,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3">Voor Zelfstandig Ondernemers</div>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5">
+        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3" id="audience-badge">Voor Zelfstandig Ondernemers</div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5" id="audience-title">
           Gebouwd voor elke ZZP'er met terugkerende klanten
         </h2>
-        <p class="text-base sm:text-lg text-vicli-muted font-light">
+        <p class="text-base sm:text-lg text-vicli-muted font-light" id="audience-subtitle">
           Je hebt geen log, overbodig complex enterprise-systeem nodig. ViCli geeft je precies wat jij nodig hebt om je praktijk of dienstverlening soepel te runnen.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- Card 1: Beauty & Salons -->
-        <div class="p-8 rounded-3xl bg-vicli-cream border border-vicli-border card-shadow flex flex-col justify-between hover:-translate-y-1 transition-transform">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-vicli-warm text-vicli-gold flex items-center justify-center mb-6">
-              <i data-lucide="sparkles" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-vicli-dark mb-2">Beauty & Salons</h3>
-            <p class="text-xs sm:text-sm text-vicli-muted font-light leading-relaxed">
-              Schoonheidsspecialistes, nagelstudio's, kappers, brow- & lash bars. Houd behandelingen, strippen en voorkeuren per klant nauwkeurig bij.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-vicli-border/70 text-xs font-semibold text-vicli-gold flex items-center gap-1.5">
-            <i data-lucide="check" class="w-4 h-4"></i> Strippenkaarten & kassa
-          </div>
-        </div>
-
-        <!-- Card 2: Zorg, Pedicure & Huid -->
-        <div class="p-8 rounded-3xl bg-vicli-cream border border-vicli-border card-shadow flex flex-col justify-between hover:-translate-y-1 transition-transform">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-vicli-warm text-vicli-gold flex items-center justify-center mb-6">
-              <i data-lucide="heart-pulse" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-vicli-dark mb-2">Zorg & Welzijn</h3>
-            <p class="text-xs sm:text-sm text-vicli-muted font-light leading-relaxed">
-              Pedicures, huidtherapeuten, masseurs en fysiotherapeuten. Duidelijke afspraakgeschiedenis en direct een BTW-conforme bon meegeven.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-vicli-border/70 text-xs font-semibold text-vicli-gold flex items-center gap-1.5">
-            <i data-lucide="check" class="w-4 h-4"></i> BTW-splitsing & historie
-          </div>
-        </div>
-
-        <!-- Card 3: Coaches & Trainers -->
-        <div class="p-8 rounded-3xl bg-vicli-cream border border-vicli-border card-shadow flex flex-col justify-between hover:-translate-y-1 transition-transform">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-vicli-warm text-vicli-gold flex items-center justify-center mb-6">
-              <i data-lucide="dumbbell" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-vicli-dark mb-2">Coaches & Trainers</h3>
-            <p class="text-xs sm:text-sm text-vicli-muted font-light leading-relaxed">
-              Personal trainers, yogadocenten en lifestyle coaches. Beheer 10-rittenkaarten, sessies en zie direct wie wanneer aan de beurt is.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-vicli-border/70 text-xs font-semibold text-vicli-gold flex items-center gap-1.5">
-            <i data-lucide="check" class="w-4 h-4"></i> Rittenkaarten & sessies
-          </div>
-        </div>
-
-        <!-- Card 4: Vakspecialisten -->
-        <div class="p-8 rounded-3xl bg-vicli-cream border border-vicli-border card-shadow flex flex-col justify-between hover:-translate-y-1 transition-transform">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-vicli-warm text-vicli-gold flex items-center justify-center mb-6">
-              <i data-lucide="scissors" class="w-6 h-6"></i>
-            </div>
-            <h3 class="font-serif text-2xl font-bold text-vicli-dark mb-2">Vakspecialisten</h3>
-            <p class="text-xs sm:text-sm text-vicli-muted font-light leading-relaxed">
-              Hondentrimmers, fotografen en zelfstandig dienstverleners. Geen dubbele afspraken meer, altijd overzicht op zak.
-            </p>
-          </div>
-          <div class="mt-6 pt-4 border-t border-vicli-border/70 text-xs font-semibold text-vicli-gold flex items-center gap-1.5">
-            <i data-lucide="check" class="w-4 h-4"></i> Agenda & klantnotities
-          </div>
-        </div>
-
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="audience-cards-container">
+        <!-- Injected via JS -->
       </div>
 
     </div>
@@ -329,23 +296,22 @@
   <section id="functies" class="py-20 md:py-32 bg-vicli-cream border-t border-vicli-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Title -->
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3">Alles in Één Overzicht</div>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5 leading-tight">
+        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3" id="features-badge">Alles in Één Overzicht</div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5 leading-tight" id="features-title">
           De kernfuncties van ViCli
         </h2>
-        <p class="text-base sm:text-lg text-vicli-muted font-light">
+        <p class="text-base sm:text-lg text-vicli-muted font-light" id="features-subtitle">
           Ontworpen met oog voor eenvoud en snelheid. Geen onnodige toeters en bellen, maar precies de gereedschappen die jouw werkdag makkelijker maken.
         </p>
       </div>
 
-      <!-- Feature Tab Navigation Buttons -->
+      <!-- Tabs Navigation -->
       <div class="flex items-center justify-start md:justify-center gap-2.5 overflow-x-auto pb-4 mb-10 scrollbar-none" id="tabs-container">
         <!-- Rendered via JS -->
       </div>
 
-      <!-- Feature Tab Content Card -->
+      <!-- Tab Content Card -->
       <div id="tab-content" class="rounded-3xl bg-white border border-vicli-border p-6 sm:p-10 lg:p-12 card-shadow">
         <!-- Injected via JS -->
       </div>
@@ -357,85 +323,59 @@
   <section id="tarieven" class="py-20 md:py-32 bg-white border-t border-vicli-border">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Title -->
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3">Toegankelijk & Transparant</div>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5">
-          Eén compleet pakket. <br class="hidden sm:inline"/>Voor minder dan een tientje per maand.
+        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3" id="pricing-badge">Toegankelijk & Transparant</div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5" id="pricing-title">
+          Eén compleet pakket. Voor minder dan een tientje per maand.
         </h2>
-        <p class="text-base sm:text-lg text-vicli-muted font-light">
-          Geen torenhoge licentiekosten of commissies per afspraak. Je betaalt een eerlijk, laag maandelijks bedrag via de officiële app stores.
+        <p class="text-base sm:text-lg text-vicli-muted font-light" id="pricing-subtitle">
+          Geen torenhoge licentiekosten of commissies per afspraak. Je begint met 30 dagen gratis waarin alles openstaat in de app.
         </p>
       </div>
 
-      <!-- Clean Pricing Showcase Card -->
+      <!-- Pricing Card -->
       <div class="rounded-3xl bg-vicli-cream border-2 border-vicli-gold/40 p-8 sm:p-12 card-shadow relative overflow-hidden">
-        
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <div class="lg:col-span-7">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-vicli-gold/15 text-vicli-gold font-bold text-xs uppercase tracking-wider mb-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-vicli-gold/15 text-vicli-gold font-bold text-xs uppercase tracking-wider mb-4" id="pricing-planBadge">
               ✨ Alles-in-één licentie
             </div>
             
-            <h3 class="font-serif text-3xl sm:text-4xl font-bold text-vicli-dark mb-4">
-              ViCli Volledige Toegang
+            <h3 class="font-serif text-3xl sm:text-4xl font-bold text-vicli-dark mb-4" id="pricing-planTitle">
+              ViCli Compleet
             </h3>
             
-            <p class="text-sm text-vicli-muted font-light leading-relaxed mb-6">
+            <p class="text-sm text-vicli-muted font-light leading-relaxed mb-6" id="pricing-planDesc">
               Je krijgt direct toegang tot alle functionaliteiten: klantenkaarten, strippenbeheer, agenda, kassa met BTW-bonnen, barcodescanner, boekhoud-export en synchronisatie tussen meerdere apparaten.
             </p>
 
             <!-- Feature Bullet List -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm text-vicli-charcoal">
-                <i data-lucide="check" class="w-4 h-4 text-vicli-gold shrink-0"></i>
-                <span>Klantenkaarten & notities</span>
-              </div>
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm text-vicli-charcoal">
-                <i data-lucide="check" class="w-4 h-4 text-vicli-gold shrink-0"></i>
-                <span>Strippenkaarten & saldo</span>
-              </div>
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm text-vicli-charcoal">
-                <i data-lucide="check" class="w-4 h-4 text-vicli-gold shrink-0"></i>
-                <span>Volledige agenda & planning</span>
-              </div>
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm text-vicli-charcoal">
-                <i data-lucide="check" class="w-4 h-4 text-vicli-gold shrink-0"></i>
-                <span>Kassa, PDF-bonnen & retouren</span>
-              </div>
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm text-vicli-charcoal">
-                <i data-lucide="check" class="w-4 h-4 text-vicli-gold shrink-0"></i>
-                <span>BTW-rapportage & CSV export</span>
-              </div>
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm text-vicli-charcoal">
-                <i data-lucide="check" class="w-4 h-4 text-vicli-gold shrink-0"></i>
-                <span>Multi-device cloud sync</span>
-              </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6" id="pricing-feature-list">
+              <!-- Injected via JS -->
             </div>
 
-            <!-- Region notice -->
-            <p class="text-[11px] text-vicli-muted italic">
-              * De abonnementsprijs wordt rechtstreeks beheerd via Apple en Google en is regio- en valutagebonden (in Nederland/België ca. €9,49 op Android en €9,99 op iOS per maand). Inclusief 14 dagen gratis proefperiode.
+            <!-- Region & In-App Trial Explanation Notice -->
+            <p class="text-[11px] text-vicli-muted italic leading-relaxed" id="pricing-notice">
+              * De proefperiode van 30 dagen is direct actief in de app bij installatie, zonder voorafgaande betaalverplichting. Na de proefperiode kies je je abonnement via de Apple App Store of Google Play Store (prijs verschilt per regio/valuta, in Nederland/België ca. €9,49 op Android en €9,99 op iOS per maand).
             </p>
           </div>
 
-          <!-- Download Action Side -->
+          <!-- Download Action Card -->
           <div class="lg:col-span-5 bg-white rounded-2xl p-6 sm:p-8 border border-vicli-border card-shadow text-center">
-            
-            <span class="text-xs font-semibold text-vicli-muted uppercase tracking-wider block mb-1">Eerste 14 dagen</span>
-            <div class="font-serif text-4xl sm:text-5xl font-bold text-vicli-dark mb-1">
+            <span class="text-xs font-semibold text-vicli-muted uppercase tracking-wider block mb-1" id="pricing-cardPre">Eerste 30 dagen in de app</span>
+            <div class="font-serif text-4xl sm:text-5xl font-bold text-vicli-dark mb-1" id="pricing-cardFree">
               Gratis
             </div>
-            <span class="text-xs text-vicli-gold font-bold block mb-6">Daarna nog geen €10 / maand</span>
+            <span class="text-xs text-vicli-gold font-bold block mb-6" id="pricing-cardPost">Daarna nog geen €10 / maand</span>
 
             <div class="space-y-3 mb-6">
               <!-- App Store Button -->
               <a href="https://apps.apple.com" target="_blank" class="w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-vicli-dark text-white font-semibold text-xs sm:text-sm hover:bg-neutral-800 transition-colors shadow-sm">
                 <i data-lucide="apple" class="w-5 h-5"></i>
                 <div class="text-left">
-                  <div class="text-[9px] uppercase tracking-wider font-normal text-neutral-300">Download in de</div>
-                  <div class="font-bold text-xs sm:text-sm -mt-0.5">Apple App Store</div>
+                  <div class="text-[9px] uppercase tracking-wider font-normal text-neutral-300" id="pricing-appStoreSub">Download in de</div>
+                  <div class="font-bold text-xs sm:text-sm -mt-0.5" id="pricing-appStoreTitle">Apple App Store</div>
                 </div>
               </a>
 
@@ -443,21 +383,20 @@
               <a href="https://play.google.com" target="_blank" class="w-full inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-white border border-vicli-border text-vicli-dark font-semibold text-xs sm:text-sm hover:border-vicli-gold hover:bg-vicli-warm/40 transition-colors">
                 <i data-lucide="play" class="w-5 h-5 text-emerald-600"></i>
                 <div class="text-left">
-                  <div class="text-[9px] uppercase tracking-wider font-normal text-vicli-muted">Ontdek op</div>
-                  <div class="font-bold text-xs sm:text-sm -mt-0.5">Google Play Store</div>
+                  <div class="text-[9px] uppercase tracking-wider font-normal text-vicli-muted" id="pricing-playStoreSub">Ontdek op</div>
+                  <div class="font-bold text-xs sm:text-sm -mt-0.5" id="pricing-playStoreTitle">Google Play Store</div>
                 </div>
               </a>
             </div>
 
             <div class="text-xs text-vicli-muted flex items-center justify-center gap-2">
               <i data-lucide="shield-check" class="w-4 h-4 text-vicli-gold"></i>
-              <span>Op elk moment eenvoudig opzegbaar</span>
+              <span id="pricing-cancelAnytime">Op elk moment eenvoudig opzegbaar via je account</span>
             </div>
 
           </div>
 
         </div>
-
       </div>
 
     </div>
@@ -468,11 +407,11 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-16">
-        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3">Vragen & Antwoorden</div>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5">
+        <div class="text-xs uppercase tracking-[0.25em] font-bold text-vicli-gold mb-3" id="faq-badge">Vragen & Antwoorden</div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5" id="faq-title">
           Veelgestelde vragen
         </h2>
-        <p class="text-base text-vicli-muted font-light">
+        <p class="text-base text-vicli-muted font-light" id="faq-subtitle">
           Heb je een andere vraag over de app of het abonnement? We helpen je graag verder.
         </p>
       </div>
@@ -496,21 +435,21 @@
         </svg>
       </div>
 
-      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal mb-5 tracking-tight">
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal mb-5 tracking-tight" id="banner-title">
         Klaar om jouw klantenbeheer te vereenvoudigen?
       </h2>
-      <p class="text-base sm:text-lg text-vicli-sand/80 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-        Download ViCli vandaag nog in de App Store of Google Play Store. Probeer het 14 dagen gratis en ervaar het gemak in je dagelijkse werk.
+      <p class="text-base sm:text-lg text-vicli-sand/80 max-w-2xl mx-auto mb-10 font-light leading-relaxed" id="banner-subtitle">
+        Download ViCli vandaag nog in de App Store of Google Play Store. Probeer het 30 dagen gratis in de app en ervaar het gemak in je dagelijkse werk.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="#tarieven" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-vicli-gold text-white text-base font-semibold hover:bg-vicli-goldLight transition-all duration-300 shadow-lg">
-          <span>Start 14 dagen gratis</span>
+          <span id="banner-ctaPrimary">Probeer 30 dagen gratis in de app</span>
           <i data-lucide="arrow-right" class="w-5 h-5"></i>
         </a>
-        <a id="cta-whatsapp" href="#" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-vicli-sand/30 text-vicli-cream text-base font-semibold hover:bg-white/10 transition-all duration-300">
+        <a id="cta-whatsapp" href="https://wa.me/31612345678" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-vicli-sand/30 text-vicli-cream text-base font-semibold hover:bg-white/10 transition-all duration-300">
           <i data-lucide="message-circle" class="w-5 h-5 text-vicli-gold"></i>
-          <span>Stel een vraag via WhatsApp</span>
+          <span id="banner-ctaWhatsApp">Stel een vraag via WhatsApp</span>
         </a>
       </div>
 
@@ -530,17 +469,17 @@
             </div>
             <span class="font-serif text-2xl font-bold tracking-wider text-white">ViCli</span>
           </div>
-          <p class="text-xs leading-relaxed text-vicli-sand/60 mb-6">
+          <p class="text-xs leading-relaxed text-vicli-sand/60 mb-6" id="footer-tagline">
             CRM, agendabeheer en kassa speciaal ontwikkeld voor zelfstandigen met een vaste klantenkring.
           </p>
           <div class="flex items-center gap-3 text-vicli-sand/60">
-            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:text-vicli-gold hover:bg-white/10 transition-colors" aria-label="Instagram">
+            <a href="https://instagram.com/vicli.app" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:text-vicli-gold hover:bg-white/10 transition-colors" aria-label="Instagram">
               <i data-lucide="instagram" class="w-4 h-4"></i>
             </a>
-            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:text-vicli-gold hover:bg-white/10 transition-colors" aria-label="LinkedIn">
+            <a href="https://linkedin.com/company/vicli" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:text-vicli-gold hover:bg-white/10 transition-colors" aria-label="LinkedIn">
               <i data-lucide="linkedin" class="w-4 h-4"></i>
             </a>
-            <a id="footer-whatsapp" href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:text-vicli-gold hover:bg-white/10 transition-colors" aria-label="WhatsApp">
+            <a href="https://wa.me/31612345678" target="_blank" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:text-vicli-gold hover:bg-white/10 transition-colors" aria-label="WhatsApp">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
             </a>
           </div>
@@ -548,7 +487,7 @@
 
         <!-- Links: Functies -->
         <div>
-          <h4 class="text-xs uppercase tracking-widest font-bold text-white mb-4">Functies</h4>
+          <h4 class="text-xs uppercase tracking-widest font-bold text-white mb-4" id="footer-linksFunctionsTitle">Functies</h4>
           <ul class="space-y-2.5 text-xs">
             <li><a href="#functies" class="hover:text-white transition-colors">Klantenbeheer & Strippen</a></li>
             <li><a href="#functies" class="hover:text-white transition-colors">Agenda & Afspraken</a></li>
@@ -560,31 +499,35 @@
 
         <!-- Links: Platform -->
         <div>
-          <h4 class="text-xs uppercase tracking-widest font-bold text-white mb-4">Platform</h4>
+          <h4 class="text-xs uppercase tracking-widest font-bold text-white mb-4" id="footer-linksPlatformTitle">Platform</h4>
           <ul class="space-y-2.5 text-xs">
             <li><a href="#doelgroep" class="hover:text-white transition-colors">Voor wie</a></li>
             <li><a href="#tarieven" class="hover:text-white transition-colors">Abonnement & Proefperiode</a></li>
             <li><a href="#faq" class="hover:text-white transition-colors">Veelgestelde Vragen</a></li>
-            <li><a href="https://apps.apple.com" target="_blank" class="hover:text-white transition-colors">iOS App Store</a></li>
+            <li><a href="https://apps.apple.com" target="_blank" class="hover:text-white transition-colors">Apple App Store</a></li>
             <li><a href="https://play.google.com" target="_blank" class="hover:text-white transition-colors">Google Play Store</a></li>
           </ul>
         </div>
 
-        <!-- Links: Contact -->
+        <!-- Links: Contact & Store URLs -->
         <div>
-          <h4 class="text-xs uppercase tracking-widest font-bold text-white mb-4">Contact & Info</h4>
+          <h4 class="text-xs uppercase tracking-widest font-bold text-white mb-4" id="footer-linksContactTitle">Contact & Juridisch</h4>
           <ul class="space-y-2.5 text-xs">
             <li class="flex items-center gap-2">
               <i data-lucide="mail" class="w-3.5 h-3.5 text-vicli-gold"></i>
-              <span id="footer-email">info@vicli.nl</span>
+              <a href="mailto:visitingclients@gmail.com" class="hover:text-white transition-colors">visitingclients@gmail.com</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="shield" class="w-3.5 h-3.5 text-vicli-gold"></i>
+              <a href="./privacy.html" class="hover:text-white transition-colors" id="footer-link-privacy">Privacybeleid</a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="file-text" class="w-3.5 h-3.5 text-vicli-gold"></i>
+              <a href="./voorwaarden.html" class="hover:text-white transition-colors" id="footer-link-terms">Algemene Voorwaarden</a>
             </li>
             <li class="flex items-center gap-2">
               <i data-lucide="check" class="w-3.5 h-3.5 text-vicli-gold"></i>
-              <span>14 dagen gratis testen</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <i data-lucide="smartphone" class="w-3.5 h-3.5 text-vicli-gold"></i>
-              <span>iOS & Android</span>
+              <span>30 dagen proef in de app</span>
             </li>
           </ul>
         </div>
@@ -592,41 +535,177 @@
       </div>
 
       <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-vicli-sand/50">
-        <p>&copy; <span id="year"></span> ViCli. Alle rechten voorbehouden.</p>
+        <p>&copy; <span id="year"></span> ViCli. <span id="footer-rights">Alle rechten voorbehouden.</span></p>
         <div class="flex items-center gap-6">
-          <a href="#" class="hover:text-white transition-colors">Privacybeleid</a>
-          <a href="#" class="hover:text-white transition-colors">Algemene Voorwaarden</a>
+          <a href="./privacy.html" class="hover:text-white transition-colors">Privacybeleid (Store URL)</a>
+          <a href="./voorwaarden.html" class="hover:text-white transition-colors">Algemene Voorwaarden</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Load Configuration & Interactive Logic -->
-  <script src="./site-config.js"></script>
+  <!-- Scripts -->
+  <script src="./translations.js"></script>
   <script>
     // Initialize Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Populate Contact Elements
-    if (window.VICLI_CONFIG && window.VICLI_CONFIG.contact) {
-      const cfg = window.VICLI_CONFIG.contact;
-      const fe = document.getElementById('footer-email');
-      const fw = document.getElementById('footer-whatsapp');
-      const cw = document.getElementById('cta-whatsapp');
-      if (fe && cfg.email) fe.textContent = cfg.email;
-      if (fw && cfg.whatsappUrl) fw.href = cfg.whatsappUrl;
-      if (cw && cfg.whatsappUrl) cw.href = cfg.whatsappUrl;
+    // Language State (Default: nl or browser preference)
+    const supportedLangs = ['nl', 'en', 'de', 'fr', 'es', 'pt'];
+    let currentLang = localStorage.getItem('vicli_lang') || 'nl';
+
+    // Check URL param ?lang=xx
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramLang = urlParams.get('lang');
+    if (paramLang && supportedLangs.includes(paramLang.toLowerCase())) {
+      currentLang = paramLang.toLowerCase();
     }
 
-    // Tab State
     let currentTab = 0;
-    const features = window.VICLI_CONFIG ? window.VICLI_CONFIG.features : [];
+
+    function selectLanguage(lang) {
+      if (!supportedLangs.includes(lang)) return;
+      currentLang = lang;
+      localStorage.setItem('vicli_lang', lang);
+      document.documentElement.lang = lang;
+      
+      const dropdown = document.getElementById('lang-dropdown');
+      if (dropdown) dropdown.classList.add('hidden');
+
+      applyTranslations();
+      renderAudienceCards();
+      renderTabs();
+      renderPricingFeatures();
+      renderFAQ();
+      lucide.createIcons();
+    }
+
+    function toggleLangDropdown() {
+      const d = document.getElementById('lang-dropdown');
+      if (d) d.classList.toggle('hidden');
+    }
+
+    // Close dropdown on outside click
+    document.addEventListener('click', (e) => {
+      const wrapper = document.getElementById('lang-menu-wrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        const d = document.getElementById('lang-dropdown');
+        if (d) d.classList.add('hidden');
+      }
+    });
+
+    function applyTranslations() {
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+      
+      // Flags & buttons
+      document.getElementById('current-lang-flag').textContent = t.flag;
+      document.getElementById('current-lang-code').textContent = currentLang.toUpperCase();
+
+      // Navigation
+      document.getElementById('nav-forWhom').textContent = t.nav.forWhom;
+      document.getElementById('nav-features').textContent = t.nav.features;
+      document.getElementById('nav-pricing').textContent = t.nav.pricing;
+      document.getElementById('nav-faq').textContent = t.nav.faq;
+      document.getElementById('nav-downloadApp').textContent = t.nav.downloadApp;
+
+      document.getElementById('mobile-nav-forWhom').textContent = t.nav.forWhom;
+      document.getElementById('mobile-nav-features').textContent = t.nav.features;
+      document.getElementById('mobile-nav-pricing').textContent = t.nav.pricing;
+      document.getElementById('mobile-nav-faq').textContent = t.nav.faq;
+
+      // Hero
+      document.getElementById('hero-pill').textContent = t.hero.pill;
+      document.getElementById('hero-title-base').textContent = t.hero.title;
+      document.getElementById('hero-title-highlight').textContent = t.hero.titleHighlight;
+      document.getElementById('hero-subtitle').textContent = t.hero.subtitle;
+      document.getElementById('hero-ctaPrimary').textContent = t.hero.ctaPrimary;
+      document.getElementById('hero-ctaSecondary').textContent = t.hero.ctaSecondary;
+      document.getElementById('hero-badgeTrial').textContent = t.hero.badgeTrial;
+      document.getElementById('hero-badgePrice').textContent = t.hero.badgePrice;
+      document.getElementById('hero-badgeCommission').textContent = t.hero.badgeCommission;
+      document.getElementById('hero-badgePlatform').textContent = t.hero.badgePlatform;
+      document.getElementById('hero-ipadLabel').textContent = t.hero.ipadLabel;
+      document.getElementById('hero-iphoneLabel').textContent = t.hero.iphoneLabel;
+
+      // Audience Section
+      document.getElementById('audience-badge').textContent = t.audience.badge;
+      document.getElementById('audience-title').textContent = t.audience.title;
+      document.getElementById('audience-subtitle').textContent = t.audience.subtitle;
+
+      // Features Section
+      document.getElementById('features-badge').textContent = t.features.badge;
+      document.getElementById('features-title').textContent = t.features.title;
+      document.getElementById('features-subtitle').textContent = t.features.subtitle;
+
+      // Pricing Section
+      document.getElementById('pricing-badge').textContent = t.pricing.badge;
+      document.getElementById('pricing-title').textContent = t.pricing.title;
+      document.getElementById('pricing-subtitle').textContent = t.pricing.subtitle;
+      document.getElementById('pricing-planBadge').textContent = t.pricing.planBadge;
+      document.getElementById('pricing-planTitle').textContent = t.pricing.planTitle;
+      document.getElementById('pricing-planDesc').textContent = t.pricing.planDesc;
+      document.getElementById('pricing-notice').textContent = t.pricing.notice;
+      document.getElementById('pricing-cardPre').textContent = t.pricing.cardPre;
+      document.getElementById('pricing-cardFree').textContent = t.pricing.cardFree;
+      document.getElementById('pricing-cardPost').textContent = t.pricing.cardPost;
+      document.getElementById('pricing-appStoreSub').textContent = t.pricing.appStoreBtnSub;
+      document.getElementById('pricing-appStoreTitle').textContent = t.pricing.appStoreBtnTitle;
+      document.getElementById('pricing-playStoreSub').textContent = t.pricing.playStoreBtnSub;
+      document.getElementById('pricing-playStoreTitle').textContent = t.pricing.playStoreBtnTitle;
+      document.getElementById('pricing-cancelAnytime').textContent = t.pricing.cancelAnytime;
+
+      // FAQ Section
+      document.getElementById('faq-badge').textContent = t.faq.badge;
+      document.getElementById('faq-title').textContent = t.faq.title;
+      document.getElementById('faq-subtitle').textContent = t.faq.subtitle;
+
+      // Banner Section
+      document.getElementById('banner-title').textContent = t.ctaBanner.title;
+      document.getElementById('banner-subtitle').textContent = t.ctaBanner.subtitle;
+      document.getElementById('banner-ctaPrimary').textContent = t.ctaBanner.ctaPrimary;
+      document.getElementById('banner-ctaWhatsApp').textContent = t.ctaBanner.ctaWhatsApp;
+
+      // Footer
+      document.getElementById('footer-tagline').textContent = t.footer.tagline;
+      document.getElementById('footer-linksFunctionsTitle').textContent = t.footer.linksFunctions;
+      document.getElementById('footer-linksPlatformTitle').textContent = t.footer.linksPlatform;
+      document.getElementById('footer-linksContactTitle').textContent = t.footer.linksContact;
+      document.getElementById('footer-link-privacy').textContent = t.footer.privacy;
+      document.getElementById('footer-link-terms').textContent = t.footer.terms;
+      document.getElementById('footer-rights').textContent = t.footer.rights;
+    }
+
+    function renderAudienceCards() {
+      const container = document.getElementById('audience-cards-container');
+      if (!container) return;
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+      const icons = ['sparkles', 'heart-pulse', 'dumbbell', 'scissors'];
+
+      container.innerHTML = t.audience.cards.map((card, i) => `
+        <div class="p-8 rounded-3xl bg-vicli-cream border border-vicli-border card-shadow flex flex-col justify-between hover:-translate-y-1 transition-transform">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-vicli-warm text-vicli-gold flex items-center justify-center mb-6">
+              <i data-lucide="${icons[i] || 'sparkles'}" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-vicli-dark mb-2">${card.title}</h3>
+            <p class="text-xs sm:text-sm text-vicli-muted font-light leading-relaxed">
+              ${card.desc}
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-vicli-border/70 text-xs font-semibold text-vicli-gold flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4"></i> ${card.tag}
+          </div>
+        </div>
+      `).join('');
+    }
 
     function renderTabs() {
-      const tabsContainer = document.getElementById('tabs-container');
-      if (!tabsContainer || !features.length) return;
+      const container = document.getElementById('tabs-container');
+      if (!container) return;
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+      const tabs = t.features.tabs;
 
-      tabsContainer.innerHTML = features.map((f, idx) => `
+      container.innerHTML = tabs.map((f, idx) => `
         <button 
           onclick="selectTab(${idx})"
           class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 border ${
@@ -649,8 +728,12 @@
 
     function renderTabContent() {
       const content = document.getElementById('tab-content');
-      if (!content || !features[currentTab]) return;
-      const f = features[currentTab];
+      if (!content) return;
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+      const f = t.features.tabs[currentTab] || t.features.tabs[0];
+
+      // Match tab image to content
+      const tabImg = (currentTab === 1) ? './assets/vicli-iphone-agenda.png' : './assets/vicli-ipad-klanten.png';
 
       content.innerHTML = `
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -674,9 +757,9 @@
                 </li>
               `).join('')}
             </ul>
-            <div class="flex flex-wrap items-center gap-4">
+            <div>
               <a href="#tarieven" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-vicli-dark text-white text-xs sm:text-sm font-semibold hover:bg-vicli-gold transition-colors">
-                <span>Start 14 dagen gratis</span>
+                <span>${t.features.cta}</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </a>
             </div>
@@ -684,12 +767,12 @@
           <div class="lg:col-span-5 flex justify-center">
             <div class="relative rounded-2xl overflow-hidden card-shadow border border-vicli-border bg-vicli-cream p-3 max-w-sm sm:max-w-md w-full">
               <img 
-                src="${f.image || './assets/vicli-ipad-klanten.png'}" 
+                src="${tabImg}" 
                 alt="${f.title}" 
-                class="w-full h-auto rounded-xl object-contain shadow-sm"
+                class="w-full h-auto rounded-xl object-contain shadow-sm max-h-[380px] mx-auto"
               >
               <div class="text-center pt-3 pb-1 text-xs font-semibold text-vicli-muted">
-                Echte ViCli App interface • ${f.tabTitle}
+                ${t.features.interfaceLabel} • ${f.tabTitle}
               </div>
             </div>
           </div>
@@ -698,13 +781,25 @@
       lucide.createIcons();
     }
 
-    // Render FAQ Accordion
+    function renderPricingFeatures() {
+      const container = document.getElementById('pricing-feature-list');
+      if (!container) return;
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+
+      container.innerHTML = t.pricing.features.map(feat => `
+        <div class="flex items-center gap-2.5 text-xs sm:text-sm text-vicli-charcoal">
+          <i data-lucide="check" class="w-4 h-4 text-vicli-gold shrink-0"></i>
+          <span>${feat}</span>
+        </div>
+      `).join('');
+    }
+
     function renderFAQ() {
       const container = document.getElementById('faq-container');
-      if (!container || !window.VICLI_CONFIG) return;
-      const faqs = window.VICLI_CONFIG.faq;
+      if (!container) return;
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
 
-      container.innerHTML = faqs.map((item, idx) => `
+      container.innerHTML = t.faq.items.map((item, idx) => `
         <div class="border border-vicli-border rounded-2xl overflow-hidden bg-white transition-colors">
           <button 
             onclick="toggleFAQ(${idx})" 
@@ -729,7 +824,6 @@
       if (!ans) return;
       const isHidden = ans.classList.contains('hidden');
 
-      // Close others
       document.querySelectorAll('[id^="faq-answer-"]').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('[id^="faq-icon-"]').forEach(el => el.style.transform = 'rotate(0deg)');
 
@@ -744,10 +838,8 @@
       if (menu) menu.classList.toggle('hidden');
     }
 
-    // Initial Renders
-    renderTabs();
-    renderFAQ();
-    lucide.createIcons();
+    // Initialize with current language
+    selectLanguage(currentLang);
   </script>
 </body>
 </html>

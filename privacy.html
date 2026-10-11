@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy / Privacybeleid — ViCli</title>
+  <meta name="description" content="Officiële Privacy Policy van ViCli voor de Apple App Store en Google Play Store.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vicli: {
+              cream: '#FAF7F2',
+              warm: '#F4ECE1',
+              gold: '#B8875A',
+              dark: '#1D1714',
+              muted: '#736962',
+              border: '#E8DFD5'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Nunito Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-vicli-cream text-vicli-dark font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- Header -->
+  <header class="border-b border-vicli-border bg-vicli-cream/95 sticky top-0 z-20 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <a href="./index.html" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-vicli-dark flex items-center justify-center text-vicli-gold font-serif font-bold text-lg">
+          V
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl font-bold tracking-wider text-vicli-dark leading-none">ViCli</span>
+          <span class="text-[10px] tracking-[0.2em] uppercase text-vicli-muted font-semibold mt-0.5">CRM • Calendar • POS</span>
+        </div>
+      </a>
+      
+      <div class="flex items-center gap-3">
+        <!-- Language Switcher for Privacy Policy -->
+        <div class="inline-flex rounded-full border border-vicli-border bg-white p-1 text-xs font-semibold">
+          <button id="btn-nl" onclick="setLang('nl')" class="px-3 py-1 rounded-full bg-vicli-dark text-white transition-colors">Nederlands</button>
+          <button id="btn-en" onclick="setLang('en')" class="px-3 py-1 rounded-full text-vicli-muted hover:text-vicli-dark transition-colors">English</button>
+        </div>
+        <a href="./index.html" class="text-xs sm:text-sm font-semibold text-vicli-muted hover:text-vicli-dark px-3 py-1.5 transition-colors">
+          &larr; Terug
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 flex-1">
+    
+    <!-- DUTCH TEXT -->
+    <article id="content-nl" class="prose prose-neutral max-w-none">
+      <div class="mb-8 pb-6 border-b border-vicli-border">
+        <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-vicli-dark mb-2">Privacybeleid — ViCli</h1>
+        <p class="text-xs text-vicli-muted">Laatst bijgewerkt: 12 september 2026</p>
+      </div>
+
+      <div class="space-y-8 text-sm sm:text-base text-vicli-dark/90 leading-relaxed font-light">
+        <p class="text-base text-vicli-muted">
+          ViCli is een klantenbeheer- en kassa-app voor schoonheidsprofessionals, salons en zelfstandig ondernemers met terugkerende klanten, ontwikkeld en beheerd door een zelfstandige ontwikkelaar, bereikbaar op <a href="mailto:visitingclients@gmail.com" class="font-medium text-vicli-gold underline">visitingclients@gmail.com</a>.
+        </p>
+        <p>Dit beleid legt uit wat er gebeurt met de gegevens die je in ViCli zet.</p>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">1. Welke gegevens ViCli bevat</h2>
+          <p>
+            Jij voert gegevens in over je eigen klanten: naam, telefoonnummer, e-mailadres, bezoekgeschiedenis, afspraken, bonnen, notities, en desgewenst een foto en eigen velden die je zelf bepaalt. Daarnaast je eigen bedrijfsgegevens: bedrijfsnaam, adres, telefoon, e-mail, KvK- en btw-nummer, en eventueel een logo.
+          </p>
+          <p class="mt-2 text-vicli-muted font-normal">ViCli vraagt niet om deze gegevens. Jij bepaalt wat erin komt.</p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">2. Waar ze staan</h2>
+          <p>
+            Alles staat <strong>lokaal op je toestel</strong>, in een database die alleen ViCli kan lezen. Er gaat niets naar de ontwikkelaar en er is geen centrale ViCli-server. De ontwikkelaar kan je gegevens niet inzien, ophalen of herstellen.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">3. Google Drive (Alleen met abonnement)</h2>
+          <p>
+            Heb je een lopend ViCli-abonnement en log je in met Google, dan maakt ViCli een back-up op je eigen Google Drive en kan hij synchroniseren tussen je eigen toestellen.
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li>ViCli gebruikt de Google-scope <code>drive.appdata</code>. Die geeft uitsluitend toegang tot een privémap van de app binnen jouw Drive, en tot niets anders. ViCli kan geen enkel ander bestand in je Drive zien, openen of wijzigen.</li>
+            <li>De back-up staat in jouw Google-account, onder jouw beheer. De ontwikkelaar heeft er geen toegang toe.</li>
+            <li>Je kunt hem op elk moment verwijderen via de instellingen van je Google-account, bij apps van derden met accounttoegang.</li>
+            <li>Inloggen is optioneel. Zonder inloggen werkt ViCli volledig offline.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">4. Permissies, en waarvoor</h2>
+          <p><strong>Android:</strong></p>
+          <ul class="list-disc pl-5 space-y-1 mb-3">
+            <li>Camera — QR-codes en productbarcodes scannen</li>
+            <li>NFC — klanten-tags lezen en beschrijven voor het inchecken</li>
+            <li>Agenda (lezen en schrijven) — afspraken in je toestelagenda zetten en teruglezen</li>
+            <li>Contacten (schrijven) — een klant in je telefooncontacten opslaan als je daarom vraagt</li>
+            <li>Meldingen & Trillen — afspraakherinneringen</li>
+            <li>Internet — uitsluitend voor Google Drive-back-up en synchronisatie</li>
+          </ul>
+          <p><strong>iOS:</strong></p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Camera, NFC en meldingen — voor dezelfde doelen als hierboven</li>
+            <li>Face ID of Touch ID — de app ontgrendelen als je het app-slot aanzet (biometrische gegevens verlaten je toestel nooit)</li>
+            <li>Fotobibliotheek (alleen toevoegen) — een klantkaart als afbeelding opslaan als je daarom vraagt. ViCli leest je fotobibliotheek niet</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">5. SMS-berichten</h2>
+          <p>
+            ViCli verstuurt géén automatische sms-berichten op de achtergrond en heeft daar geen permissie voor.
+          </p>
+          <p class="mt-2">
+            Verstuur je een welkomstbericht, afspraakbevestiging of verzoek om een review, dan schrijft ViCli de tekst en opent hij je eigen berichten-app met die tekst er al in. Jij bepaalt of hij weggaat en naar wie. Er wordt niets verstuurd zonder dat jij in je eigen sms-app op versturen tikt.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">6. Wat ViCli NIET doet</h2>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>Geen advertenties en geen advertentie-identificatoren</li>
+            <li>Geen analytics, tracking of gebruiksmeting (geen tracking-SDK's)</li>
+            <li>Geen verkoop of deling van gegevens met derden</li>
+            <li>Geen account bij de ontwikkelaar; er valt niets te registreren</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">7. Betaling & Abonnement</h2>
+          <p>
+            Abonnementen lopen volledig via Google Play en de Apple App Store. Betaalgegevens bereiken ViCli en de ontwikkelaar nooit. Er wordt uitsluitend via die stores gecontroleerd óf er een geldig abonnement is.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">8. De gegevens van jouw klanten — wie is verantwoordelijk</h2>
+          <p>
+            Onder de AVG ben jij verwerkingsverantwoordelijke voor de persoonsgegevens van je klanten die je in ViCli zet. Jij bepaalt wat je vastlegt en hoe lang je het bewaart. ViCli is het gereedschap waarmee je dat doet; de ontwikkelaar is verwerker en komt in de praktijk nooit bij die gegevens, omdat ze op jouw toestel of in jouw eigen Drive blijven. Een verwerkersovereenkomst is op verzoek beschikbaar via <a href="mailto:visitingclients@gmail.com" class="text-vicli-gold underline">visitingclients@gmail.com</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">9. Bewaren en verwijderen</h2>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>Een klant verwijderen in de app haalt zijn gegevens direct van je toestel.</li>
+            <li>ViCli verwijderen van je toestel wist de lokale database volledig.</li>
+            <li>Een Google Drive-back-up blijft staan tot jij hem verwijdert, via de app of via de instellingen van je Google-account.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">10. Contact</h2>
+          <p>
+            Vragen over dit privacybeleid? Mail naar: <a href="mailto:visitingclients@gmail.com" class="text-vicli-gold font-medium underline">visitingclients@gmail.com</a>
+          </p>
+        </section>
+      </div>
+    </article>
+
+    <!-- ENGLISH TEXT -->
+    <article id="content-en" class="prose prose-neutral max-w-none hidden">
+      <div class="mb-8 pb-6 border-b border-vicli-border">
+        <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-vicli-dark mb-2">Privacy Policy — ViCli</h1>
+        <p class="text-xs text-vicli-muted">Last updated: 12 September 2026</p>
+      </div>
+
+      <div class="space-y-8 text-sm sm:text-base text-vicli-dark/90 leading-relaxed font-light">
+        <p class="text-base text-vicli-muted">
+          ViCli is a customer management app for salons and self-employed professionals with recurring clients. It is developed and operated by an individual developer, reachable at <a href="mailto:visitingclients@gmail.com" class="font-medium text-vicli-gold underline">visitingclients@gmail.com</a>.
+        </p>
+        <p>This policy explains what happens to data you enter into ViCli.</p>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">1. What data ViCli holds</h2>
+          <p>
+            You enter information about your own clients: name, phone number, email address, visit history, appointments, receipts, notes, and optionally a photo and custom fields you define yourself. You also enter your own business details: business name, address, phone, email, chamber of commerce and VAT numbers, and optionally a logo.
+          </p>
+          <p class="mt-2 text-vicli-muted font-normal">ViCli does not ask for this data. You choose what to put in.</p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">2. Where it is stored</h2>
+          <p>
+            All of it is stored locally on your device, in a database only ViCli can read. It is not sent to the developer, and there is no ViCli server. The developer has no way to see, retrieve, or recover your data.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">3. Google Drive (Subscribers)</h2>
+          <p>
+            If you have an active ViCli subscription and sign in with Google, ViCli backs up your data to your own Google Drive and can synchronise it between your own devices.
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-2">
+            <li>ViCli uses the Google scope <code>drive.appdata</code>. This gives the app access to a private application folder inside your Drive, and to nothing else. ViCli cannot see, open, or modify any other file in your Drive.</li>
+            <li>The backup lives in your Google account, under your control. The developer has no access to it.</li>
+            <li>You can remove it at any time from your Google account settings, under third-party apps with account access.</li>
+            <li>Signing in is optional. Without it, ViCli operates fully offline.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">4. Permissions, and what for</h2>
+          <p><strong>Android:</strong></p>
+          <ul class="list-disc pl-5 space-y-1 mb-3">
+            <li>Camera — scanning QR codes and product barcodes</li>
+            <li>NFC — reading and writing customer tags for check-in</li>
+            <li>Calendar (read and write) — adding appointments to your device calendar</li>
+            <li>Contacts (write) — saving a client to phone contacts on request</li>
+            <li>Notifications & Vibration — appointment reminders</li>
+            <li>Internet — exclusively for Google Drive backup and synchronisation</li>
+          </ul>
+          <p><strong>iOS:</strong></p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Camera, NFC, and Notifications — for the same purposes</li>
+            <li>Face ID or Touch ID — unlocking the app if you enable app lock (biometric data never leaves your device)</li>
+            <li>Photo Library (add-only) — saving a client card as an image when you ask it to. ViCli does not read your photos</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">5. Text messages (SMS)</h2>
+          <p>
+            ViCli does not send SMS messages in the background and requests no permission to do so.
+          </p>
+          <p class="mt-2">
+            When you send a welcome message, appointment confirmation, or review request, ViCli pre-composes the text and opens your device's native messaging app with that text in place. You decide whether to send it and to whom. Nothing is sent without your explicit tap on Send.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">6. What ViCli does not do</h2>
+          <ul class="list-disc pl-5 space-y-1.5">
+            <li>No advertisements and no ad identifiers</li>
+            <li>No analytics, tracking, or usage measurement</li>
+            <li>No sale or sharing of data with third parties</li>
+            <li>No user account with the developer; there is nothing to register</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">7. Payment & Subscriptions</h2>
+          <p>
+            Subscriptions are handled entirely by Google Play and the Apple App Store. Payment details never reach ViCli or the developer. The stores only confirm whether an active subscription exists.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="font-serif text-2xl font-bold text-vicli-dark mb-2">8. Contact</h2>
+          <p>
+            Questions? Contact: <a href="mailto:visitingclients@gmail.com" class="text-vicli-gold font-medium underline">visitingclients@gmail.com</a>
+          </p>
+        </section>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-vicli-border bg-white py-6 text-center text-xs text-vicli-muted">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p>&copy; 2026 ViCli. Alle rechten voorbehouden.</p>
+      <div class="flex gap-4">
+        <a href="./index.html" class="hover:text-vicli-dark">Home</a>
+        <a href="./voorwaarden.html" class="hover:text-vicli-dark">Algemene Voorwaarden</a>
+        <a href="mailto:visitingclients@gmail.com" class="hover:text-vicli-dark">visitingclients@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(l) {
+      const nl = document.getElementById('content-nl');
+      const en = document.getElementById('content-en');
+      const btnNl = document.getElementById('btn-nl');
+      const btnEn = document.getElementById('btn-en');
+      if (l === 'en') {
+        nl.classList.add('hidden');
+        en.classList.remove('hidden');
+        btnEn.className = 'px-3 py-1 rounded-full bg-vicli-dark text-white transition-colors';
+        btnNl.className = 'px-3 py-1 rounded-full text-vicli-muted hover:text-vicli-dark transition-colors';
+      } else {
+        en.classList.add('hidden');
+        nl.classList.remove('hidden');
+        btnNl.className = 'px-3 py-1 rounded-full bg-vicli-dark text-white transition-colors';
+        btnEn.className = 'px-3 py-1 rounded-full text-vicli-muted hover:text-vicli-dark transition-colors';
+      }
+    }
+  </script>
+</body>
+</html>
