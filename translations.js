@@ -34,8 +34,8 @@ window.VICLI_TRANSLATIONS = {
       badgeCommission: "0% commissie over jouw klanten",
       badgePlatform: "Voor iOS & Android",
       badgeZeroData: "100% Lokaal • Zero Data Opslag",
-      ipadLabel: "iPad & Tablet weergave • Klantenbeheer & Strippenkaarten",
-      iphoneLabel: "iPhone & Android weergave • Agenda"
+      ipadLabel: "Klantenkaart & Strippenbeheer",
+      iphoneLabel: "Agenda & Afspraken"
     },
     privacyPillar: {
       badge: "Veiligheid & Privacy",
@@ -315,8 +315,8 @@ window.VICLI_TRANSLATIONS = {
       badgeCommission: "0% booking commission",
       badgePlatform: "For iOS & Android",
       badgeZeroData: "100% Local • Zero Data Storage",
-      ipadLabel: "iPad & Tablet view • Client Management & Loyalty Cards",
-      iphoneLabel: "iPhone & Android view • Calendar"
+      ipadLabel: "Client Profile & Loyalty Cards",
+      iphoneLabel: "Calendar & Appointments"
     },
     privacyPillar: {
       badge: "Security & Privacy",
@@ -596,8 +596,8 @@ window.VICLI_TRANSLATIONS = {
       badgeCommission: "0 % Buchungsprovision",
       badgePlatform: "Für iOS & Android",
       badgeZeroData: "100% Lokal • Keine Serverdaten",
-      ipadLabel: "iPad & Tablet Ansicht • Kundenverwaltung & Bonuskarten",
-      iphoneLabel: "iPhone & Android Ansicht • Kalender"
+      ipadLabel: "Kundenprofil & Bonuskarten",
+      iphoneLabel: "Kalender & Termine"
     },
     privacyPillar: {
       badge: "Sicherheit & Datenschutz",
@@ -814,8 +814,8 @@ window.VICLI_TRANSLATIONS = {
       badgeCommission: "0% commission sur réservations",
       badgePlatform: "Pour iOS & Android",
       badgeZeroData: "100% Local • Zéro Donnée Serveur",
-      ipadLabel: "Vue iPad & Tablette • Fiches clients & Cartes de séances",
-      iphoneLabel: "Vue iPhone & Android • Agenda"
+      ipadLabel: "Fiche Client & Cartes de Séances",
+      iphoneLabel: "Agenda & Rendez-vous"
     },
     privacyPillar: {
       badge: "Sécurité & Confidentialité",
@@ -1014,8 +1014,8 @@ window.VICLI_TRANSLATIONS = {
       badgeCommission: "0% comisión por cita",
       badgePlatform: "Para iOS y Android",
       badgeZeroData: "100% Local • Cero Datos en Servidores",
-      ipadLabel: "Vista iPad y Tablet • Fichas de clientes y Bonos",
-      iphoneLabel: "Vista iPhone y Android • Agenda"
+      ipadLabel: "Ficha de Cliente y Bonos",
+      iphoneLabel: "Agenda y Citas"
     },
     privacyPillar: {
       badge: "Seguridad y Privacidad",
@@ -1214,8 +1214,8 @@ window.VICLI_TRANSLATIONS = {
       badgeCommission: "0% comissão por marcação",
       badgePlatform: "Para iOS e Android",
       badgeZeroData: "100% Local • Sem Dados em Servidores",
-      ipadLabel: "Vista iPad e Tablet • Fichas de clientes e Cartões de sessões",
-      iphoneLabel: "Vista iPhone e Android • Agenda"
+      ipadLabel: "Ficha de Cliente e Cartões de Sessões",
+      iphoneLabel: "Agenda e Marcações"
     },
     privacyPillar: {
       badge: "Segurança e Privacidade",

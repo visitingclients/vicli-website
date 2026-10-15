@@ -239,40 +239,61 @@
       </div>
 
       <!-- ================= HERO DEVICES SHOWCASE (ECHTE APP SCREENSHOTS) ================= -->
-      <div class="relative max-w-5xl mx-auto mt-6">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          
-          <!-- ECHTE IPAD SCREENSHOT (Links) -->
-          <div class="md:col-span-8 relative">
-            <div class="relative rounded-2xl md:rounded-3xl overflow-hidden bg-white p-2.5 sm:p-4 border-2 border-vicli-border/80 device-shadow group">
-              <div class="w-2.5 h-2.5 rounded-full bg-neutral-300 mx-auto mb-2 hidden sm:block"></div>
-              
-              <img 
-                src="./assets/vicli-ipad-klanten.png" 
-                alt="ViCli App op iPad — Klantenkaart en Strippenbeheer" 
-                class="w-full h-auto rounded-xl object-contain shadow-inner"
-              >
+      <div class="relative max-w-4xl mx-auto mt-10 sm:mt-14 px-2 sm:px-4">
+        <!-- Ambient glow behind devices -->
+        <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-3/4 h-72 bg-gradient-to-r from-vicli-gold/15 via-amber-200/20 to-vicli-gold/15 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
-              <div class="pt-3 pb-1 text-center text-xs font-semibold text-vicli-muted" id="hero-ipadLabel">
-                iPad & Tablet weergave • Klantenbeheer & Strippenkaarten
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-10 lg:gap-14">
+          
+          <!-- LINKER TOESTEL: ECHTE EMULATOR SCREENSHOT (Klantendossier & Strippenkaart) -->
+          <div class="w-full max-w-[280px] sm:max-w-[310px] flex flex-col items-center group">
+            <div class="relative w-full rounded-[44px] bg-neutral-900 p-2.5 sm:p-3 border-4 border-neutral-800 shadow-2xl transition-transform duration-300 group-hover:-translate-y-1">
+              <!-- Dynamic Island Notch -->
+              <div class="w-24 h-4 bg-black rounded-full mx-auto mb-2"></div>
+              
+              <!-- Screen Container -->
+              <div class="relative rounded-[32px] overflow-hidden bg-black aspect-[9/19.5]">
+                <img 
+                  id="hero-img-left"
+                  src="./assets/screenshots/nl/2-klant.png" 
+                  alt="ViCli App — Klantenkaart & Strippenbeheer" 
+                  onerror="this.src='./assets/screenshots/nl/2-klant.png'"
+                  class="w-full h-full object-cover"
+                >
               </div>
+
+              <!-- Home Bar -->
+              <div class="w-28 h-1 bg-neutral-700 rounded-full mx-auto mt-2.5"></div>
+            </div>
+
+            <div class="pt-3.5 pb-1 text-center text-xs sm:text-sm font-semibold text-vicli-charcoal flex items-center justify-center gap-1.5" id="hero-ipadLabel">
+              Klantenkaart & Strippenbeheer
             </div>
           </div>
 
-          <!-- ECHTE IPHONE SCREENSHOT (Rechts) -->
-          <div class="md:col-span-4 relative flex justify-center">
-            <div class="relative w-64 sm:w-72 rounded-[40px] overflow-hidden bg-neutral-900 p-3 border-4 border-neutral-800 phone-shadow">
-              <div class="w-20 h-4 bg-black rounded-full mx-auto mb-2"></div>
+          <!-- RECHTER TOESTEL: ECHTE EMULATOR SCREENSHOT (Agenda & Afspraken) -->
+          <div class="w-full max-w-[280px] sm:max-w-[310px] flex flex-col items-center group">
+            <div class="relative w-full rounded-[44px] bg-neutral-900 p-2.5 sm:p-3 border-4 border-neutral-800 shadow-2xl transition-transform duration-300 group-hover:-translate-y-1">
+              <!-- Dynamic Island Notch -->
+              <div class="w-24 h-4 bg-black rounded-full mx-auto mb-2"></div>
               
-              <img 
-                src="./assets/vicli-iphone-agenda.png" 
-                alt="ViCli App op iPhone — Agenda en Afspraken" 
-                class="w-full h-auto rounded-[28px] object-contain shadow-inner"
-              >
-
-              <div class="pt-3 pb-1 text-center text-xs font-semibold text-vicli-sand/80" id="hero-iphoneLabel">
-                iPhone & Android weergave • Agenda
+              <!-- Screen Container -->
+              <div class="relative rounded-[32px] overflow-hidden bg-black aspect-[9/19.5]">
+                <img 
+                  id="hero-img-right"
+                  src="./assets/screenshots/nl/1-agenda.png" 
+                  alt="ViCli App — Agenda & Afspraken" 
+                  onerror="this.src='./assets/screenshots/nl/1-agenda.png'"
+                  class="w-full h-full object-cover"
+                >
               </div>
+
+              <!-- Home Bar -->
+              <div class="w-28 h-1 bg-neutral-700 rounded-full mx-auto mt-2.5"></div>
+            </div>
+
+            <div class="pt-3.5 pb-1 text-center text-xs sm:text-sm font-semibold text-vicli-charcoal flex items-center justify-center gap-1.5" id="hero-iphoneLabel">
+              Agenda & Afspraken
             </div>
           </div>
 
@@ -670,6 +691,10 @@
       document.getElementById('hero-badgePlatform').textContent = t.hero.badgePlatform;
       document.getElementById('hero-ipadLabel').textContent = t.hero.ipadLabel;
       document.getElementById('hero-iphoneLabel').textContent = t.hero.iphoneLabel;
+      const heroLeftImg = document.getElementById('hero-img-left');
+      if (heroLeftImg) heroLeftImg.src = `./assets/screenshots/${currentLang}/2-klant.png`;
+      const heroRightImg = document.getElementById('hero-img-right');
+      if (heroRightImg) heroRightImg.src = `./assets/screenshots/${currentLang}/1-agenda.png`;
 
       // Audience Section
       document.getElementById('audience-badge').textContent = t.audience.badge;
