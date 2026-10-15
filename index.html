@@ -80,31 +80,31 @@
 
   <!-- ================= HEADER & NAVIGATION ================= -->
   <header class="sticky top-0 z-50 glass-nav border-b border-vicli-border transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-3.5 group">
-        <img src="./assets/logo.png" alt="ViCli Logo" class="w-10 h-10 rounded-xl object-contain shadow-sm group-hover:scale-105 transition-transform bg-black">
-        <div class="flex flex-col">
-          <span class="font-serif text-2xl font-bold tracking-wider text-vicli-dark leading-none">ViCli</span>
-          <span class="text-[10px] tracking-[0.2em] uppercase text-vicli-muted font-semibold mt-0.5">CRM • Calendar • POS</span>
+      <a href="#" class="flex items-center gap-3 group shrink-0">
+        <img src="./assets/logo.png" alt="ViCli Logo" class="w-10 h-10 rounded-xl object-contain shadow-sm group-hover:scale-105 transition-transform bg-black shrink-0">
+        <div class="flex flex-col shrink-0">
+          <span class="font-serif text-2xl font-bold tracking-wider text-vicli-dark leading-none whitespace-nowrap">ViCli</span>
+          <span class="text-[10px] tracking-[0.16em] uppercase text-vicli-muted font-semibold mt-0.5 whitespace-nowrap">CRM • Calendar • POS</span>
         </div>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-vicli-charcoal">
-        <a href="#doelgroep" id="nav-forWhom" class="hover:text-vicli-gold transition-colors">Voor wie</a>
-        <a href="./tutorial.html" id="nav-tutorial" class="text-vicli-gold font-semibold hover:text-vicli-goldDark transition-colors flex items-center gap-1.5">
+      <!-- Desktop Nav (lg: 1024px+) -->
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm xl:text-[15px] font-medium text-vicli-charcoal shrink-0">
+        <a href="#doelgroep" id="nav-forWhom" class="hover:text-vicli-gold transition-colors whitespace-nowrap">Voor wie</a>
+        <a href="./tutorial.html" id="nav-tutorial" class="text-vicli-gold font-semibold hover:text-vicli-goldDark transition-colors flex items-center gap-1.5 whitespace-nowrap">
           <i data-lucide="sparkles" class="w-4 h-4"></i>
           <span>Handleiding</span>
         </a>
-        <a href="#functies" id="nav-features" class="hover:text-vicli-gold transition-colors">Functies</a>
-        <a href="#tarieven" id="nav-pricing" class="hover:text-vicli-gold transition-colors">Abonnement</a>
-        <a href="#faq" id="nav-faq" class="hover:text-vicli-gold transition-colors">Veelgestelde vragen</a>
+        <a href="#functies" id="nav-features" class="hover:text-vicli-gold transition-colors whitespace-nowrap">Functies</a>
+        <a href="#tarieven" id="nav-pricing" class="hover:text-vicli-gold transition-colors whitespace-nowrap">Abonnement</a>
+        <a href="#faq" id="nav-faq" class="hover:text-vicli-gold transition-colors whitespace-nowrap">Veelgestelde vragen</a>
       </nav>
 
       <!-- Desktop Right (Language Selector + Download) -->
-      <div class="hidden md:flex items-center gap-3">
+      <div class="hidden lg:flex items-center gap-3 shrink-0">
         
         <!-- Language Selector Dropdown -->
         <div class="relative inline-block text-left" id="lang-menu-wrapper">
@@ -136,20 +136,20 @@
           </div>
         </div>
 
-        <a href="#tarieven" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-vicli-dark text-vicli-cream text-xs font-semibold hover:bg-vicli-gold transition-all duration-300 shadow-sm hover:shadow-md">
+        <a href="#tarieven" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-vicli-dark text-vicli-cream text-xs font-semibold hover:bg-vicli-gold transition-all duration-300 shadow-sm hover:shadow-md whitespace-nowrap">
           <span id="nav-downloadApp">Download App</span>
           <i data-lucide="arrow-down-circle" class="w-4 h-4"></i>
         </a>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-vicli-dark hover:bg-vicli-sand/50" aria-label="Menu openen">
+      <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-vicli-dark hover:bg-vicli-sand/50" aria-label="Menu openen">
         <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
       </button>
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden px-6 pt-4 pb-8 bg-vicli-cream border-b border-vicli-border shadow-xl">
+    <div id="mobile-menu" class="hidden lg:hidden px-6 pt-4 pb-8 bg-vicli-cream border-b border-vicli-border shadow-xl">
       <div class="flex flex-col gap-4 text-base font-medium text-vicli-dark">
         
         <!-- Mobile Language Selector -->
