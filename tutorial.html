@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViCli — Interactieve Handleiding & Schermtour</title>
+  <meta name="description" content="Stap-voor-stap interactieve handleiding voor ViCli: CRM, agenda, kassa en BTW-export voor ZZP'ers met terugkerende klanten. Ontdek alle functies via interactieve hotspots.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="ViCli — Interactieve Handleiding">
+  <meta property="og:description" content="Ontdek stap voor stap hoe ViCli werkt met interactieve hotspots op echte app-schermen.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Cormorant Garamond & Nunito Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vicli: {
+              cream: '#FAF7F2',
+              warm: '#F4ECE1',
+              sand: '#EAE1D5',
+              gold: '#B8875A',
+              goldDark: '#9C6E44',
+              goldLight: '#D6AE88',
+              dark: '#1D1714',
+              charcoal: '#2D2420',
+              muted: '#736962',
+              border: '#E8DFD5'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Nunito Sans"', '"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      background-color: #FAF7F2;
+      color: #1D1714;
+      font-family: 'Nunito Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .glass-nav {
+      background: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .device-shadow {
+      box-shadow: 0 25px 60px -15px rgba(29, 23, 20, 0.22), 0 10px 20px -5px rgba(29, 23, 20, 0.08);
+    }
+    .card-shadow {
+      box-shadow: 0 10px 30px -10px rgba(29, 23, 20, 0.05), 0 4px 12px -2px rgba(29, 23, 20, 0.03);
+    }
+  </style>
+</head>
+<body class="selection:bg-vicli-gold/20 selection:text-vicli-dark flex flex-col min-h-screen">
+
+  <!-- ================= HEADER & NAVIGATION ================= -->
+  <header class="sticky top-0 z-50 glass-nav border-b border-vicli-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo + Back to Website -->
+      <div class="flex items-center gap-6">
+        <a href="./index.html" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-vicli-dark flex items-center justify-center text-vicli-gold font-serif font-bold text-xl tracking-wider shadow-sm group-hover:scale-105 transition-transform">
+            <svg class="w-6 h-6 text-amber-300" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L4 16h4.5l3.5-7 3.5 7H20L12 2z"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-serif text-2xl font-bold tracking-wider text-vicli-dark leading-none">ViCli</span>
+            <span class="text-[10px] tracking-[0.2em] uppercase text-vicli-muted font-semibold mt-0.5">CRM • Calendar • POS</span>
+          </div>
+        </a>
+
+        <div class="hidden sm:block h-6 w-px bg-vicli-border"></div>
+
+        <a href="./index.html" class="hidden sm:inline-flex items-center gap-2 text-xs font-semibold text-vicli-muted hover:text-vicli-gold transition-colors">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span id="tut-backHome">Terug naar Website</span>
+        </a>
+      </div>
+
+      <!-- Right Nav: Language Selector & Download -->
+      <div class="flex items-center gap-3">
+        
+        <!-- Language Selector Dropdown -->
+        <div class="relative inline-block text-left" id="lang-menu-wrapper">
+          <button onclick="toggleLangDropdown()" id="lang-btn" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full border border-vicli-border bg-white text-xs font-semibold text-vicli-charcoal hover:border-vicli-gold transition-all shadow-sm">
+            <span id="current-lang-flag">🇳🇱</span>
+            <span id="current-lang-code">NL</span>
+            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-vicli-muted"></i>
+          </button>
+          
+          <div id="lang-dropdown" class="hidden absolute right-0 mt-2 w-44 rounded-2xl bg-white border border-vicli-border shadow-xl z-50 py-1.5 overflow-hidden">
+            <button onclick="selectLanguage('nl')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇳🇱</span> Nederlands (NL)
+            </button>
+            <button onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇬🇧</span> English (EN)
+            </button>
+            <button onclick="selectLanguage('de')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇩🇪</span> Deutsch (DE)
+            </button>
+            <button onclick="selectLanguage('fr')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇫🇷</span> Français (FR)
+            </button>
+            <button onclick="selectLanguage('es')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇪🇸</span> Español (ES)
+            </button>
+            <button onclick="selectLanguage('pt')" class="w-full text-left px-4 py-2 text-xs font-semibold hover:bg-vicli-warm/50 flex items-center gap-2">
+              <span>🇵🇹</span> Português (PT)
+            </button>
+          </div>
+        </div>
+
+        <a href="./index.html#tarieven" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-vicli-dark text-vicli-cream text-xs font-semibold hover:bg-vicli-gold transition-all duration-300 shadow-sm">
+          <span id="tut-downloadApp">Download App (30 dagen gratis)</span>
+          <i data-lucide="arrow-down-circle" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= HERO INTRO ================= -->
+  <section class="pt-10 pb-12 bg-white border-b border-vicli-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-vicli-warm/80 border border-vicli-gold/30 text-xs font-semibold text-vicli-dark mb-4 shadow-sm">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-vicli-gold"></i>
+        <span id="tut-heroBadge">Stap-voor-stap Interactieve Tour</span>
+      </div>
+
+      <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-4 leading-tight max-w-4xl mx-auto" id="tut-heroTitle">
+        Hoe werkt ViCli in jouw salon of praktijk?
+      </h1>
+      
+      <p class="text-sm sm:text-base text-vicli-muted max-w-3xl mx-auto font-light leading-relaxed" id="tut-heroSubtitle">
+        Kies hieronder een workflow om het echte app-scherm te bekijken. Klik op de oplichtende genummerde hotspots op de telefoon voor directe uitleg over elke knop en functie.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ================= MAIN INTERACTIVE TUTORIAL WORKSPACE ================= -->
+  <section class="py-12 bg-vicli-cream flex-grow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Workflow Tabs Selector (6 Tabs) -->
+      <div class="flex items-center justify-start md:justify-center gap-2.5 overflow-x-auto pb-4 mb-10 scrollbar-none" id="tut-tabs-container">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Main Interactive Box (2 Columns) -->
+      <div class="rounded-3xl bg-white border border-vicli-border p-6 sm:p-10 lg:p-12 card-shadow mb-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          
+          <!-- LEFT COLUMN: Realistic Phone Mockup with Hotspots -->
+          <div class="lg:col-span-5 flex flex-col items-center">
+            
+            <div class="sticky top-28 w-full flex flex-col items-center">
+              <div class="relative w-full max-w-[300px] sm:max-w-[320px] rounded-[44px] bg-neutral-900 p-3 border-4 border-neutral-800 device-shadow select-none">
+                
+                <!-- iPhone Notch / Dynamic Island -->
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-4 bg-black rounded-full z-30 pointer-events-none"></div>
+
+                <!-- Screen container -->
+                <div class="relative rounded-[34px] overflow-hidden bg-black aspect-[9/19.5]">
+                  
+                  <img 
+                    id="tut-screenshot-img" 
+                    src="./assets/screenshots/nl/1-agenda.png" 
+                    alt="ViCli App Screenshot"
+                    class="w-full h-full object-cover"
+                  >
+
+                  <!-- Dynamic Hotspot Pins -->
+                  <div id="tut-hotspots-container">
+                    <!-- Rendered via JS -->
+                  </div>
+
+                </div>
+
+                <!-- Phone Bottom Bar -->
+                <div class="w-28 h-1 bg-neutral-700 rounded-full mx-auto mt-2"></div>
+              </div>
+
+              <div class="text-center pt-3 text-xs font-semibold text-vicli-muted">
+                <span id="tut-screenLabel">Echt scherm in de app</span> • <span id="tut-activeTabName" class="text-vicli-gold font-bold">Agenda & Planning</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: Active Hotspot Spotlight & Practical Walkthrough -->
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            
+            <!-- Tab Header & Overview -->
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full bg-vicli-gold/15 text-vicli-gold font-bold text-xs uppercase tracking-wider mb-2" id="tut-tabTag">
+                Agenda & Kalender
+              </span>
+              <h2 class="font-serif text-2xl sm:text-3xl font-bold text-vicli-dark mb-2" id="tut-tabTitle">
+                Overzichtelijke dag- en weekplanning zonder gedoe
+              </h2>
+              <p class="text-xs sm:text-sm text-vicli-muted leading-relaxed" id="tut-tabSubtitle">
+                Plan afspraken in een oogwenk in. Schakel soepel tussen dagoverzicht, komende afspraken en eerdere bezoeken.
+              </p>
+            </div>
+
+            <!-- ACTIVE HOTSPOT SPOTLIGHT CARD -->
+            <div class="rounded-2xl border-2 border-vicli-gold/40 bg-vicli-warm/40 p-6 sm:p-7 relative overflow-hidden transition-all duration-300" id="tut-spotlight-card">
+              <div class="flex items-center justify-between mb-4">
+                <div class="inline-flex items-center gap-2">
+                  <span class="w-7 h-7 rounded-full bg-vicli-gold text-white font-bold text-xs flex items-center justify-center shadow-sm" id="tut-spotlight-num">
+                    1
+                  </span>
+                  <span class="text-xs uppercase tracking-wider font-bold text-vicli-gold" id="tut-spotlight-badge">
+                    Actieve Hotspot Uitleg
+                  </span>
+                </div>
+
+                <!-- Prev / Next Hotspot Controls -->
+                <div class="flex items-center gap-1.5">
+                  <button onclick="prevHotspot()" class="p-1.5 rounded-lg border border-vicli-border bg-white text-vicli-dark hover:border-vicli-gold transition-colors text-xs" title="Vorige hotspot">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                  </button>
+                  <button onclick="nextHotspot()" class="p-1.5 rounded-lg border border-vicli-border bg-white text-vicli-dark hover:border-vicli-gold transition-colors text-xs" title="Volgende hotspot">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-vicli-dark mb-2" id="tut-spotlight-title">
+                Weergave filters
+              </h3>
+              
+              <p class="text-xs sm:text-sm text-vicli-charcoal leading-relaxed mb-4" id="tut-spotlight-desc">
+                Wissel soepel tussen 'Dag', 'Komend' en 'Geweest' om snel te zien wat er vandaag of later op de planning staat.
+              </p>
+
+              <!-- Pro-Tip Box -->
+              <div class="rounded-xl bg-white p-3.5 border border-vicli-border/80 text-xs flex items-start gap-2.5">
+                <i data-lucide="lightbulb" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
+                <div class="text-vicli-muted">
+                  <strong class="text-vicli-dark block mb-0.5" id="tut-tip-label">Handige tip voor zelfstandigen:</strong>
+                  <span id="tut-tip-text">Tik direct op een afsprakenkaart om de klant te bellen of direct een kassa-bon met btw te openen.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- HOTSPOTS SELECTOR GRID -->
+            <div>
+              <div class="text-xs uppercase tracking-wider font-bold text-vicli-muted mb-3 flex items-center gap-2">
+                <i data-lucide="list" class="w-3.5 h-3.5 text-vicli-gold"></i>
+                <span id="tut-allHotspotsLabel">Alle interactieve punten op dit scherm:</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="tut-hotspots-grid">
+                <!-- Rendered via JS -->
+              </div>
+            </div>
+
+            <!-- STEP-BY-STEP WORKFLOW GUIDE -->
+            <div class="pt-4 border-t border-vicli-border">
+              <h4 class="font-serif text-lg font-bold text-vicli-dark mb-3 flex items-center gap-2">
+                <i data-lucide="workflow" class="w-4 h-4 text-vicli-gold"></i>
+                <span id="tut-workflowTitle">Hoe voer je dit uit in de praktijk?</span>
+              </h4>
+              <div class="space-y-2.5 text-xs sm:text-sm text-vicli-charcoal" id="tut-workflowSteps">
+                <!-- Rendered via JS -->
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ZERO-DATA PRIVACY ASSURANCE BOX -->
+      <div class="rounded-3xl bg-emerald-50 border-2 border-emerald-200/80 p-6 sm:p-8 card-shadow flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-emerald-950 mb-1" id="tut-privBoxTitle">
+              100% Veilige lokale opslag — ViCli bewaart niets op eigen servers
+            </h3>
+            <p class="text-xs sm:text-sm text-emerald-900/80 leading-relaxed font-light" id="tut-privBoxDesc">
+              Al jouw klantkaarten, afspraken, omzetcijfers en notities staan versleuteld opgeslagen op jouw eigen iPhone, iPad of Android. Er is geen centrale server die gehackt kan worden. Synchronisatie verloopt uitsluitend via jouw eigen privé Google Drive.
+            </p>
+          </div>
+        </div>
+        <div class="shrink-0">
+          <a href="./privacy.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-700 text-white font-semibold text-xs hover:bg-emerald-800 transition-colors">
+            <span>Lees Privacybeleid</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- FREQUENTLY ASKED USAGE QUESTIONS -->
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-8">
+          <h3 class="font-serif text-2xl sm:text-3xl font-bold text-vicli-dark mb-2" id="tut-faqTitle">
+            Veelgestelde vragen over het gebruik
+          </h3>
+          <p class="text-xs sm:text-sm text-vicli-muted" id="tut-faqSubtitle">
+            Handige tips voor een vlekkeloze start met ViCli.
+          </p>
+        </div>
+
+        <div class="space-y-3" id="tut-faq-container">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-vicli-dark border-t border-white/10 text-vicli-sand/70 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/10 text-xs">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-vicli-gold flex items-center justify-center text-white font-serif font-bold text-lg">
+            V
+          </div>
+          <span class="font-serif text-xl font-bold tracking-wider text-white">ViCli</span>
+          <span class="text-vicli-sand/60">CRM • Calendar • POS</span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-6">
+          <a href="./index.html" class="hover:text-white transition-colors">Website Home</a>
+          <a href="./index.html#functies" class="hover:text-white transition-colors">Functies</a>
+          <a href="./index.html#tarieven" class="hover:text-white transition-colors">Abonnement (30 dagen gratis)</a>
+          <a href="./privacy.html" class="hover:text-white transition-colors">Privacybeleid</a>
+          <a href="./voorwaarden.html" class="hover:text-white transition-colors">Algemene Voorwaarden</a>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-vicli-sand/50">
+        <p>&copy; <span id="year"></span> ViCli. Alle rechten voorbehouden.</p>
+        <p>30 dagen gratis in de app • Geen serveropslag • 0% commissie</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./translations.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const supportedLangs = ['nl', 'en', 'de', 'fr', 'es', 'pt'];
+    let currentLang = localStorage.getItem('vicli_lang') || 'nl';
+
+    // Parse URL params (?tab=crm&lang=nl)
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramLang = urlParams.get('lang');
+    if (paramLang && supportedLangs.includes(paramLang.toLowerCase())) {
+      currentLang = paramLang.toLowerCase();
+    }
+
+    let currentTab = 0;
+    let activeHotspotIndex = 0;
+
+    // Practical workflows per tab
+    const WORKFLOW_STEPS = {
+      nl: {
+        agenda: [
+          "Stap 1: Open de agenda om direct de komende afspraken van vandaag en deze week te zien.",
+          "Stap 2: Tik rechtsboven op het plus-icoon om een nieuwe afspraak toe te voegen.",
+          "Stap 3: Kies een bestaande klant of voer snel een nieuwe naam en telefoonnummer in.",
+          "Stap 4: Tik vóór de afspraak op 'Sms herinnering' om automatisch een herinnering te sturen via je eigen Berichten-app."
+        ],
+        crm: [
+          "Stap 1: Gebruik de zoekbalk bovenin om direct op voornaam, achternaam of nummer te filteren.",
+          "Stap 2: Open de klantkaart om eerdere behandelingen, wensen en notities in te zien.",
+          "Stap 3: Beheer strippenkaarten (bijv. 5- of 10-rittenkaarten). Het resterende saldo zie je direct in goud.",
+          "Stap 4: Bel de klant of stuur een bericht met één tik op het telefoonnummer."
+        ],
+        pos: [
+          "Stap 1: Selecteer een klant of start direct een anonieme kassabon.",
+          "Stap 2: Voeg diensten of producten toe vanuit je catalogus, of scan de barcode met je camera.",
+          "Stap 3: Het btw-tarief (21%, 9%, 0%) wordt direct correct berekend.",
+          "Stap 4: Reken af via pin, contant of strippenkaart en mail de PDF bon direct naar de klant."
+        ],
+        finance: [
+          "Stap 1: Kies het gewenste kwartaal, de maand of een specifiek boekjaar.",
+          "Stap 2: Bekijk direct je totale bruto omzet, netto omzet en de exacte btw-afdracht.",
+          "Stap 3: Controleer de automatische btw-splitsing (21% hoog, 9% laag en 0% vrijgesteld).",
+          "Stap 4: Druk op 'Exporteer' om direct een sluitende PDF en CSV voor je boekhouder te downloaden."
+        ],
+        sms: [
+          "Stap 1: Kies het gewenste sjabloon (bijv. afspraakherinnering of bedankbericht na behandeling).",
+          "Stap 2: ViCli vult automatisch de voornaam van de klant, datum en tijdstip van de afspraak in.",
+          "Stap 3: Tik op 'Open in Berichten' — je eigen Berichten-app opent met de tekst gereed.",
+          "Stap 4: Druk op verzenden. Je betaalt géén duur maandelijks sms-abonnement!"
+        ],
+        sync: [
+          "Stap 1: Log eenmalig in met jouw Google-account op je Master-apparaat.",
+          "Stap 2: ViCli maakt verbinding met de beveiligde Google Drive appDataFolder (alleen voor jou toegankelijk).",
+          "Stap 3: Genereer een scanbare QR-code in het synchronisatiescherm van ViCli.",
+          "Stap 4: Scan de QR-code met je tweede telefoon of iPad; alle gegevens synchroniseren voortaan automatisch."
+        ]
+      },
+      en: {
+        agenda: [
+          "Step 1: Open the calendar to view today's and upcoming appointments immediately.",
+          "Step 2: Tap the plus icon top right to schedule a new appointment in seconds.",
+          "Step 3: Select an existing client or quickly add a new name and phone number.",
+          "Step 4: Tap 'SMS reminder' to prefill a friendly reminder in your native message app."
+        ],
+        crm: [
+          "Step 1: Use the top search bar to filter clients instantly by name or number.",
+          "Step 2: Open client details to view treatment history, notes, and preferences.",
+          "Step 3: Manage punch cards and multi-session packages with balance tracking in gold.",
+          "Step 4: Call or text the client with a single tap on their phone number."
+        ],
+        pos: [
+          "Step 1: Select a client or start an immediate walk-in checkout.",
+          "Step 2: Add services or physical products from your catalog or scan barcodes with camera.",
+          "Step 3: Tax rates (VAT) are calculated automatically and transparently.",
+          "Step 4: Finish checkout via card, cash, or punch card and email the professional PDF receipt."
+        ],
+        finance: [
+          "Step 1: Choose the desired quarter, month, or full financial year.",
+          "Step 2: View gross revenue, net revenue, and exact tax breakdown at a glance.",
+          "Step 3: Review automatic VAT separation according to tax standards.",
+          "Step 4: Tap 'Export' to download complete PDF and CSV files for your accountant."
+        ],
+        sms: [
+          "Step 1: Pick a pre-configured template (appointment reminder, welcome, or review request).",
+          "Step 2: ViCli automatically populates the client's name, appointment date, and time.",
+          "Step 3: Tap 'Open in Messages' to pre-fill your phone's native message app.",
+          "Step 4: Hit send. Zero costly SMS subscriptions required!"
+        ],
+        sync: [
+          "Step 1: Sign in with your Google account on your Master device once.",
+          "Step 2: ViCli connects to the secure private Google Drive appDataFolder.",
+          "Step 3: Generate a secure pairing QR code inside ViCli sync settings.",
+          "Step 4: Scan the QR code on your secondary iPhone, iPad, or Android to sync seamlessly."
+        ]
+      }
+    };
+
+    // Practical Pro Tips per Tab
+    const PRO_TIPS = {
+      nl: {
+        agenda: "Je kunt op elke afspraak tikken om direct de klantenkaart te openen of een kassa-bon met de juiste behandelingen aan te maken.",
+        crm: "Je kunt allergieën, haarkleurformules of speciale wensen opslaan in het notitieveld. Deze verschijnen direct bij de volgende afspraak.",
+        pos: "Brengt een klant een artikel terug? Voeg het product toe en tik op 'Retour' om direct de juiste btw-teruggaaf te registreren.",
+        finance: "Stuur aan het eind van elk kwartaal het geëxporteerde CSV-bestand naar je boekhouder; dit scheelt uren administratiewerk.",
+        sms: "Omdat de app de sms via jouw eigen mobiele abonnement opent, herkent de klant direct jouw vertrouwde 06-nummer.",
+        sync: "Geen zorgen bij het verliezen van je telefoon: zolang je verbonden bent met je eigen Google Drive, staan al je data veilig in je privé back-up."
+      },
+      en: {
+        agenda: "Tap any appointment card to instantly open the client profile or create a receipt with services pre-filled.",
+        crm: "Save treatment formulas, allergies, or preferences in client notes. They appear right away during their next visit.",
+        pos: "Customer returning an item? Add the product and toggle 'Return' to handle refunds and tax credits accurately.",
+        finance: "Send the quarterly CSV export straight to your accountant to save hours of manual bookkeeping.",
+        sms: "Since messages are sent through your device's native app, clients instantly recognize your phone number.",
+        sync: "Lost or upgraded your phone? Simply connect to your private Google Drive and all your data restores immediately."
+      }
+    };
+
+    const TUT_FAQ = {
+      nl: [
+        {
+          q: "Werkt ViCli ook zonder actieve internetverbinding?",
+          a: "Ja, 100%! ViCli is volledig offline-first gebouwd. Je kunt altijd afspraken inplannen, klanten opzoeken en kassa-bonnen aanmaken. Zodra je weer WiFi of mobiel bereik hebt, synchroniseert de app automatisch via Google Drive."
+        },
+        {
+          q: "Hoe beheer ik strippenkaarten (bijv. 5- of 10-ritten)?",
+          a: "In de klantenkaart kun je met één tik een strippenkaart toevoegen. Bij elke afrekening in de kassa kun je 'Betaal met strippenkaart' kiezen. Het saldo wordt automatisch afgewaardeerd."
+        },
+        {
+          q: "Moet ik extra betalen voor het versturen van SMS-herinneringen?",
+          a: "Nee! ViCli opent automatisch jouw eigen Berichten-app (iMessage of Android Berichten) met de tekst, klantnaam en datum al ingevuld. Het bericht wordt verzonden via jouw eigen bundel."
+        },
+        {
+          q: "Waarom heeft ViCli geen eigen database-servers?",
+          a: "Omdat wij geloven dat jouw bedrijfsdata en klantgegevens uitsluitend van jou horen te zijn. Geen servers betekent nul risico op datalekken bij derden."
+        }
+      ],
+      en: [
+        {
+          q: "Does ViCli work without an internet connection?",
+          a: "Yes, 100%! ViCli is built completely offline-first. You can schedule appointments, look up client details, and checkout anytime. Once back online, everything syncs via Google Drive."
+        },
+        {
+          q: "How do punch cards and multi-session passes work?",
+          a: "You can add a punch card package to any client card. During POS checkout, select 'Pay with punch card' to automatically deduct a session from their balance."
+        },
+        {
+          q: "Do I have to pay extra for SMS appointment reminders?",
+          a: "No! ViCli prepares the message in your phone's native messaging app with the client's name and appointment time already filled in. It sends via your normal mobile plan."
+        },
+        {
+          q: "Why doesn't ViCli have central database servers?",
+          a: "Because your client and revenue data belongs exclusively to you. Having zero servers eliminates third-party data breach risks entirely."
+        }
+      ]
+    };
+
+    function selectLanguage(lang) {
+      if (!supportedLangs.includes(lang)) return;
+      currentLang = lang;
+      localStorage.setItem('vicli_lang', lang);
+      document.documentElement.lang = lang;
+      
+      const dropdown = document.getElementById('lang-dropdown');
+      if (dropdown) dropdown.classList.add('hidden');
+
+      applyTutorialTranslations();
+      renderTutorialTabs();
+      renderTutorialContent();
+      renderTutorialFAQ();
+      lucide.createIcons();
+    }
+
+    function toggleLangDropdown() {
+      const d = document.getElementById('lang-dropdown');
+      if (d) d.classList.toggle('hidden');
+    }
+
+    document.addEventListener('click', (e) => {
+      const wrapper = document.getElementById('lang-menu-wrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        const d = document.getElementById('lang-dropdown');
+        if (d) d.classList.add('hidden');
+      }
+    });
+
+    function applyTutorialTranslations() {
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+      
+      document.getElementById('current-lang-flag').textContent = t.flag;
+      document.getElementById('current-lang-code').textContent = currentLang.toUpperCase();
+      document.getElementById('tut-downloadApp').textContent = `${t.nav.downloadApp} (30 ${currentLang === 'nl' ? 'dagen gratis in de app' : 'days free'})`;
+
+      if (currentLang === 'nl') {
+        document.getElementById('tut-backHome').textContent = "Terug naar Website";
+        document.getElementById('tut-heroBadge').textContent = "Stap-voor-stap Interactieve Tour";
+        document.getElementById('tut-heroTitle').textContent = "Hoe werkt ViCli in jouw salon of praktijk?";
+        document.getElementById('tut-heroSubtitle').textContent = "Kies hieronder een workflow om het echte app-scherm te bekijken. Klik op de oplichtende genummerde hotspots op de telefoon voor directe uitleg over elke knop en functie.";
+        document.getElementById('tut-allHotspotsLabel').textContent = "Alle interactieve punten op dit scherm:";
+        document.getElementById('tut-workflowTitle').textContent = "Hoe voer je dit uit in de praktijk?";
+        document.getElementById('tut-screenLabel').textContent = "Echt scherm in de app";
+        document.getElementById('tut-privBoxTitle').textContent = "100% Veilige lokale opslag — ViCli bewaart niets op eigen servers";
+        document.getElementById('tut-privBoxDesc').textContent = "Al jouw klantkaarten, afspraken, omzetcijfers en notities staan versleuteld opgeslagen op jouw eigen iPhone, iPad of Android. Er is geen centrale server die gehackt kan worden. Synchronisatie verloopt uitsluitend via jouw eigen privé Google Drive.";
+        document.getElementById('tut-faqTitle').textContent = "Veelgestelde vragen over het gebruik";
+        document.getElementById('tut-faqSubtitle').textContent = "Handige tips voor een vlekkeloze start met ViCli.";
+        document.getElementById('tut-tip-label').textContent = "Handige tip voor zelfstandigen:";
+      } else {
+        document.getElementById('tut-backHome').textContent = "Back to Website";
+        document.getElementById('tut-heroBadge').textContent = "Step-by-Step Interactive Tour";
+        document.getElementById('tut-heroTitle').textContent = "How does ViCli work in your salon or practice?";
+        document.getElementById('tut-heroSubtitle').textContent = "Select a workflow below to view the real app screen. Click the glowing numbered hotspots on the phone to learn what every button and feature does.";
+        document.getElementById('tut-allHotspotsLabel').textContent = "All interactive points on this screen:";
+        document.getElementById('tut-workflowTitle').textContent = "How does this work in practice?";
+        document.getElementById('tut-screenLabel').textContent = "Real in-app screen";
+        document.getElementById('tut-privBoxTitle').textContent = "100% Secure local storage — ViCli stores zero data on servers";
+        document.getElementById('tut-privBoxDesc').textContent = "All your client records, appointments, receipts, and notes are encrypted on your own device. There is no central server vulnerable to breaches. Sync happens strictly via your private Google Drive.";
+        document.getElementById('tut-faqTitle').textContent = "Frequently Asked Usage Questions";
+        document.getElementById('tut-faqSubtitle').textContent = "Helpful tips for getting the most out of ViCli.";
+        document.getElementById('tut-tip-label').textContent = "Practical Pro-Tip for business owners:";
+      }
+    }
+
+    function renderTutorialTabs() {
+      const container = document.getElementById('tut-tabs-container');
+      if (!container) return;
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+      const tabs = t.features.tabs;
+
+      container.innerHTML = tabs.map((f, idx) => `
+        <button 
+          onclick="selectTutorialTab(${idx})"
+          class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 border ${
+            idx === currentTab 
+              ? 'bg-vicli-dark text-white border-vicli-dark shadow-sm' 
+              : 'bg-white text-vicli-charcoal border-vicli-border hover:border-vicli-gold hover:bg-vicli-warm/40'
+          }"
+        >
+          ${f.tabTitle}
+        </button>
+      `).join('');
+    }
+
+    function selectTutorialTab(idx) {
+      currentTab = idx;
+      activeHotspotIndex = 0;
+      renderTutorialTabs();
+      renderTutorialContent();
+    }
+
+    function selectTutorialHotspot(hIdx) {
+      activeHotspotIndex = hIdx;
+      renderTutorialContent();
+    }
+
+    function prevHotspot() {
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+      const f = t.features.tabs[currentTab];
+      const count = (f.hotspots || []).length;
+      if (count === 0) return;
+      activeHotspotIndex = (activeHotspotIndex - 1 + count) % count;
+      renderTutorialContent();
+    }
+
+    function nextHotspot() {
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+      const f = t.features.tabs[currentTab];
+      const count = (f.hotspots || []).length;
+      if (count === 0) return;
+      activeHotspotIndex = (activeHotspotIndex + 1) % count;
+      renderTutorialContent();
+    }
+
+    function renderTutorialContent() {
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+      const f = t.features.tabs[currentTab] || t.features.tabs[0];
+      const hotspots = f.hotspots || [];
+      const activeHotspot = hotspots[activeHotspotIndex] || hotspots[0] || { number: 1, title: '', desc: '' };
+
+      // Update Screenshot Image
+      const img = document.getElementById('tut-screenshot-img');
+      if (img) {
+        img.src = `./assets/screenshots/${currentLang}/${f.imageFile}`;
+        img.onerror = function() {
+          this.src = `./assets/screenshots/nl/${f.imageFile}`;
+        };
+      }
+
+      // Update Labels
+      document.getElementById('tut-activeTabName').textContent = f.tabTitle;
+      document.getElementById('tut-tabTag').textContent = f.tag;
+      document.getElementById('tut-tabTitle').textContent = f.title;
+      document.getElementById('tut-tabSubtitle').textContent = f.subtitle;
+
+      // Update Spotlight Card
+      document.getElementById('tut-spotlight-num').textContent = activeHotspot.number || (activeHotspotIndex + 1);
+      document.getElementById('tut-spotlight-title').textContent = activeHotspot.title;
+      document.getElementById('tut-spotlight-desc').textContent = activeHotspot.desc;
+
+      // Update Pro Tip
+      const tipsDict = PRO_TIPS[currentLang] || PRO_TIPS.nl;
+      const currentTabId = f.id || 'agenda';
+      document.getElementById('tut-tip-text').textContent = tipsDict[currentTabId] || tipsDict.agenda;
+
+      // Render Phone Hotspot Pins Over Screen
+      const pinsContainer = document.getElementById('tut-hotspots-container');
+      if (pinsContainer) {
+        pinsContainer.innerHTML = hotspots.map((h, hIdx) => `
+          <button 
+            type="button"
+            onclick="selectTutorialHotspot(${hIdx})"
+            class="absolute w-7 h-7 -ml-3.5 -mt-3.5 rounded-full flex items-center justify-center font-bold text-xs text-white shadow-xl ring-2 ring-white/90 transition-all transform hover:scale-125 z-20 cursor-pointer ${
+              activeHotspotIndex === hIdx 
+                ? 'bg-amber-500 ring-4 ring-amber-300 scale-125 animate-pulse' 
+                : 'bg-vicli-gold hover:bg-amber-600'
+            }"
+            style="left: ${h.x}%; top: ${h.y}%;"
+            title="${h.title}"
+            aria-label="${h.title}"
+          >
+            ${h.number}
+          </button>
+        `).join('');
+      }
+
+      // Render Hotspots Grid (Right side)
+      const grid = document.getElementById('tut-hotspots-grid');
+      if (grid) {
+        grid.innerHTML = hotspots.map((h, hIdx) => `
+          <button 
+            type="button"
+            onclick="selectTutorialHotspot(${hIdx})"
+            class="text-left p-3 rounded-xl border transition-all text-xs flex items-start gap-2.5 ${
+              activeHotspotIndex === hIdx 
+                ? 'bg-vicli-warm/80 border-vicli-gold shadow-sm ring-1 ring-vicli-gold' 
+                : 'bg-white border-vicli-border/70 hover:bg-vicli-warm/30 hover:border-vicli-gold/50'
+            }"
+          >
+            <span class="w-5 h-5 rounded-full ${activeHotspotIndex === hIdx ? 'bg-vicli-gold text-white' : 'bg-vicli-warm text-vicli-dark'} font-bold flex items-center justify-center shrink-0 text-[10px]">
+              ${h.number}
+            </span>
+            <div>
+              <div class="font-bold text-vicli-dark">${h.title}</div>
+              <div class="text-[11px] text-vicli-muted mt-0.5 line-clamp-2">${h.desc}</div>
+            </div>
+          </button>
+        `).join('');
+      }
+
+      // Render Step-by-Step Workflow Steps
+      const stepsContainer = document.getElementById('tut-workflowSteps');
+      if (stepsContainer) {
+        const wfDict = WORKFLOW_STEPS[currentLang] || WORKFLOW_STEPS.nl;
+        const steps = wfDict[currentTabId] || wfDict.agenda || [];
+        stepsContainer.innerHTML = steps.map(step => `
+          <div class="flex items-start gap-3 p-3 rounded-xl bg-vicli-cream/60 border border-vicli-border/60">
+            <div class="w-5 h-5 rounded-full bg-vicli-gold/20 text-vicli-gold flex items-center justify-center shrink-0 mt-0.5 font-bold text-[10px]">
+              ✓
+            </div>
+            <div class="leading-relaxed font-normal">${step}</div>
+          </div>
+        `).join('');
+      }
+
+      lucide.createIcons();
+    }
+
+    function renderTutorialFAQ() {
+      const container = document.getElementById('tut-faq-container');
+      if (!container) return;
+      const faqList = TUT_FAQ[currentLang] || TUT_FAQ.nl;
+
+      container.innerHTML = faqList.map((item, idx) => `
+        <div class="border border-vicli-border rounded-2xl overflow-hidden bg-white transition-colors">
+          <button 
+            onclick="toggleTutFAQ(${idx})" 
+            class="w-full text-left px-5 py-4 flex items-center justify-between gap-4 font-semibold text-xs sm:text-sm text-vicli-dark hover:text-vicli-gold transition-colors"
+          >
+            <span>${item.q}</span>
+            <div id="tut-faq-icon-${idx}" class="w-5 h-5 rounded-full bg-vicli-warm flex items-center justify-center shrink-0 text-vicli-dark transition-transform duration-300">
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+            </div>
+          </button>
+          <div id="tut-faq-answer-${idx}" class="px-5 pb-4 text-xs text-vicli-muted font-light leading-relaxed hidden">
+            ${item.a}
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function toggleTutFAQ(idx) {
+      const ans = document.getElementById(`tut-faq-answer-${idx}`);
+      const icon = document.getElementById(`tut-faq-icon-${idx}`);
+      if (!ans) return;
+      const isHidden = ans.classList.contains('hidden');
+
+      document.querySelectorAll('[id^="tut-faq-answer-"]').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('[id^="tut-faq-icon-"]').forEach(el => el.style.transform = 'rotate(0deg)');
+
+      if (isHidden) {
+        ans.classList.remove('hidden');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // Check if ?tab=xxx is passed in URL
+    const paramTab = urlParams.get('tab');
+    if (paramTab) {
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+      const foundIdx = t.features.tabs.findIndex(tb => tb.id === paramTab);
+      if (foundIdx !== -1) {
+        currentTab = foundIdx;
+      }
+    }
+
+    // Initialize Tutorial
+    selectLanguage(currentLang);
+  </script>
+</body>
+</html>

@@ -28,3 +28,13 @@
   from = "/terms"
   to = "/voorwaarden.html"
   status = 200
+
+[[redirects]]
+  from = "/tutorial"
+  to = "/tutorial.html"
+  status = 200
+
+[[redirects]]
+  from = "/handleiding"
+  to = "/tutorial.html"
+  status = 200

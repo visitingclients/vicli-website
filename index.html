@@ -94,6 +94,10 @@
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium text-vicli-charcoal">
         <a href="#doelgroep" id="nav-forWhom" class="hover:text-vicli-gold transition-colors">Voor wie</a>
+        <a href="./tutorial.html" id="nav-tutorial" class="text-vicli-gold font-semibold hover:text-vicli-goldDark transition-colors flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span>Handleiding</span>
+        </a>
         <a href="#functies" id="nav-features" class="hover:text-vicli-gold transition-colors">Functies</a>
         <a href="#tarieven" id="nav-pricing" class="hover:text-vicli-gold transition-colors">Abonnement</a>
         <a href="#faq" id="nav-faq" class="hover:text-vicli-gold transition-colors">Veelgestelde vragen</a>
@@ -159,6 +163,10 @@
         </div>
 
         <a href="#doelgroep" onclick="toggleMobileMenu()" id="mobile-nav-forWhom" class="py-2 border-b border-vicli-border/50">Voor wie</a>
+        <a href="./tutorial.html" onclick="toggleMobileMenu()" id="mobile-nav-tutorial" class="py-2 border-b border-vicli-border/50 text-vicli-gold font-semibold flex items-center justify-between">
+          <span>✨ Interactieve Handleiding</span>
+          <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        </a>
         <a href="#functies" onclick="toggleMobileMenu()" id="mobile-nav-features" class="py-2 border-b border-vicli-border/50">Functies</a>
         <a href="#tarieven" onclick="toggleMobileMenu()" id="mobile-nav-pricing" class="py-2 border-b border-vicli-border/50">Abonnement</a>
         <a href="#faq" onclick="toggleMobileMenu()" id="mobile-nav-faq" class="py-2 border-b border-vicli-border/50">Veelgestelde vragen</a>
@@ -287,6 +295,36 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="audience-cards-container">
         <!-- Injected via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ZERO-DATA PRIVACY SECTION ================= -->
+  <section id="privacy-veiligheid" class="py-20 bg-vicli-warm/40 border-t border-vicli-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3" id="privacy-badge">
+          🛡️ Veiligheid & Privacy
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-vicli-dark mb-5" id="privacy-title">
+          ViCli bewaart géén gegevens op een server
+        </h2>
+        <p class="text-base sm:text-lg text-vicli-muted font-light leading-relaxed" id="privacy-subtitle">
+          Jouw klanten en omzet zijn van jou alleen. Omdat ViCli geen eigen database of server heeft, kan er nooit een datalek ontstaan.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="privacy-points-container">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="./privacy.html" class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-vicli-gold hover:text-vicli-goldDark transition-colors">
+          <span>Lees ons volledige privacybeleid (AVG / GDPR conform)</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
       </div>
 
     </div>
@@ -594,6 +632,8 @@
       }
     });
 
+    let activeHotspotIndex = 0;
+
     function applyTranslations() {
       const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
       
@@ -603,12 +643,16 @@
 
       // Navigation
       document.getElementById('nav-forWhom').textContent = t.nav.forWhom;
+      const navTut = document.getElementById('nav-tutorial');
+      if (navTut) navTut.querySelector('span').textContent = t.nav.tutorial || "Handleiding";
       document.getElementById('nav-features').textContent = t.nav.features;
       document.getElementById('nav-pricing').textContent = t.nav.pricing;
       document.getElementById('nav-faq').textContent = t.nav.faq;
       document.getElementById('nav-downloadApp').textContent = t.nav.downloadApp;
 
       document.getElementById('mobile-nav-forWhom').textContent = t.nav.forWhom;
+      const mobTut = document.getElementById('mobile-nav-tutorial');
+      if (mobTut) mobTut.querySelector('span').textContent = `✨ ${t.nav.tutorial || "Handleiding"}`;
       document.getElementById('mobile-nav-features').textContent = t.nav.features;
       document.getElementById('mobile-nav-pricing').textContent = t.nav.pricing;
       document.getElementById('mobile-nav-faq').textContent = t.nav.faq;
@@ -631,6 +675,15 @@
       document.getElementById('audience-badge').textContent = t.audience.badge;
       document.getElementById('audience-title').textContent = t.audience.title;
       document.getElementById('audience-subtitle').textContent = t.audience.subtitle;
+
+      // Privacy Pillar Section
+      const privBadge = document.getElementById('privacy-badge');
+      if (privBadge) privBadge.textContent = `🛡️ ${t.privacyPillar.badge}`;
+      const privTitle = document.getElementById('privacy-title');
+      if (privTitle) privTitle.textContent = t.privacyPillar.title;
+      const privSubtitle = document.getElementById('privacy-subtitle');
+      if (privSubtitle) privSubtitle.textContent = t.privacyPillar.subtitle;
+      renderPrivacyPoints();
 
       // Features Section
       document.getElementById('features-badge').textContent = t.features.badge;
@@ -673,6 +726,31 @@
       document.getElementById('footer-link-privacy').textContent = t.footer.privacy;
       document.getElementById('footer-link-terms').textContent = t.footer.terms;
       document.getElementById('footer-rights').textContent = t.footer.rights;
+    }
+
+    function renderPrivacyPoints() {
+      const container = document.getElementById('privacy-points-container');
+      if (!container) return;
+      const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
+      const p = t.privacyPillar;
+      const icons = ['shield-check', 'hard-drive', 'lock'];
+
+      container.innerHTML = p.points.map((pt, i) => `
+        <div class="p-6 sm:p-8 rounded-3xl bg-white border border-vicli-border card-shadow flex flex-col justify-between hover:border-vicli-gold transition-colors">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-5">
+              <i data-lucide="${icons[i] || 'shield-check'}" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-vicli-dark mb-2">${pt.title}</h3>
+            <p class="text-xs sm:text-sm text-vicli-muted font-light leading-relaxed">
+              ${pt.desc}
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-vicli-border/70 text-xs font-semibold text-emerald-700 flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4"></i> 100% Privacy gegarandeerd
+          </div>
+        </div>
+      `).join('');
     }
 
     function renderAudienceCards() {
@@ -723,7 +801,13 @@
 
     function selectTab(idx) {
       currentTab = idx;
+      activeHotspotIndex = 0;
       renderTabs();
+    }
+
+    function selectHotspot(hIdx) {
+      activeHotspotIndex = hIdx;
+      renderTabContent();
     }
 
     function renderTabContent() {
@@ -731,12 +815,13 @@
       if (!content) return;
       const t = window.VICLI_TRANSLATIONS[currentLang] || window.VICLI_TRANSLATIONS.nl;
       const f = t.features.tabs[currentTab] || t.features.tabs[0];
-
-      // Match tab image to content
-      const tabImg = (currentTab === 1) ? './assets/vicli-iphone-agenda.png' : './assets/vicli-ipad-klanten.png';
+      const hotspots = f.hotspots || [];
+      const activeHotspot = hotspots[activeHotspotIndex] || hotspots[0] || null;
 
       content.innerHTML = `
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Left Column: Details & Interactive Hotspot Explorer -->
           <div class="lg:col-span-7">
             <span class="inline-block px-3 py-1 rounded-full bg-vicli-gold/15 text-vicli-gold font-bold text-xs uppercase tracking-wider mb-4">
               ${f.tag}
@@ -744,10 +829,12 @@
             <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-vicli-dark mb-4 leading-tight">
               ${f.title}
             </h3>
-            <p class="text-sm sm:text-base text-vicli-muted font-light leading-relaxed mb-8">
+            <p class="text-sm sm:text-base text-vicli-muted font-light leading-relaxed mb-6">
               ${f.subtitle}
             </p>
-            <ul class="space-y-3.5 mb-8">
+
+            <!-- Highlights list -->
+            <ul class="space-y-2.5 mb-6">
               ${f.highlights.map(h => `
                 <li class="flex items-start gap-3 text-xs sm:text-sm text-vicli-charcoal">
                   <div class="w-5 h-5 rounded-full bg-vicli-gold/20 text-vicli-gold flex items-center justify-center shrink-0 mt-0.5">
@@ -757,25 +844,98 @@
                 </li>
               `).join('')}
             </ul>
-            <div>
-              <a href="#tarieven" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-vicli-dark text-white text-xs sm:text-sm font-semibold hover:bg-vicli-gold transition-colors">
+
+            <!-- Interactive Hotspots Quick-List -->
+            <div class="bg-vicli-warm/40 rounded-2xl p-4 sm:p-5 border border-vicli-border mb-6">
+              <div class="text-xs uppercase tracking-wider font-bold text-vicli-gold mb-3 flex items-center gap-2">
+                <i data-lucide="crosshair" class="w-4 h-4"></i>
+                <span>${t.features.hotspotHint || "Tik op een hotspot voor uitleg:"}</span>
+              </div>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                ${hotspots.map((h, hIdx) => `
+                  <button 
+                    type="button"
+                    onclick="selectHotspot(${hIdx})"
+                    class="text-left p-3 rounded-xl border transition-all text-xs flex items-start gap-2.5 ${
+                      activeHotspotIndex === hIdx 
+                        ? 'bg-white border-vicli-gold shadow-sm ring-1 ring-vicli-gold' 
+                        : 'bg-white/60 border-vicli-border/70 hover:bg-white hover:border-vicli-gold/50'
+                    }"
+                  >
+                    <span class="w-5 h-5 rounded-full ${activeHotspotIndex === hIdx ? 'bg-vicli-gold text-white' : 'bg-vicli-warm text-vicli-dark'} font-bold flex items-center justify-center shrink-0 text-[10px]">
+                      ${h.number}
+                    </span>
+                    <div>
+                      <div class="font-bold text-vicli-dark">${h.title}</div>
+                      ${activeHotspotIndex === hIdx ? `<div class="text-[11px] text-vicli-muted mt-1 leading-relaxed">${h.desc}</div>` : ''}
+                    </div>
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- CTA Actions -->
+            <div class="flex flex-wrap items-center gap-4">
+              <a href="./tutorial.html?tab=${f.id}&lang=${currentLang}" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-vicli-dark text-white text-xs sm:text-sm font-semibold hover:bg-vicli-gold transition-colors shadow-sm">
                 <span>${t.features.cta}</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </a>
+              <a href="#tarieven" class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-vicli-border bg-white text-vicli-dark text-xs sm:text-sm font-semibold hover:bg-vicli-warm/50 transition-colors">
+                <i data-lucide="sparkles" class="w-4 h-4 text-vicli-gold"></i>
+                <span>30 dagen gratis in app</span>
+              </a>
             </div>
           </div>
-          <div class="lg:col-span-5 flex justify-center">
-            <div class="relative rounded-2xl overflow-hidden card-shadow border border-vicli-border bg-vicli-cream p-3 max-w-sm sm:max-w-md w-full">
-              <img 
-                src="${tabImg}" 
-                alt="${f.title}" 
-                class="w-full h-auto rounded-xl object-contain shadow-sm max-h-[380px] mx-auto"
-              >
-              <div class="text-center pt-3 pb-1 text-xs font-semibold text-vicli-muted">
-                ${t.features.interfaceLabel} • ${f.tabTitle}
+
+          <!-- Right Column: Interactive Phone Mockup with Hotspots -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-center">
+            <div class="relative w-full max-w-[290px] sm:max-w-[310px] rounded-[42px] bg-neutral-900 p-2.5 sm:p-3 border-4 border-neutral-800 shadow-2xl overflow-hidden select-none">
+              
+              <!-- iPhone Dynamic Island / Speaker -->
+              <div class="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-4 bg-black rounded-full z-30 pointer-events-none"></div>
+
+              <!-- Phone Screen Container -->
+              <div class="relative rounded-[32px] overflow-hidden bg-black aspect-[9/19.5]">
+                
+                <img 
+                  id="tab-screenshot-img"
+                  src="./assets/screenshots/${currentLang}/${f.imageFile}" 
+                  alt="${f.title}" 
+                  onerror="this.src='./assets/screenshots/nl/${f.imageFile}'"
+                  class="w-full h-full object-cover"
+                >
+
+                <!-- Hotspot Pins Overlaid -->
+                ${hotspots.map((h, hIdx) => `
+                  <button 
+                    type="button"
+                    onclick="selectHotspot(${hIdx})"
+                    class="absolute w-7 h-7 -ml-3.5 -mt-3.5 rounded-full flex items-center justify-center font-bold text-xs text-white shadow-xl ring-2 ring-white/90 transition-all transform hover:scale-125 z-20 cursor-pointer ${
+                      activeHotspotIndex === hIdx 
+                        ? 'bg-amber-500 ring-4 ring-amber-300 scale-125 animate-pulse' 
+                        : 'bg-vicli-gold hover:bg-amber-600'
+                    }"
+                    style="left: ${h.x}%; top: ${h.y}%;"
+                    title="${h.title}"
+                    aria-label="${h.title}"
+                  >
+                    ${h.number}
+                  </button>
+                `).join('')}
+
               </div>
+
+              <!-- Phone Bottom Home Bar -->
+              <div class="w-28 h-1 bg-neutral-700 rounded-full mx-auto mt-2"></div>
+            </div>
+
+            <!-- Active Hotspot Bottom Label -->
+            <div class="text-center pt-3 text-xs font-semibold text-vicli-muted">
+              ${t.features.interfaceLabel} • <span class="text-vicli-gold">${f.tabTitle}</span>
             </div>
           </div>
+
         </div>
       `;
       lucide.createIcons();

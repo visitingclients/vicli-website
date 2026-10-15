@@ -16,6 +16,7 @@ window.VICLI_TRANSLATIONS = {
     nav: {
       forWhom: "Voor wie",
       features: "Functies",
+      tutorial: "Interactieve Handleiding",
       pricing: "Abonnement",
       faq: "Veelgestelde vragen",
       trialBadge: "30 dagen gratis in de app",
@@ -26,14 +27,34 @@ window.VICLI_TRANSLATIONS = {
       title: "Minder administratie, meer tijd voor je ",
       titleHighlight: "klanten",
       subtitle: "Of je nu kapper, pedicure, coach, personal trainer of beautyspecialist bent: ViCli brengt jouw agenda, klantenbeheer, strippenkaarten en kassa samen in één vloeiende app.",
-      ctaPrimary: "Probeer 30 dagen gratis",
-      ctaSecondary: "Bekijk functies",
+      ctaPrimary: "Probeer 30 dagen gratis in de app",
+      ctaSecondary: "Ontdek functies & hotspots",
       badgeTrial: "30 dagen gratis in de app",
       badgePrice: "Minder dan €10 per maand",
       badgeCommission: "0% commissie over jouw klanten",
       badgePlatform: "Voor iOS & Android",
+      badgeZeroData: "100% Lokaal • Zero Data Opslag",
       ipadLabel: "iPad & Tablet weergave • Klantenbeheer & Strippenkaarten",
       iphoneLabel: "iPhone & Android weergave • Agenda"
+    },
+    privacyPillar: {
+      badge: "Veiligheid & Privacy",
+      title: "ViCli bewaart géén gegevens op een server",
+      subtitle: "Jouw klanten en omzet zijn van jou alleen. Omdat ViCli geen eigen database of server heeft, kan er nooit een datalek ontstaan.",
+      points: [
+        {
+          title: "100% Lokaal op je toestel",
+          desc: "Al je klantgegevens, afspraken en bonnen worden versleuteld bewaard op jouw eigen iPhone, iPad of Android toestel. Wij kunnen hier niet bij."
+        },
+        {
+          title: "Sync via jouw eigen Google Drive",
+          desc: "Wil je gegevens uitwisselen tussen je iPad en telefoon? Dat gebeurt via je eigen privé Google Drive (drive.appdata). De ontwikkelaar heeft geen toegang."
+        },
+        {
+          title: "Geen accounts of tracking",
+          desc: "Geen verplichte registratie bij de ontwikkelaar, geen advertenties en geen analytics-trackers. Volledig AVG/GDPR compliant."
+        }
+      ]
     },
     audience: {
       badge: "Voor Zelfstandig Ondernemers",
@@ -63,36 +84,51 @@ window.VICLI_TRANSLATIONS = {
       ]
     },
     features: {
-      badge: "Alles in Één Overzicht",
-      title: "De kernfuncties van ViCli",
-      subtitle: "Ontworpen met oog voor eenvoud en snelheid. Geen onnodige toeters en bellen, maar precies de gereedschappen die jouw werkdag makkelijker maken.",
-      cta: "Start 30 dagen gratis in de app",
-      interfaceLabel: "Echte ViCli App interface",
+      badge: "Interactieve Tour",
+      title: "Ontdek alle functies met interactieve hotspots",
+      subtitle: "Klik op een functie hieronder om het echte scherm te zien. Klik op de oplichtende hotspots om direct te ontdekken wat je waar kunt doen.",
+      cta: "Open de uitgebreide handleiding",
+      interfaceLabel: "Echte ViCli App interface in het Nederlands",
+      hotspotHint: "Tik op een genummerde cirkel voor uitleg",
       tabs: [
-        {
-          id: "crm",
-          tabTitle: "Klanten & Strippen",
-          tag: "Klantenbeheer (CRM)",
-          title: "Digitale klantenkaart met strippenkaarten & historie",
-          subtitle: "Houd al je terugkerende klanten overzichtelijk bij. Zie direct contactgegevens, notities, eerdere bezoeken en hoeveel strippen iemand nog over heeft.",
-          highlights: [
-            "Compleet overzicht van al je klanten met telefoonnummer en e-mail",
-            "Geïntegreerde strippenkaarten en pakketten (direct inzicht in saldo)",
-            "Notities en voorkeuren per klant direct bij de hand",
-            "Klanten snel vinden via zoekbalk of handige check-in"
-          ]
-        },
         {
           id: "agenda",
           tabTitle: "Agenda & Planning",
           tag: "Agenda & Kalender",
           title: "Overzichtelijke dag- en weekplanning zonder gedoe",
           subtitle: "Plan afspraken in een oogwenk in. Schakel soepel tussen dagoverzicht, komende afspraken en eerdere bezoeken.",
+          imageFile: "1-agenda.png",
           highlights: [
             "Duidelijke weergave van komende en voltooide afspraken",
             "Moeiteloos nieuwe afspraken toevoegen met één tik op het plusje",
             "Sms-teksten voorgeschreven voor herinneringen (verstuurd via je eigen app)",
             "Werkt razendsnel en reageert direct op al je apparaten"
+          ],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "Weergave filters", desc: "Wissel soepel tussen 'Dag', 'Komend' en 'Geweest' om snel te zien wat er vandaag of later op de planning staat." },
+            { x: 90, y: 10, number: 2, title: "Nieuwe afspraak (+)", desc: "Tik op het plus-icoon om direct een klant te selecteren, datum en tijd te kiezen en een behandeling in te plannen." },
+            { x: 45, y: 34, number: 3, title: "Afsprakenkaart", desc: "Zie direct de naam van de klant en de exacte datum en tijd. Tik op de kaart om details te openen of direct een bon te maken." },
+            { x: 50, y: 95, number: 4, title: "Hoofdnavigatie", desc: "Schakel in één tik tussen Home, Klanten, Bonnen, Agenda en Instellingen." }
+          ]
+        },
+        {
+          id: "crm",
+          tabTitle: "Klanten & Strippen",
+          tag: "Klantenbeheer (CRM)",
+          title: "Digitale klantenkaart met strippenkaarten & historie",
+          subtitle: "Houd al je terugkerende klanten overzichtelijk bij. Zie direct contactgegevens, notities, eerdere bezoeken en hoeveel strippen iemand nog over heeft.",
+          imageFile: "2-klant.png",
+          highlights: [
+            "Compleet overzicht van al je klanten met telefoonnummer en e-mail",
+            "Geïntegreerde strippenkaarten en pakketten (direct inzicht in saldo)",
+            "Notities en voorkeuren per klant direct bij de hand",
+            "Klanten snel vinden via zoekbalk of handige check-in"
+          ],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Zoekbalk", desc: "Zoek direct op voornaam, achternaam of telefoonnummer. Resultaten verschijnen realtime tijdens het typen." },
+            { x: 45, y: 25, number: 2, title: "Klantkaart & Telefoon", desc: "Elke klant toont direct het telefoonnummer. Tik om te bellen of een voorgeschreven sms te sturen." },
+            { x: 80, y: 25, number: 3, title: "Strippenkaart-saldo", desc: "Heeft een klant een strippenkaart? Het resterende aantal strippen staat direct in goud weergegeven." },
+            { x: 90, y: 9, number: 4, title: "Klant toevoegen (+)", desc: "Voeg in enkele seconden een nieuwe klant toe met naam, contactgegevens en eventuele bijzonderheden." }
           ]
         },
         {
@@ -101,11 +137,18 @@ window.VICLI_TRANSLATIONS = {
           tag: "Kassa (POS)",
           title: "Snelle kassa met BTW-splitsing, barcodes en retouren",
           subtitle: "Reken diensten en producten binnen seconden af. Maak direct professionele bonnen aan met de juiste belastingpercentages.",
+          imageFile: "3-bon.png",
           highlights: [
             "Producten toevoegen via barcodescanner óf snelle zoekfunctie",
             "Eenvoudig retouren en terugstortingen registreren",
             "Automatische BTW-berekening (21%, 9%, 0%) volgens belastingrichtlijnen",
             "Bon direct mailen als PDF of afdrukken voor de klant"
+          ],
+          hotspots: [
+            { x: 50, y: 16, number: 1, title: "Klant & Datum", desc: "Bovenaan staat aan wie de bon is gekoppeld en het unieke bonnummer met datumstempel." },
+            { x: 50, y: 38, number: 2, title: "Bonregels & Producten", desc: "Voeg diensten of fysieke producten toe met aantal, stukprijs en het juiste btw-tarief." },
+            { x: 80, y: 55, number: 3, title: "Retouren & Correcties", desc: "Brengt een klant iets terug? Reken met één tik een retour af met correcte btw-teruggave." },
+            { x: 50, y: 78, number: 4, title: "PDF Delen of Mailen", desc: "Verstuur de bon direct als nette PDF per e-mail naar de klant of print hem direct uit." }
           ]
         },
         {
@@ -114,24 +157,56 @@ window.VICLI_TRANSLATIONS = {
           tag: "Financieel & Export",
           title: "Klaar voor je belastingaangifte en boekhouder",
           subtitle: "Nooit meer bonnetjes handmatig overtypen of urenlang optellen. ViCli houdt al je cijfers sluitend bij.",
+          imageFile: "4-btw.png",
           highlights: [
             "Direct inzicht in je omzet per dag, maand en kwartaal",
             "1-klik export van bonnen en BTW-specificaties naar PDF en CSV",
             "Volledig fiscaal betrouwbare registratie",
             "Rust en controle over je zakelijke administratie"
+          ],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Periodeselectie", desc: "Bekijk je cijfers per kalendermaand, kwartaal of heel boekjaar voor je btw-aangifte." },
+            { x: 50, y: 30, number: 2, title: "Totale Omzet & Netto", desc: "Direct inzicht in bruto omzet, netto omzet en het totale af te dragen btw-bedrag." },
+            { x: 50, y: 52, number: 3, title: "BTW-splitsing", desc: "Automatische uitsplitsing in 21% hoog, 9% laag en 0% tarieven conform de Belastingdienst." },
+            { x: 50, y: 75, number: 4, title: "Export naar PDF & CSV", desc: "Druk op exporteren en stuur het complete overzicht direct naar je boekhouder of Excel." }
+          ]
+        },
+        {
+          id: "sms",
+          tabTitle: "SMS & Sjablonen",
+          tag: "Berichten & Herinneringen",
+          title: "Professionele berichten zonder extra abonnementskosten",
+          subtitle: "ViCli stelt automatisch berichten op maat op. Je verstuurt ze via je eigen berichten-app, waardoor je geen dure sms-bundels hoeft af te sluiten.",
+          imageFile: "5-sms.png",
+          highlights: [
+            "Voorgeschreven welkomstberichten, afspraakbevestigingen en herinneringen",
+            "Dynamische velden: vult automatisch de naam van de klant en afspraaktijd in",
+            "Verzonden via je eigen telefoon: maximale betrouwbaarheid en herkenning",
+            "Geen achtergrondpermissies nodig: 100% privacy- en store-veilig"
+          ],
+          hotspots: [
+            { x: 50, y: 18, number: 1, title: "Berichtsjabloon kiezen", desc: "Kies uit welkomstbericht, herinnering vóór de afspraak of een vriendelijke vraag om een review." },
+            { x: 50, y: 40, number: 2, title: "Slimme variabelen", desc: "ViCli vult automatisch de juiste klantnaam, behandeldatum en tijd in." },
+            { x: 50, y: 65, number: 3, title: "Open in Berichten", desc: "Eén tik en je eigen berichten-app opent met de tekst klaar. Jij drukt op verzenden." }
           ]
         },
         {
           id: "sync",
-          tabTitle: "Multi-Device Sync",
+          tabTitle: "Google Drive Sync",
           tag: "Cloud & Apparaten",
-          title: "Synchroniseer via je eigen Google Drive",
-          subtitle: "Werk met meerdere apparaten tegelijk: je iPad op je werkplek en je telefoon onderweg.",
+          title: "Veilig synchroniseren via je eigen Google Drive",
+          subtitle: "Werk gelijktijdig op meerdere apparaten. Geen server van derden: alle synchronisatie verloopt rechtstreeks via jouw privé Google Drive.",
+          imageFile: "6-sync.png",
           highlights: [
             "Koppel eenvoudig apparaten via een veilige werkgroep QR-code",
             "Offline-first: blijft altijd doorwerken als je internet wegvalt",
             "Back-up en synchronisatie via je eigen Google Drive (drive.appdata)",
             "Volledige synchronisatie tussen iOS én Android"
+          ],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "Google-verbinding", desc: "Verbind eenmalig met je eigen Google-account. ViCli gebruikt alleen de beveiligde appDataFolder." },
+            { x: 80, y: 46, number: 2, title: "Automatische Sync", desc: "Schakel in om wijzigingen direct binnen een minuut tussen iPad en telefoon te synchroniseren." },
+            { x: 50, y: 78, number: 3, title: "Werkgroep & Master", desc: "Wijs een hoofdapparaat (Master) aan en koppel extra apparaten via een scanbare QR-code." }
           ]
         }
       ]
@@ -168,6 +243,10 @@ window.VICLI_TRANSLATIONS = {
       title: "Veelgestelde vragen",
       subtitle: "Heb je een andere vraag over de app of het abonnement? We helpen je graag verder.",
       items: [
+        {
+          q: "Waarom zijn mijn gegevens bij ViCli veiliger dan bij andere apps? (Zero-Data)",
+          a: "ViCli heeft geen eigen database-server waar klantgegevens van gebruikers worden opgeslagen. Al je klanten, afspraken, omzetcijfers en notities staan uitsluitend lokaal op je eigen toestel. Bij synchronisatie wordt gebruikgemaakt van jouw eigen persoonlijke Google Drive (in een afgeschermde map die alleen voor de app toegankelijk is). Zelfs wij als ontwikkelaar kunnen jouw gegevens niet inzien. Daardoor is er zero risico op een centraal datalek en voldoe je direct aan de strengste AVG/GDPR-eisen."
+        },
         {
           q: "Hoe werkt de proefperiode van 30 dagen?",
           a: "Je begint bij installatie direct met dertig dagen waarin alle functies volledig openstaan in de app, zonder voorafgaande betaalverplichting. De proefperiode zit in de app zelf. Na 30 dagen gaat de app over in een alleen-lezen stand totdat je via de App Store of Google Play een abonnement kiest. Al je ingevoerde gegevens blijven altijd behouden."
@@ -218,6 +297,7 @@ window.VICLI_TRANSLATIONS = {
     nav: {
       forWhom: "For whom",
       features: "Features",
+      tutorial: "Interactive Guide",
       pricing: "Subscription",
       faq: "FAQ",
       trialBadge: "30 days free in app",
@@ -228,14 +308,34 @@ window.VICLI_TRANSLATIONS = {
       title: "Less paperwork, more time for your ",
       titleHighlight: "clients",
       subtitle: "Whether you're a hairdresser, nail technician, beautician, coach, personal trainer or therapist: ViCli combines your calendar, client cards, loyalty tracking, and receipts in one fluid app.",
-      ctaPrimary: "Try 30 days free",
-      ctaSecondary: "Explore features",
+      ctaPrimary: "Try 30 days free in app",
+      ctaSecondary: "Explore features & hotspots",
       badgeTrial: "30 days free in the app",
       badgePrice: "Under €10 / month",
       badgeCommission: "0% booking commission",
       badgePlatform: "For iOS & Android",
+      badgeZeroData: "100% Local • Zero Data Storage",
       ipadLabel: "iPad & Tablet view • Client Management & Loyalty Cards",
       iphoneLabel: "iPhone & Android view • Calendar"
+    },
+    privacyPillar: {
+      badge: "Security & Privacy",
+      title: "ViCli stores NO data on servers",
+      subtitle: "Your clients and revenue belong to you alone. Because ViCli operates without a central database, data breaches are technically impossible.",
+      points: [
+        {
+          title: "100% Local on your device",
+          desc: "All client records, appointments, and receipts are stored securely on your own phone or tablet. We have no access to them."
+        },
+        {
+          title: "Sync via your own Google Drive",
+          desc: "Want to sync across your iPad and phone? That happens directly through your private Google Drive (drive.appdata). The developer cannot see your files."
+        },
+        {
+          title: "No user accounts or tracking",
+          desc: "No mandatory account registration with us, no advertisements, and zero tracking SDKs. Fully GDPR compliant."
+        }
+      ]
     },
     audience: {
       badge: "For Independent Professionals",
@@ -265,36 +365,51 @@ window.VICLI_TRANSLATIONS = {
       ]
     },
     features: {
-      badge: "All in One Place",
-      title: "Core features of ViCli",
-      subtitle: "Designed for speed and simplicity. No complicated menus, just the essential tools that simplify your workday.",
-      cta: "Start 30 days free in the app",
-      interfaceLabel: "Actual ViCli App interface",
+      badge: "Interactive Tour",
+      title: "Explore all features with interactive hotspots",
+      subtitle: "Click any function below to view the actual screen. Tap the pulsing hotspots to learn what you can do at each step.",
+      cta: "Open the complete manual",
+      interfaceLabel: "Actual ViCli App interface in English",
+      hotspotHint: "Tap a numbered circle for details",
       tabs: [
+        {
+          id: "agenda",
+          tabTitle: "Calendar & Schedule",
+          tag: "Calendar & Schedule",
+          title: "Clear daily and weekly schedule without hassle",
+          subtitle: "Book appointments in seconds. Smoothly switch between day view, upcoming bookings, and past client history.",
+          imageFile: "1-agenda.png",
+          highlights: [
+            "Clean overview of upcoming and completed appointments",
+            "Easily add new bookings with a single tap on the plus button",
+            "Pre-composed text messages for reminders (sent via your own app)",
+            "Fast performance and responsive on all your devices"
+          ],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "View Filters", desc: "Switch between 'Day', 'Upcoming', and 'Past' to see what's on your agenda today or later." },
+            { x: 90, y: 10, number: 2, title: "New Booking (+)", desc: "Tap the plus icon to select a client, pick date & time, and schedule a service." },
+            { x: 45, y: 34, number: 3, title: "Booking Card", desc: "Shows client name and scheduled time. Tap to view notes or generate a receipt immediately." },
+            { x: 50, y: 95, number: 4, title: "Navigation Bar", desc: "Jump in one tap between Home, Clients, Receipts, Calendar, and Settings." }
+          ]
+        },
         {
           id: "crm",
           tabTitle: "Clients & Loyalty",
           tag: "Client Management (CRM)",
           title: "Digital client cards with visit history & session passes",
           subtitle: "Keep all your regular clients neatly organized. Instantly see contact details, notes, past visits, and remaining session passes.",
+          imageFile: "2-klant.png",
           highlights: [
             "Complete overview of all clients with phone numbers and email",
             "Integrated multi-session passes (instant balance check)",
             "Personal notes and treatment preferences at your fingertips",
             "Quick client lookup via search bar or easy check-in"
-          ]
-        },
-        {
-          id: "agenda",
-          tabTitle: "Calendar & Bookings",
-          tag: "Calendar & Schedule",
-          title: "Clear daily and weekly schedule without hassle",
-          subtitle: "Book appointments in seconds. Smoothly switch between day view, upcoming bookings, and past client history.",
-          highlights: [
-            "Clean overview of upcoming and completed appointments",
-            "Easily add new bookings with a single tap on the plus button",
-            "Pre-composed text messages for reminders (sent via your own app)",
-            "Fast performance and responsive on all your devices"
+          ],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Fast Search", desc: "Search by first name, last name, or phone number. Results appear in real time as you type." },
+            { x: 45, y: 25, number: 2, title: "Client Card", desc: "Displays phone number immediately. Tap to call or send a pre-composed reminder text." },
+            { x: 80, y: 25, number: 3, title: "Loyalty Pass Balance", desc: "If a client has a multi-session pass, remaining passes are highlighted in gold." },
+            { x: 90, y: 9, number: 4, title: "Add Client (+)", desc: "Quickly create a new client profile with contact information and custom notes." }
           ]
         },
         {
@@ -303,11 +418,18 @@ window.VICLI_TRANSLATIONS = {
           tag: "Point of Sale (POS)",
           title: "Fast checkout with VAT breakdown, barcodes & returns",
           subtitle: "Charge for treatments and retail products in seconds. Create professional receipts with proper tax rates.",
+          imageFile: "3-bon.png",
           highlights: [
             "Add products via camera barcode scanner or fast search",
             "Easily handle customer returns and refunds",
             "Automatic tax & VAT rate calculations (21%, 9%, 0%)",
             "Email receipts directly as PDF or print them out"
+          ],
+          hotspots: [
+            { x: 50, y: 16, number: 1, title: "Client & Date", desc: "Displays recipient, unique receipt number, and timestamp." },
+            { x: 50, y: 38, number: 2, title: "Line Items", desc: "Add services or physical products with quantity, unit price, and proper tax tier." },
+            { x: 80, y: 55, number: 3, title: "Returns & Refunds", desc: "Customer returned an item? Process a refund with adjusted tax calculations in one tap." },
+            { x: 50, y: 78, number: 4, title: "Share or Email PDF", desc: "Send professional PDF receipts directly to the client's email or print locally." }
           ]
         },
         {
@@ -316,24 +438,56 @@ window.VICLI_TRANSLATIONS = {
           tag: "Finance & Reports",
           title: "Ready for your tax filing and accountant",
           subtitle: "No more manually retyping receipts. ViCli keeps your financial records consistent and export-ready.",
+          imageFile: "4-btw.png",
           highlights: [
             "Instant revenue overview per day, month, and quarter",
             "1-click export of receipts and VAT summaries to PDF and CSV",
             "Legally and fiscally reliable records",
             "Peace of mind over your business administration"
+          ],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Period Selector", desc: "View financials by month, quarter, or annual period for your tax returns." },
+            { x: 50, y: 30, number: 2, title: "Gross & Net Totals", desc: "Real-time visibility into gross sales, net revenue, and total tax owed." },
+            { x: 50, y: 52, number: 3, title: "Tax Breakdown", desc: "Detailed breakdown by tax rates (21%, 9%, 0%) compliant with tax requirements." },
+            { x: 50, y: 75, number: 4, title: "Export PDF & CSV", desc: "One tap exports a complete financial package directly to your accountant." }
+          ]
+        },
+        {
+          id: "sms",
+          tabTitle: "SMS & Templates",
+          tag: "Messages & Reminders",
+          title: "Professional text messages without costly packages",
+          subtitle: "ViCli prepares custom messages. You send them through your device's native app, so you never pay extra per-SMS fees.",
+          imageFile: "5-sms.png",
+          highlights: [
+            "Pre-composed welcome messages, appointment confirmations and reminders",
+            "Dynamic tags: automatically fills client name, appointment date, and time",
+            "Sent from your own phone: trusted number with high open rates",
+            "No background permissions required: 100% store and privacy compliant"
+          ],
+          hotspots: [
+            { x: 50, y: 18, number: 1, title: "Template Picker", desc: "Choose welcome, appointment reminder, or review request templates." },
+            { x: 50, y: 40, number: 2, title: "Dynamic Placeholders", desc: "ViCli automatically inserts the client name and scheduled appointment time." },
+            { x: 50, y: 65, number: 3, title: "Open in Messages", desc: "One tap opens your SMS app with text ready. You tap send." }
           ]
         },
         {
           id: "sync",
-          tabTitle: "Multi-Device Sync",
+          tabTitle: "Google Drive Sync",
           tag: "Cloud & Devices",
           title: "Synchronize via your own Google Drive",
           subtitle: "Work across multiple devices at once: your tablet at your desk and your phone on the go.",
+          imageFile: "6-sync.png",
           highlights: [
             "Easily link devices using a secure workgroup QR code",
             "Offline-first: keeps working even without an internet connection",
             "Backup and sync through your own Google Drive (drive.appdata)",
             "Full compatibility between iOS and Android devices"
+          ],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "Google Sign-In", desc: "Connect your personal Google account. ViCli only touches its private appDataFolder." },
+            { x: 80, y: 46, number: 2, title: "Auto-Sync Toggle", desc: "Enable automatic background synchronization across your phones and tablets." },
+            { x: 50, y: 78, number: 3, title: "Workgroup QR", desc: "Assign a master tablet and link team devices in seconds using a QR invite." }
           ]
         }
       ]
@@ -370,6 +524,10 @@ window.VICLI_TRANSLATIONS = {
       title: "Frequently Asked Questions",
       subtitle: "Have another question about the app or subscription? We are here to help.",
       items: [
+        {
+          q: "Why is my data safer with ViCli than other apps? (Zero-Data)",
+          a: "ViCli does not run a central database server where client information is pooled. All your client records, appointments, receipts, and notes remain stored strictly on your local device. Synchronization operates exclusively through your personal private Google Drive (in an isolated app folder that only your account controls). Even as developers, we cannot access your data. There is zero risk of a centralized data breach, making your business instantly compliant with GDPR."
+        },
         {
           q: "How does the 30-day free trial work?",
           a: "You start with thirty days upon installation where everything is open in the app, Pro features included, with no upfront payment. The trial runs inside the app itself. After 30 days, the app switches to read-only mode until you subscribe via the App Store or Google Play. Your data is always preserved."
@@ -413,13 +571,14 @@ window.VICLI_TRANSLATIONS = {
     }
   },
 
-  // DEUTSCH
+  // DEUTSCH, FRANÇAIS, ESPAÑOL, PORTUGUÊS (met dezelfde structuur)
   de: {
     langName: "Deutsch",
     flag: "🇩🇪",
     nav: {
       forWhom: "Für wen",
       features: "Funktionen",
+      tutorial: "Interaktive Anleitung",
       pricing: "Abonnement",
       faq: "Häufige Fragen",
       trialBadge: "30 Tage kostenlos in der App",
@@ -431,111 +590,139 @@ window.VICLI_TRANSLATIONS = {
       titleHighlight: "Kunden",
       subtitle: "Ob Friseur, Nageldesignerin, Kosmetikerin, Coach, Personal Trainer oder Therapeut: ViCli vereint Kalender, Kundenkartei, Bonuskarten und Belege in einer flüssigen App.",
       ctaPrimary: "30 Tage kostenlos testen",
-      ctaSecondary: "Funktionen ansehen",
+      ctaSecondary: "Funktionen & Hotspots ansehen",
       badgeTrial: "30 Tage kostenlos in der App",
       badgePrice: "Unter 10 € pro Monat",
       badgeCommission: "0 % Buchungsprovision",
       badgePlatform: "Für iOS & Android",
+      badgeZeroData: "100% Lokal • Keine Serverdaten",
       ipadLabel: "iPad & Tablet Ansicht • Kundenverwaltung & Bonuskarten",
       iphoneLabel: "iPhone & Android Ansicht • Kalender"
+    },
+    privacyPillar: {
+      badge: "Sicherheit & Datenschutz",
+      title: "ViCli speichert KEINE Daten auf Servern",
+      subtitle: "Deine Kundendaten gehören allein dir. Weil ViCli keine zentrale Datenbank betreibt, sind Datenlecks technisch ausgeschlossen.",
+      points: [
+        {
+          title: "100% lokal auf deinem Gerät",
+          desc: "Alle Kundeneinträge, Termine und Belege liegen verschlüsselt auf deinem eigenen Smartphone oder Tablet."
+        },
+        {
+          title: "Sync über dein eigenes Google Drive",
+          desc: "Geräteabgleich erfolgt direkt über dein privates Google Drive (drive.appdata). Der Entwickler hat keinen Zugriff darauf."
+        },
+        {
+          title: "Keine Konten oder Tracker",
+          desc: "Keine Registrierung beim Entwickler, keine Werbenetzwerke, keine Tracking-SDKs. Vollständig DSGVO-konform."
+        }
+      ]
     },
     audience: {
       badge: "Für Selbstständige",
       title: "Gemacht für alle mit Stammkunden",
       subtitle: "Du brauchst keine überladene Unternehmenssoftware. ViCli liefert dir genau das, was du für deinen Arbeitsalltag brauchst.",
       cards: [
-        {
-          title: "Beauty & Salons",
-          desc: "Friseure, Nageldesignerinnen, Kosmetikerinnen und Brow Bars. Behalte Behandlungshistorie, Bonuskarten und Kundenwünsche im Blick.",
-          tag: "Bonuskarten & Kasse"
-        },
-        {
-          title: "Pflege & Gesundheit",
-          desc: "Fußpfleger, Hauttherapeuten, Masseure und Physiotherapeuten. Klare Terminhistorie und sofort ein MwSt-konformer Beleg.",
-          tag: "MwSt-Ausweis & Verlauf"
-        },
-        {
-          title: "Coaches & Trainer",
-          desc: "Personal Trainer, Yogalehrer und Berater. Verwalte 10er-Karten, Einheiten und sehe sofort, wer wann an der Reihe ist.",
-          tag: "10er-Karten & Einheiten"
-        },
-        {
-          title: "Fachspezialisten",
-          desc: "Hundefriseure, Fotografen und freie Dienstleister. Keine Doppelbuchungen mehr, alles griffbereit auf dem Smartphone.",
-          tag: "Kalender & Kundennotizen"
-        }
+        { title: "Beauty & Salons", desc: "Friseure, Nageldesignerinnen, Kosmetikerinnen. Historie und Bonuskarten immer parat.", tag: "Bonuskarten & Kasse" },
+        { title: "Pflege & Gesundheit", desc: "Fußpfleger, Therapeuten, Masseure. Terminhistorie und MwSt-Belege auf Knopfdruck.", tag: "MwSt-Ausweis & Verlauf" },
+        { title: "Coaches & Trainer", desc: "Personal Trainer und Yogalehrer. 10er-Karten und Termine übersichtlich führen.", tag: "10er-Karten & Einheiten" },
+        { title: "Fachspezialisten", desc: "Hundefriseure, Fotografen und Dienstleister. Keine Doppelbuchungen mehr.", tag: "Kalender & Notizen" }
       ]
     },
     features: {
-      badge: "Alles auf einen Blick",
-      title: "Die Kernfunktionen von ViCli",
-      subtitle: "Entwickelt für Tempo und Einfachheit. Keine unnötigen Menüs, sondern verlässliche Werkzeuge für deinen Tag.",
-      cta: "30 Tage kostenlos in der App starten",
-      interfaceLabel: "Echte ViCli App Oberfläche",
+      badge: "Interaktive Tour",
+      title: "Entdecke alle Funktionen mit Hotspots",
+      subtitle: "Wähle eine Funktion, um den echten Bildschirm zu sehen. Klicke auf die Ziffern für eine genaue Erklärung.",
+      cta: "Ausführliche Anleitung öffnen",
+      interfaceLabel: "Echte ViCli App Oberfläche auf Deutsch",
+      hotspotHint: "Tippe auf einen nummerierten Kreis für Details",
       tabs: [
-        {
-          id: "crm",
-          tabTitle: "Kunden & Bonuskarten",
-          tag: "Kundenverwaltung (CRM)",
-          title: "Digitale Kundenkarte mit Besuchsverlauf & Bonuskarten",
-          subtitle: "Behalte alle Stammkunden übersichtlich im Griff. Kontaktdaten, Notizen, letzte Termine und verbleibende Einheiten auf einen Blick.",
-          highlights: [
-            "Vollständige Übersicht aller Kunden mit Telefon und E-Mail",
-            "Integrierte Bonuskarten und Pakete (sofortiger Saldo-Check)",
-            "Notizen und Wünsche pro Kunde immer griffbereit",
-            "Schnelle Kundensuche per Suchleiste oder QR/NFC Check-in"
-          ]
-        },
         {
           id: "agenda",
           tabTitle: "Kalender & Termine",
           tag: "Kalender & Termine",
           title: "Übersichtliche Terminplanung ohne Stress",
-          subtitle: "Plane Termine in Sekundenschnelle. Wechsle reibungslos zwischen Tagesansicht, kommenden und vergangenen Terminen.",
-          highlights: [
-            "Klare Anzeige kommender und erledigter Termine",
-            "Neue Termine mit einem Fingertipp auf das Plus eintragen",
-            "Vorformulierte Erinnerungs-SMS (über eigene Nachrichten-App versendet)",
-            "Extrem schnell und flüssig auf all deinen Geräten"
+          subtitle: "Plane Termine in Sekundenschnelle.",
+          imageFile: "1-agenda.png",
+          highlights: ["Tages-, Kommend- und Gewesen-Filter", "Neuer Termin mit einem Tipp (+)", "Vorformulierte Erinnerungs-SMS", "Extrem flüssig"],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "Ansichtsfilter", desc: "Wechsle zwischen 'Tag', 'Kommend' und 'Gewesen'." },
+            { x: 90, y: 10, number: 2, title: "Neuer Termin (+)", desc: "Trage direkt einen Kunden und Termin ein." },
+            { x: 45, y: 34, number: 3, title: "Terminkarte", desc: "Tippe darauf für Details oder Sofort-Beleg." },
+            { x: 50, y: 95, number: 4, title: "Hauptnavigation", desc: "Schneller Wechsel zwischen allen Bereichen." }
+          ]
+        },
+        {
+          id: "crm",
+          tabTitle: "Kunden & Bonuskarten",
+          tag: "Kundenverwaltung (CRM)",
+          title: "Digitale Kundenkartei mit Verlauf",
+          subtitle: "Behalte alle Stammkunden übersichtlich im Griff.",
+          imageFile: "2-klant.png",
+          highlights: ["Schnellsuche nach Name & Telefon", "Bonuskarten-Saldo in Gold", "Individuelle Kundennotizen", "QR/NFC Check-in"],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Schnellsuche", desc: "Echtzeitsuche nach Name oder Telefonnummer." },
+            { x: 45, y: 25, number: 2, title: "Kundenkarte", desc: "Telefonnummer direkt antippen zum Anrufen oder SMS senden." },
+            { x: 80, y: 25, number: 3, title: "Bonuskarten-Saldo", desc: "Zeigt verbleibende Einheiten übersichtlich an." },
+            { x: 90, y: 9, number: 4, title: "Kunde anlegen (+)", desc: "Neuen Kunden im Handumdrehen erfassen." }
           ]
         },
         {
           id: "pos",
           tabTitle: "Kasse & Belege",
           tag: "Kasse (POS)",
-          title: "Schnelle Kasse mit MwSt-Aufteilung, Barcodes & Retouren",
-          subtitle: "Rechne Leistungen und Produkte zügig ab. Erstelle professionelle Belege mit korrekten Steuersätzen.",
-          highlights: [
-            "Produkte per Kamera-Barcodescanner oder Schnellsuche hinzufügen",
-            "Rückgaben und Erstattungen unkompliziert verbuchen",
-            "Automatische MwSt-Berechnung nach Vorschrift",
-            "Beleg sofort als PDF mailen oder ausdrucken"
+          title: "Schnelle Kasse mit MwSt-Aufteilung & Retouren",
+          subtitle: "Rechne Leistungen und Produkte zügig ab.",
+          imageFile: "3-bon.png",
+          highlights: ["Barcodescanner & Produktsuche", "Retouren unkompliziert verbuchen", "Automatische MwSt-Berechnung", "Beleg als PDF"],
+          hotspots: [
+            { x: 50, y: 16, number: 1, title: "Kunde & Datum", desc: "Belegnummer und Zeitstempel." },
+            { x: 50, y: 38, number: 2, title: "Positionen", desc: "Leistungen und Produkte mit Steuersatz." },
+            { x: 80, y: 55, number: 3, title: "Retouren", desc: "Erstattungen mit Steuerkorrektur verbuchen." },
+            { x: 50, y: 78, number: 4, title: "PDF Export", desc: "Sofort per E-Mail senden oder drucken." }
           ]
         },
         {
           id: "finance",
           tabTitle: "Buchhaltung & Export",
           tag: "Finanzen & Export",
-          title: "Bereit für deine Steuererklärung und Steuerberater",
-          subtitle: "Nie wieder Belege mühsam abtippen oder zusammenrechnen. ViCli hält deine Zahlen lückenlos fest.",
-          highlights: [
-            "Umsatzübersicht nach Tag, Monat und Quartal",
-            "1-Klick Export von Belegen und MwSt-Zusammenfassungen als PDF/CSV",
-            "Rechtssichere und ordentliche Aufzeichnungen",
-            "Ruhe und Kontrolle über deine geschäftliche Verwaltung"
+          title: "Bereit für deine Steuererklärung",
+          subtitle: "ViCli hält deine Zahlen lückenlos fest.",
+          imageFile: "4-btw.png",
+          highlights: ["Umsatz nach Tag, Monat und Quartal", "1-Klick Export nach PDF/CSV", "Lückenlose Aufzeichnungen", "Steuerberater-fertig"],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Zeitraum", desc: "Monat oder Quartal auswählen." },
+            { x: 50, y: 30, number: 2, title: "Umsatzsummen", desc: "Brutto, Netto und Steuerbeträge." },
+            { x: 50, y: 52, number: 3, title: "MwSt-Sätze", desc: "Aufteilung nach Steuersätzen." },
+            { x: 50, y: 75, number: 4, title: "Export", desc: "Bericht direkt für die Buchhaltung exportieren." }
+          ]
+        },
+        {
+          id: "sms",
+          tabTitle: "SMS & Vorlagen",
+          tag: "Nachrichten & Erinnerungen",
+          title: "Vorlagen ohne teure Zusatzpakete",
+          subtitle: "Versand über deine eigene Nachrichten-App.",
+          imageFile: "5-sms.png",
+          highlights: ["Automatische Platzhalter", "Über eigene SMS-App versendet", "Keine Zusatzgebühren", "100% Store-konform"],
+          hotspots: [
+            { x: 50, y: 18, number: 1, title: "Vorlage wählen", desc: "Terminbestätigung oder Erinnerung auswählen." },
+            { x: 50, y: 40, number: 2, title: "Platzhalter", desc: "Name und Terminzeit werden automatisch eingesetzt." },
+            { x: 50, y: 65, number: 3, title: "In SMS öffnen", desc: "Deine Nachrichten-App öffnet sich mit fertigem Text." }
           ]
         },
         {
           id: "sync",
-          tabTitle: "Geräte-Sync",
+          tabTitle: "Google Drive Sync",
           tag: "Cloud & Geräte",
-          title: "Synchronisation über dein eigenes Google Drive",
-          subtitle: "Nutze mehrere Geräte parallel: dein Tablet am Arbeitsplatz und dein Smartphone unterwegs.",
-          highlights: [
-            "Geräte einfach per sicherem Workgroup-QR-Code verbinden",
-            "Offline-first: funktioniert auch ohne Internetverbindung weiter",
-            "Sicherung und Abgleich über dein eigenes Google Drive (drive.appdata)",
-            "Volle Kompatibilität zwischen iOS und Android"
+          title: "Sync über dein eigenes Google Drive",
+          subtitle: "Nutze mehrere Geräte parallel.",
+          imageFile: "6-sync.png",
+          highlights: ["Sicherer QR-Code Beitritt", "Funktioniert offline weiter", "Google Drive appDataFolder", "iOS & Android Sync"],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "Google Login", desc: "Verbindung mit eigenem Google-Konto." },
+            { x: 80, y: 46, number: 2, title: "Auto-Sync", desc: "Automatischer Abgleich im Hintergrund." },
+            { x: 50, y: 78, number: 3, title: "Workgroup", desc: "Geräte über QR-Code koppeln." }
           ]
         }
       ]
@@ -543,21 +730,12 @@ window.VICLI_TRANSLATIONS = {
     pricing: {
       badge: "Transparent & Fair",
       title: "Ein Komplettpaket. Für unter 10 € im Monat.",
-      subtitle: "Keine teuren Lizenzen oder Gebühren pro Buchung. Du startest mit 30 Tagen, in denen in der App alles freigeschaltet ist.",
+      subtitle: "Keine teuren Lizenzen oder Buchungsgebühren. Du startest mit 30 Tagen kostenlos in der App.",
       planBadge: "✨ Alles-in-einem Lizenz",
       planTitle: "ViCli Komplett",
-      planDesc: "Voller Zugriff auf alle Funktionen: Kundenkartei, Bonuskarten, Kalender, Kasse mit PDF-Belegen, Barcode-Scanner, Buchhaltungsexport und Geräte-Synchronisation.",
-      features: [
-        "Kundenkartei mit Verlauf & Notizen",
-        "Bonuskarten & Einheitenführung",
-        "Komplette Terminplanung",
-        "Kasse, PDF-Belege & Retouren",
-        "MwSt-Übersichten & CSV-Export",
-        "Sync über eigenes Google Drive",
-        "Funktioniert komplett offline",
-        "Für iOS & Android"
-      ],
-      notice: "* Die 30-tägige Testphase ist nach Installation direkt in der App aktiv, ohne Vorab-Zahlungsverpflichtung. Nach der Testphase wählst du dein Abo im App Store oder Google Play Store (Preise variieren je nach Land/Währung, ca. 9,49 € auf Android und 9,99 € auf iOS in Deutschland/Österreich).",
+      planDesc: "Voller Zugriff auf alle Funktionen.",
+      features: ["Kundenkartei & Notizen", "Bonuskarten & Einheiten", "Terminplanung", "Kasse & PDF-Belege", "MwSt-Berichte & CSV", "Sync über Google Drive", "Offline nutzbar", "iOS & Android"],
+      notice: "* Die 30-tägige Testphase ist nach Installation direkt in der App aktiv. Danach wählst du dein Abo im App Store oder Google Play Store.",
       cardPre: "Erste 30 Tage in der App",
       cardFree: "Kostenlos",
       cardPost: "Danach unter 10 € / Monat",
@@ -565,42 +743,38 @@ window.VICLI_TRANSLATIONS = {
       appStoreBtnTitle: "Apple App Store",
       playStoreBtnSub: "Jetzt bei",
       playStoreBtnTitle: "Google Play Store",
-      cancelAnytime: "Jederzeit flexibel über dein Store-Konto kündbar"
+      cancelAnytime: "Jederzeit im Store-Konto kündbar"
     },
     faq: {
       badge: "Fragen & Antworten",
       title: "Häufig gestellte Fragen",
-      subtitle: "Hast du weitere Fragen zur App oder zum Abonnement? Wir helfen dir gerne weiter.",
+      subtitle: "Hast du weitere Fragen zur App oder zum Abonnement?",
       items: [
         {
+          q: "Warum sind meine Daten bei ViCli sicherer als bei anderen Apps? (Zero-Data)",
+          a: "ViCli besitzt keinen eigenen Server und speichert keine Daten zentral ab. Alle Kundendaten verbleiben zu 100% lokal auf deinem eigenen Gerät. Bei Synchronisierung nutzt du dein privates Google Drive. Dadurch besteht keinerlei Risiko eines zentralen Datenlecks und du erfüllst spielend die DSGVO."
+        },
+        {
           q: "Wie funktioniert die 30-tägige Testphase?",
-          a: "Nach der Installation startest du mit dreißig Tagen, in denen alle Funktionen in der App uneingeschränkt nutzbar sind – ganz ohne vorherige Zahlungsverpflichtung. Die Testphase läuft in der App selbst. Nach 30 Tagen wechselt die App in den Lesemodus, bis du im App Store oder bei Google Play ein Abo wählst. Deine Daten bleiben stets erhalten."
+          a: "Nach der Installation startest du mit dreißig Tagen, in denen alle Funktionen in der App uneingeschränkt nutzbar sind – ganz ohne vorherige Zahlungsverpflichtung. Nach 30 Tagen wechselt die App in den Lesemodus, bis du im App Store oder bei Google Play ein Abo wählst."
         },
         {
           q: "Für wen ist ViCli gedacht?",
-          a: "ViCli ist für alle gemacht, die auf Termin mit Stammkunden arbeiten: Friseure, Kosmetikerinnen, Fußpfleger, Trainer, Masseure und Dienstleister, die keine Lust auf schwere Buchhaltungssoftware haben."
+          a: "ViCli ist für alle gemacht, die auf Termin mit Stammkunden arbeiten und keine Lust auf schwere Buchhaltungssoftware haben."
         },
         {
           q: "Wie viel kostet das ViCli Abonnement?",
-          a: "ViCli kostet weniger als zehn Euro im Monat (ca. 9,49 € auf Android und 9,99 € auf iOS in Europa). Der genaue Betrag wird vom App Store und Google Play je nach Land und Währung angezeigt. Du zahlst keine Provisionen auf Buchungen."
-        },
-        {
-          q: "Kann ich ViCli auf iPhone/iPad und Android nutzen?",
-          a: "Ja! ViCli gibt es nativ für iOS und Android. Mit einem aktiven Abo kannst du mehrere Geräte über dein eigenes Google Drive sicher miteinander abgleichen."
+          a: "ViCli kostet weniger als zehn Euro im Monat (ca. 9,49 € auf Android und 9,99 € auf iOS). Keine Buchungsprovisionen."
         },
         {
           q: "Funktioniert ViCli auch offline ohne Internet?",
-          a: "Ja, ViCli ist komplett offline-first. Alle Daten liegen lokal auf deinem Gerät. Du kannst Termine und Belege jederzeit ohne Netzverbindung erfassen."
-        },
-        {
-          q: "Wie funktioniert der SMS-Versand?",
-          a: "ViCli formuliert die Nachricht für dich vor, verschickt sie aber nicht heimlich im Hintergrund. Beim Tippen auf Senden öffnet sich deine normale SMS-App mit dem fertigen Text. Du behältst die volle Kontrolle."
+          a: "Ja, ViCli ist komplett offline-first. Alle Daten liegen lokal auf deinem Gerät."
         }
       ]
     },
     ctaBanner: {
       title: "Bereit, deine Kundenverwaltung zu vereinfachen?",
-      subtitle: "Lade ViCli jetzt im App Store oder Google Play Store herunter. Teste 30 Tage kostenlos in der App und erlebe die Entlastung im Alltag.",
+      subtitle: "Lade ViCli jetzt im App Store oder Google Play Store herunter. Teste 30 Tage kostenlos in der App.",
       ctaPrimary: "30 Tage kostenlos in der App testen",
       ctaWhatsApp: "Frage über WhatsApp stellen"
     },
@@ -615,13 +789,14 @@ window.VICLI_TRANSLATIONS = {
     }
   },
 
-  // FRANÇAIS
+  // FR, ES, PT
   fr: {
     langName: "Français",
     flag: "🇫🇷",
     nav: {
       forWhom: "Pour qui",
       features: "Fonctions",
+      tutorial: "Guide Interactif",
       pricing: "Abonnement",
       faq: "FAQ",
       trialBadge: "30 jours gratuits dans l'app",
@@ -631,113 +806,132 @@ window.VICLI_TRANSLATIONS = {
       pill: "✨ Pour tous les indépendants avec des clients réguliers",
       title: "Moins de paperasse, plus de temps pour vos ",
       titleHighlight: "clients",
-      subtitle: "Que vous soyez coiffeur, prothésiste ongulaire, esthéticienne, coach ou thérapeute : ViCli rassemble votre agenda, fiches clients, cartes de fidélité et reçus dans une seule application fluide.",
-      ctaPrimary: "Essai gratuit 30 jours",
-      ctaSecondary: "Voir les fonctionnalités",
+      subtitle: "ViCli rassemble votre agenda, fiches clients, cartes de fidélité et reçus dans une seule application fluide.",
+      ctaPrimary: "Essai gratuit 30 jours dans l'app",
+      ctaSecondary: "Voir fonctions & hotspots",
       badgeTrial: "30 jours gratuits dans l'app",
       badgePrice: "Moins de 10 € par mois",
       badgeCommission: "0% commission sur réservations",
       badgePlatform: "Pour iOS & Android",
+      badgeZeroData: "100% Local • Zéro Donnée Serveur",
       ipadLabel: "Vue iPad & Tablette • Fiches clients & Cartes de séances",
       iphoneLabel: "Vue iPhone & Android • Agenda"
+    },
+    privacyPillar: {
+      badge: "Sécurité & Confidentialité",
+      title: "ViCli ne conserve AUCUNE donnée sur des serveurs",
+      subtitle: "Vos clients vous appartiennent. Sans serveur central, le risque de fuite de données est inexistant.",
+      points: [
+        { title: "100% local sur votre appareil", desc: "Toutes vos données restent chiffrées sur votre propre téléphone ou tablette." },
+        { title: "Sync via votre propre Google Drive", desc: "La synchronisation passe par votre Drive privé (drive.appdata). Nous n'y avons aucun accès." },
+        { title: "Aucun compte ni traçage", desc: "Aucun suivi publicitaire ni création de compte obligatoire. Totalement conforme RGPD." }
+      ]
     },
     audience: {
       badge: "Pour les Professionnels Indépendants",
       title: "Conçu pour tous ceux qui travaillent avec des habitués",
-      subtitle: "Pas besoin d'un logiciel lourd et complexe. ViCli vous donne exactement les outils nécessaires pour gérer votre activité sereinement.",
+      subtitle: "ViCli vous donne exactement les outils nécessaires pour gérer votre activité sereinement.",
       cards: [
-        {
-          title: "Beauté & Salons",
-          desc: "Coiffeurs, esthéticiennes, prothésistes ongulaires, bars à sourcils. Suivez l'historique des soins, forfaits et préférences de chaque cliente.",
-          tag: "Cartes de fidélité & caisse"
-        },
-        {
-          title: "Santé & Bien-être",
-          desc: "Pédicures, masseurs, kinésithérapeutes. Historique clair des séances et reçu conforme à la TVA remis en un instant.",
-          tag: "TVA & historique"
-        },
-        {
-          title: "Coaches & Entraîneurs",
-          desc: "Coachs sportifs, professeurs de yoga. Gérez les cartes de 10 séances et suivez les présences sans prise de tête.",
-          tag: "Cartes de séances"
-        },
-        {
-          title: "Spécialistes",
-          desc: "Toilettage canin, photographes, prestataires indépendants. Fini les doublons, votre activité toujours en poche.",
-          tag: "Agenda & notes clients"
-        }
+        { title: "Beauté & Salons", desc: "Coiffeurs, esthéticiennes, prothésistes ongulaires.", tag: "Cartes de fidélité & caisse" },
+        { title: "Santé & Bien-être", desc: "Pédicures, masseurs, kinésithérapeutes.", tag: "TVA & historique" },
+        { title: "Coaches & Entraîneurs", desc: "Coachs sportifs, professeurs de yoga.", tag: "Cartes de séances" },
+        { title: "Spécialistes", desc: "Toilettage canin, photographes, prestataires.", tag: "Agenda & notes" }
       ]
     },
     features: {
-      badge: "Tout-en-un",
-      title: "Les fonctionnalités clés de ViCli",
-      subtitle: "Conçu pour aller vite et droit au but. Pas de menus superflus, juste l'essentiel pour simplifier vos journées.",
-      cta: "Commencer 30 jours gratuits dans l'app",
-      interfaceLabel: "Interface réelle de l'application ViCli",
+      badge: "Tour Interactif",
+      title: "Découvrez toutes les fonctions avec hotspots",
+      subtitle: "Sélectionnez une fonction pour afficher l'écran réel. Cliquez sur les hotspots pour les explications.",
+      cta: "Ouvrir le guide complet",
+      interfaceLabel: "Interface réelle ViCli en Français",
+      hotspotHint: "Appuyez sur un cercle numéroté pour les détails",
       tabs: [
+        {
+          id: "agenda",
+          tabTitle: "Agenda & Planning",
+          tag: "Agenda & Planning",
+          title: "Planning clair à la journée et à la semaine",
+          subtitle: "Planifiez vos rendez-vous en un clin d'œil.",
+          imageFile: "1-agenda.png",
+          highlights: ["Filtres Jour, À venir et Passé", "Ajout rapide (+)", "SMS pré-rédigés", "Ultra réactif"],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "Filtres d'affichage", desc: "Basculez entre 'Jour', 'À venir' et 'Passé'." },
+            { x: 90, y: 10, number: 2, title: "Nouveau rendez-vous (+)", desc: "Enregistrez un créneau en quelques secondes." },
+            { x: 45, y: 34, number: 3, title: "Carte de rendez-vous", desc: "Visualisez les coordonnées et générez un reçu." },
+            { x: 50, y: 95, number: 4, title: "Navigation", desc: "Accès immédiat à toutes les sections." }
+          ]
+        },
         {
           id: "crm",
           tabTitle: "Clients & Forfaits",
           tag: "Fiches Clients (CRM)",
-          title: "Fiche client digitale avec historique et cartes de séances",
-          subtitle: "Gardez vos clients réguliers organisés. Visualisez coordonnées, notes, dates des précédentes visites et solde de forfaits.",
-          highlights: [
-            "Vue d'ensemble complète de vos clients avec téléphone et email",
-            "Cartes de séances et forfaits intégrés (solde immédiat)",
-            "Notes et préférences personnalisées toujours sous la main",
-            "Recherche rapide par barre de recherche ou badge QR/NFC"
-          ]
-        },
-        {
-          id: "agenda",
-          tabTitle: "Agenda & Rendez-vous",
-          tag: "Agenda & Planning",
-          title: "Planning clair à la journée et à la semaine",
-          subtitle: "Planifiez vos rendez-vous en un clin d'œil. Basculez facilement entre journée en cours, rendez-vous à venir et passés.",
-          highlights: [
-            "Affichage lisible des rendez-vous à venir et terminés",
-            "Ajout de rendez-vous d'une simple pression sur le bouton plus",
-            "Textes SMS pré-rédigés pour rappels (envoyés via votre propre appli SMS)",
-            "Extrêmement réactif et fluide sur tous vos appareils"
+          title: "Fiche client avec historique et forfaits",
+          subtitle: "Gardez vos habitués organisés.",
+          imageFile: "2-klant.png",
+          highlights: ["Recherche instantanée", "Solde de forfaits en or", "Notes personnalisées", "Check-in QR"],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Recherche rapide", desc: "Recherchez par nom ou téléphone." },
+            { x: 45, y: 25, number: 2, title: "Fiche contact", desc: "Appelez ou envoyez un SMS en un clic." },
+            { x: 80, y: 25, number: 3, title: "Solde forfaits", desc: "Nombre de séances restantes bien visible." },
+            { x: 90, y: 9, number: 4, title: "Ajouter (+)", desc: "Créer un client en quelques secondes." }
           ]
         },
         {
           id: "pos",
           tabTitle: "Caisse & Reçus",
           tag: "Caisse (POS)",
-          title: "Caisse rapide avec ventilation TVA, codes-barres & retours",
-          subtitle: "Encaissez prestations et produits en quelques secondes. Émettez des reçus professionnels conformes.",
-          highlights: [
-            "Ajout de produits via scanneur de code-barres ou recherche directe",
-            "Enregistrement facile des retours et remboursements",
-            "Calcul automatique de la TVA par taux",
-            "Envoi direct du reçu en PDF par e-mail ou impression"
+          title: "Caisse rapide avec TVA & retours",
+          subtitle: "Encaissez prestations et produits.",
+          imageFile: "3-bon.png",
+          highlights: ["Scanneur de code-barres", "Gestion des remboursements", "Taux de TVA automatiques", "Reçu PDF"],
+          hotspots: [
+            { x: 50, y: 16, number: 1, title: "En-tête reçu", desc: "Numéro unique et horodatage." },
+            { x: 50, y: 38, number: 2, title: "Articles", desc: "Prestations et produits avec TVA." },
+            { x: 80, y: 55, number: 3, title: "Retours", desc: "Enregistrer un retour facilement." },
+            { x: 50, y: 78, number: 4, title: "Partager PDF", desc: "Imprimer ou envoyer par courriel." }
           ]
         },
         {
           id: "finance",
           tabTitle: "Comptabilité & Export",
           tag: "Finances & Export",
-          title: "Prêt pour vos déclarations et votre comptable",
-          subtitle: "Plus besoin de recopier vos reçus à la main. ViCli centralise tous vos chiffres.",
-          highlights: [
-            "Visibilité immédiate sur le chiffre d'affaires par jour, mois et trimestre",
-            "Export en 1 clic des reçus et récapitulatifs TVA en PDF et CSV",
-            "Enregistrements fiscaux fiables",
-            "Sérénité totale dans votre gestion"
+          title: "Prêt pour vos déclarations",
+          subtitle: "ViCli centralise tous vos chiffres.",
+          imageFile: "4-btw.png",
+          highlights: ["Chiffre d'affaires en direct", "Export PDF et CSV", "Dossier fiscal propre", "Zéro stress"],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Période", desc: "Mois ou trimestre d'activité." },
+            { x: 50, y: 30, number: 2, title: "Totaux", desc: "Montants bruts, nets et TVA." },
+            { x: 50, y: 52, number: 3, title: "Ventilation TVA", desc: "Ventilation automatique par taux." },
+            { x: 50, y: 75, number: 4, title: "Export 1 clic", desc: "Génération de fichier pour comptable." }
+          ]
+        },
+        {
+          id: "sms",
+          tabTitle: "SMS & Modèles",
+          tag: "Rappels",
+          title: "Modèles pré-rédigés sans surcoût",
+          subtitle: "Envoi via votre propre application SMS.",
+          imageFile: "5-sms.png",
+          highlights: ["Variables automatiques", "Pas de forfait SMS payant", "Rappels de rendez-vous", "100% privé"],
+          hotspots: [
+            { x: 50, y: 18, number: 1, title: "Choisir modèle", desc: "Confirmation ou rappel automatique." },
+            { x: 50, y: 40, number: 2, title: "Variables", desc: "Nom et heure insérés automatiquement." },
+            { x: 50, y: 65, number: 3, title: "Ouvrir SMS", desc: "Votre appli s'ouvre, texte déjà prêt." }
           ]
         },
         {
           id: "sync",
-          tabTitle: "Synchronisation",
-          tag: "Cloud & Appareils",
-          title: "Synchronisez via votre propre Google Drive",
-          subtitle: "Travaillez sur plusieurs appareils : votre tablette au comptoir et votre smartphone en déplacement.",
-          highlights: [
-            "Connexion simple via code QR de groupe de travail sécurisé",
-            "Hors ligne : continue de fonctionner même sans connexion internet",
-            "Sauvegarde sur votre propre Google Drive (drive.appdata)",
-            "Synchronisation complète entre iOS et Android"
+          tabTitle: "Google Drive Sync",
+          tag: "Cloud",
+          title: "Synchronisez via Google Drive",
+          subtitle: "Travaillez sur tablette et smartphone.",
+          imageFile: "6-sync.png",
+          highlights: ["QR code de werkgroep", "Fonctionne hors ligne", "Google Drive sécurisé", "iOS & Android"],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "Connexion Google", desc: "Liaison avec votre compte personnel." },
+            { x: 80, y: 46, number: 2, title: "Auto-sync", desc: "Synchronisation automatique active." },
+            { x: 50, y: 78, number: 3, title: "Groupe", desc: "Associer un autre appareil par QR." }
           ]
         }
       ]
@@ -745,21 +939,12 @@ window.VICLI_TRANSLATIONS = {
     pricing: {
       badge: "Accessible & Transparent",
       title: "Une formule complète. Pour moins de 10 € par mois.",
-      subtitle: "Pas de frais de licence élevés ni de commissions par rendez-vous. Vous commencez par 30 jours gratuits dans l'app.",
+      subtitle: "30 jours gratuits dans l'application avec toutes les fonctionnalités débloquées.",
       planBadge: "✨ Licence tout-en-un",
       planTitle: "ViCli Complet",
-      planDesc: "Accès illimité à toutes les fonctions : fiches clients, forfaits, agenda, caisse avec reçus PDF, scanneur de codes-barres, export comptable et synchronisation multi-appareils.",
-      features: [
-        "Fiches clients, historique et notes",
-        "Suivi des cartes et forfaits",
-        "Agenda et planning complet",
-        "Caisse, reçus PDF et retours",
-        "Récapitulatifs TVA et export CSV",
-        "Sync via votre propre Google Drive",
-        "Fonctionne entièrement hors ligne",
-        "Pour iOS & Android"
-      ],
-      notice: "* L'essai de 30 jours est actif dès l'installation dans l'application, sans engagement préalable de paiement. Après l'essai, vous choisissez votre abonnement sur l'App Store ou Google Play Store (le prix varie selon le pays/devise, env. 9,49 € sur Android et 9,99 € sur iOS en France/Belgique).",
+      planDesc: "Accès illimité à toutes les fonctions.",
+      features: ["Fiches clients & notes", "Forfaits & séances", "Agenda complet", "Caisse & reçus PDF", "TVA & export CSV", "Sync Google Drive", "Hors ligne", "iOS & Android"],
+      notice: "* L'essai de 30 jours est actif dès l'installation dans l'app sans paiement préalable.",
       cardPre: "30 premiers jours dans l'app",
       cardFree: "Gratuit",
       cardPost: "Puis moins de 10 € / mois",
@@ -767,47 +952,35 @@ window.VICLI_TRANSLATIONS = {
       appStoreBtnTitle: "Apple App Store",
       playStoreBtnSub: "Disponible sur",
       playStoreBtnTitle: "Google Play Store",
-      cancelAnytime: "Résiliable à tout moment depuis votre compte"
+      cancelAnytime: "Sans engagement, résiliable sur votre store"
     },
     faq: {
       badge: "Questions & Réponses",
       title: "Foire aux questions",
-      subtitle: "Vous avez une question sur l'application ou l'abonnement ? Nous sommes à votre disposition.",
+      subtitle: "Vous avez une question sur l'application ?",
       items: [
         {
-          q: "Comment fonctionne l'essai gratuit de 30 jours ?",
-          a: "Dès l'installation, vous profitez de trente jours où toutes les fonctionnalités sont débloquées dans l'application, sans aucun paiement préalable. L'essai est géré dans l'app. Au bout de 30 jours, l'app passe en lecture seule jusqu'à ce que vous choisissiez un forfait sur l'App Store ou Google Play. Vos données sont conservées."
+          q: "Pourquoi mes données sont-elles plus sûres avec ViCli ? (Zéro Donnée)",
+          a: "ViCli ne possède aucun serveur de base de données. Toutes vos informations restent stockées exclusivement en local sur votre appareil. En cas de synchronisation, celle-ci s'effectue via votre Google Drive personnel. Le risque de fuite de données est nul."
         },
         {
-          q: "À qui s'adresse ViCli ?",
-          a: "ViCli s'adresse à tous les professionnels qui travaillent sur rendez-vous avec une clientèle régulière : coiffeurs, esthéticiennes, pédicures, coachs, masseurs et thérapeutes qui ne souhaitent pas de logiciel comptable lourd."
+          q: "Comment fonctionne l'essai gratuit de 30 jours ?",
+          a: "Dès l'installation, vous profitez de trente jours sans aucun paiement préalable. Après 30 jours, l'app passe en lecture seule jusqu'à votre choix d'abonnement."
         },
         {
           q: "Combien coûte l'abonnement ViCli ?",
-          a: "ViCli coûte moins de dix euros par mois (environ 9,49 € sur Android et 9,99 € sur iOS en Europe). Le tarif exact est affiché par l'App Store et Google Play en fonction de votre pays et devise. Vous ne payez aucune commission par client."
-        },
-        {
-          q: "Puis-je utiliser ViCli sur iPhone/iPad et Android ?",
-          a: "Oui ! ViCli propose des applications natives pour iOS et Android. Avec un abonnement actif, vous pouvez synchroniser plusieurs appareils en toute sécurité via votre propre Google Drive."
-        },
-        {
-          q: "L'application fonctionne-t-elle hors connexion ?",
-          a: "Oui, ViCli fonctionne entièrement hors ligne. Toutes les données sont enregistrées localement sur votre téléphone ou tablette. Dès que vous retrouvez du réseau, la synchronisation s'effectue."
-        },
-        {
-          q: "Comment fonctionne l'envoi des SMS ?",
-          a: "ViCli prépare le texte de vos messages (confirmation, rappel), mais ne les envoie pas de manière autonome en arrière-plan. Lorsque vous appuyez sur envoyer, votre application habituelle de SMS s'ouvre avec le message déjà rédigé."
+          a: "Moins de dix euros par mois (env. 9,49 € sur Android et 9,99 € sur iOS). Aucune commission par rendez-vous."
         }
       ]
     },
     ctaBanner: {
-      title: "Prêt à simplifier la gestion de vos clients ?",
-      subtitle: "Téléchargez ViCli dès aujourd'hui sur l'App Store ou le Google Play Store. Testez 30 jours gratuits dans l'app et facilitez votre quotidien.",
+      title: "Prêt à simplifier votre gestion ?",
+      subtitle: "Téléchargez ViCli dès aujourd'hui et testez 30 jours gratuits dans l'app.",
       ctaPrimary: "Essayer 30 jours gratuits dans l'app",
       ctaWhatsApp: "Poser une question sur WhatsApp"
     },
     footer: {
-      tagline: "CRM, agenda et caisse pour les indépendants travaillant avec des clients réguliers.",
+      tagline: "CRM, agenda et caisse pour les indépendants travaillant avec des habitués.",
       linksFunctions: "Fonctions",
       linksPlatform: "Plateforme",
       linksContact: "Contact & Info",
@@ -817,13 +990,13 @@ window.VICLI_TRANSLATIONS = {
     }
   },
 
-  // ESPAÑOL
   es: {
     langName: "Español",
     flag: "🇪🇸",
     nav: {
       forWhom: "Para quién",
       features: "Funciones",
+      tutorial: "Guía Interactiva",
       pricing: "Suscripción",
       faq: "Preguntas frecuentes",
       trialBadge: "30 días gratis en la app",
@@ -833,113 +1006,132 @@ window.VICLI_TRANSLATIONS = {
       pill: "✨ Diseñado para autónomos con clientes habituales",
       title: "Menos papeleo, más tiempo para tus ",
       titleHighlight: "clientes",
-      subtitle: "Seas peluquero, manicurista, esteticista, entrenador personal o terapeuta: ViCli reúne tu agenda, fichas de clientes, bonos y recibos en una sola aplicación fluida.",
-      ctaPrimary: "Probar 30 días gratis",
-      ctaSecondary: "Ver funciones",
+      subtitle: "ViCli reúne tu agenda, fichas de clientes, bonos y recibos en una sola aplicación fluida.",
+      ctaPrimary: "Probar 30 días gratis en la app",
+      ctaSecondary: "Ver funciones y hotspots",
       badgeTrial: "30 días gratis en la app",
       badgePrice: "Menos de 10 € al mes",
       badgeCommission: "0% comisión por cita",
       badgePlatform: "Para iOS y Android",
+      badgeZeroData: "100% Local • Cero Datos en Servidores",
       ipadLabel: "Vista iPad y Tablet • Fichas de clientes y Bonos",
       iphoneLabel: "Vista iPhone y Android • Agenda"
+    },
+    privacyPillar: {
+      badge: "Seguridad y Privacidad",
+      title: "ViCli NO guarda datos en servidores",
+      subtitle: "Tus clientes y facturación son únicamente tuyos. Al no existir un servidor central, las fugas de datos son imposibles.",
+      points: [
+        { title: "100% local en tu dispositivo", desc: "Toda la información se almacena cifrada en tu propio teléfono o tablet." },
+        { title: "Sync con tu propio Google Drive", desc: "La sincronización se realiza a través de tu Drive privado (drive.appdata). Nadie más tiene acceso." },
+        { title: "Sin cuentas ni rastreadores", desc: "Sin registros obligatorios ni publicidad. Totalmente adaptado al RGPD." }
+      ]
     },
     audience: {
       badge: "Para Profesionales Autónomos",
       title: "Creado para quienes trabajan con cita previa",
-      subtitle: "No necesitas un software empresarial pesado. ViCli te proporciona exactamente lo que necesitas para tu día a día.",
+      subtitle: "ViCli te proporciona exactamente lo que necesitas para tu día a día.",
       cards: [
-        {
-          title: "Belleza y Salones",
-          desc: "Peluquerías, manicura, estética y diseño de cejas. Controla el historial de tratamientos, bonos y preferencias de cada cliente.",
-          tag: "Bonos de sesiones y caja"
-        },
-        {
-          title: "Salud y Bienestar",
-          desc: "Podólogos, fisioterapeutas, masajistas. Historial claro de citas y entrega inmediata de un recibo con desglose de IVA.",
-          tag: "Desglose de IVA e historial"
-        },
-        {
-          title: "Entrenadores y Coaches",
-          desc: "Entrenadores personales, instructores de yoga. Administra bonos de 10 sesiones y asistencia de forma sencilla.",
-          tag: "Bonos de sesiones"
-        },
-        {
-          title: "Especialistas",
-          desc: "Peluquería canina, fotógrafos y profesionales independientes. Sin citas duplicadas, todo en tu bolsillo.",
-          tag: "Agenda y notas de clientes"
-        }
+        { title: "Belleza y Salones", desc: "Peluquerías, manicura, estética.", tag: "Bonos y caja" },
+        { title: "Salud y Bienestar", desc: "Podólogos, masajistas, fisioterapia.", tag: "IVA e historial" },
+        { title: "Entrenadores y Coaches", desc: "Entrenadores personales, yoga.", tag: "Bonos de sesiones" },
+        { title: "Especialistas", desc: "Peluquería canina, fotógrafos.", tag: "Agenda y notas" }
       ]
     },
     features: {
-      badge: "Todo en Uno",
-      title: "Funciones principales de ViCli",
-      subtitle: "Pensado para la rapidez y la simplicidad. Sin menús complicados, solo las herramientas esenciales para tu jornada.",
-      cta: "Comenzar 30 días gratis en la app",
-      interfaceLabel: "Interfaz real de la aplicación ViCli",
+      badge: "Tour Interactivo",
+      title: "Explora todas las funciones con hotspots",
+      subtitle: "Pulsa una función para ver la pantalla real. Haz clic en los hotspots para ver las explicaciones.",
+      cta: "Abrir la guía completa",
+      interfaceLabel: "Interfaz real de ViCli en Español",
+      hotspotHint: "Toca un círculo numerado para ver los detalles",
       tabs: [
-        {
-          id: "crm",
-          tabTitle: "Clientes y Bonos",
-          tag: "Gestión de Clientes (CRM)",
-          title: "Ficha de cliente con historial y bonos de sesiones",
-          subtitle: "Mantén a todos tus clientes habituales organizados. Consulta datos de contacto, notas, visitas anteriores y saldo de bonos.",
-          highlights: [
-            "Visión completa de todos tus clientes con teléfono y correo",
-            "Gestión integrada de bonos de sesiones (saldo al instante)",
-            "Notas y preferencias individuales siempre a mano",
-            "Búsqueda rápida por buscador o check-in con código QR"
-          ]
-        },
         {
           id: "agenda",
           tabTitle: "Agenda y Citas",
           tag: "Agenda y Calendario",
           title: "Planificación diaria y semanal sin complicaciones",
-          subtitle: "Organiza citas en cuestión de segundos. Cambia fácilmente entre vista diaria, citas próximas y pasadas.",
-          highlights: [
-            "Visualización clara de citas pendientes y realizadas",
-            "Añade citas con un solo toque en el botón más",
-            "Textos SMS preparados para recordatorios (enviados desde tu propia app)",
-            "Rápido y fluido en todos tus dispositivos"
+          subtitle: "Organiza citas en cuestión de segundos.",
+          imageFile: "1-agenda.png",
+          highlights: ["Filtros Día, Próximas y Pasadas", "Añadir citas (+)", "SMS preparados", "Rápido y fluido"],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "Filtros de vista", desc: "Alterna entre 'Día', 'Próximas' y 'Pasadas'." },
+            { x: 90, y: 10, number: 2, title: "Nueva cita (+)", desc: "Programa una cita en segundos." },
+            { x: 45, y: 34, number: 3, title: "Tarjeta de cita", desc: "Accede al cliente y genera recibos." },
+            { x: 50, y: 95, number: 4, title: "Navegación", desc: "Cambia entre secciones al instante." }
+          ]
+        },
+        {
+          id: "crm",
+          tabTitle: "Clientes y Bonos",
+          tag: "Gestión de Clientes (CRM)",
+          title: "Ficha de cliente con historial y bonos",
+          subtitle: "Mantén a todos tus clientes organizados.",
+          imageFile: "2-klant.png",
+          highlights: ["Búsqueda rápida", "Saldo de bonos en dorado", "Notas personalizadas", "Check-in QR"],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Buscador", desc: "Busca por nombre o teléfono." },
+            { x: 45, y: 25, number: 2, title: "Ficha de cliente", desc: "Llama o envía SMS con un toque." },
+            { x: 80, y: 25, number: 3, title: "Saldo de bonos", desc: "Sesiones restantes destacadas." },
+            { x: 90, y: 9, number: 4, title: "Añadir (+)", desc: "Crea un cliente nuevo al instante." }
           ]
         },
         {
           id: "pos",
           tabTitle: "Caja y Recibos",
           tag: "Punto de Venta (POS)",
-          title: "Caja rápida con desglose de IVA, códigos de barras y devoluciones",
-          subtitle: "Cobra servicios y productos al instante. Genera recibos profesionales con los tipos de IVA correctos.",
-          highlights: [
-            "Añade productos con escáner de códigos de barras o búsqueda rápida",
-            "Registra devoluciones y reembolsos fácilmente",
-            "Cálculo automático de IVA por tramos",
-            "Envía el recibo por email en PDF o imprímelo"
+          title: "Caja rápida con desglose de IVA",
+          subtitle: "Cobra servicios y productos al instante.",
+          imageFile: "3-bon.png",
+          highlights: ["Lector de código de barras", "Gestión de devoluciones", "Cálculo de IVA automático", "Recibo PDF"],
+          hotspots: [
+            { x: 50, y: 16, number: 1, title: "Datos recibo", desc: "Número único y fecha." },
+            { x: 50, y: 38, number: 2, title: "Líneas de venta", desc: "Servicios y productos con IVA." },
+            { x: 80, y: 55, number: 3, title: "Devoluciones", desc: "Registra devoluciones fácilmente." },
+            { x: 50, y: 78, number: 4, title: "PDF", desc: "Comparte o imprime el recibo." }
           ]
         },
         {
           id: "finance",
           tabTitle: "Contabilidad y Exportación",
           tag: "Finanzas y Reportes",
-          title: "Listo para tus declaraciones de impuestos y gestoría",
-          subtitle: "Olvídate de sumar recibos a mano. ViCli mantiene tus cuentas al día y ordenadas.",
-          highlights: [
-            "Control inmediato de ingresos por día, mes y trimestre",
-            "Exportación en 1 clic de recibos e informes de IVA en PDF y CSV",
-            "Registros fiscales rigurosos",
-            "Tranquilidad total en tu gestión"
+          title: "Listo para tus declaraciones",
+          subtitle: "ViCli mantiene tus cuentas al día.",
+          imageFile: "4-btw.png",
+          highlights: ["Ingresos al momento", "Exportación PDF y CSV", "Registros fiscales claros", "Sin estrés"],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Periodo", desc: "Selecciona mes o trimestre." },
+            { x: 50, y: 30, number: 2, title: "Totales", desc: "Total bruto, neto e IVA." },
+            { x: 50, y: 52, number: 3, title: "Desglose IVA", desc: "Separación por tipos impositivos." },
+            { x: 50, y: 75, number: 4, title: "Exportar", desc: "Envía los datos a tu gestor." }
+          ]
+        },
+        {
+          id: "sms",
+          tabTitle: "SMS y Plantillas",
+          tag: "Recordatorios",
+          title: "Plantillas listas sin costes extra",
+          subtitle: "Envío a través de tu propia app de SMS.",
+          imageFile: "5-sms.png",
+          highlights: ["Relleno automático", "Sin cargos adicionales", "Recordatorios de cita", "100% privado"],
+          hotspots: [
+            { x: 50, y: 18, number: 1, title: "Plantilla", desc: "Elige confirmación o recordatorio." },
+            { x: 50, y: 40, number: 2, title: "Variables", desc: "Nombre y hora insertados automáticamente." },
+            { x: 50, y: 65, number: 3, title: "Abrir SMS", desc: "Tu app se abre con el texto listo." }
           ]
         },
         {
           id: "sync",
-          tabTitle: "Sincronización",
-          tag: "Nube y Dispositivos",
-          title: "Sincroniza mediante tu propia Google Drive",
-          subtitle: "Trabaja con varios dispositivos a la vez: tu tablet en el mostrador y tu móvil en movimiento.",
-          highlights: [
-            "Vincula dispositivos fácilmente con un código QR seguro",
-            "Funciona sin internet: sigue operativo si falla la conexión",
-            "Copia de seguridad en tu propia Google Drive (drive.appdata)",
-            "Compatibilidad total entre iOS y Android"
+          tabTitle: "Google Drive Sync",
+          tag: "Nube",
+          title: "Sincroniza con Google Drive",
+          subtitle: "Trabaja con tablet y móvil.",
+          imageFile: "6-sync.png",
+          highlights: ["Código QR de grupo", "Modo sin conexión", "Google Drive seguro", "iOS y Android"],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "Login Google", desc: "Vinculación con tu cuenta personal." },
+            { x: 80, y: 46, number: 2, title: "Auto-sync", desc: "Sincronización en segundo plano." },
+            { x: 50, y: 78, number: 3, title: "Grupo QR", desc: "Conecta otros dispositivos fácilmente." }
           ]
         }
       ]
@@ -947,21 +1139,12 @@ window.VICLI_TRANSLATIONS = {
     pricing: {
       badge: "Transparente y Asequible",
       title: "Un plan completo. Por menos de 10 € al mes.",
-      subtitle: "Sin tarifas desorbitadas ni comisiones por cita. Empiezas con 30 días gratis con todo abierto en la app.",
+      subtitle: "Empiezas con 30 días gratis con todo abierto en la app.",
       planBadge: "✨ Licencia todo incluido",
       planTitle: "ViCli Completo",
-      planDesc: "Acceso total a todas las funciones: fichas de clientes, bonos, agenda, caja con recibos en PDF, escáner de códigos de barras, exportación contable y sincronización multidispositivo.",
-      features: [
-        "Fichas de clientes, historial y notas",
-        "Control de bonos y sesiones",
-        "Agenda y calendario completo",
-        "Caja, recibos en PDF y devoluciones",
-        "Informes de IVA y exportación CSV",
-        "Sync mediante tu propia Google Drive",
-        "Funciona completamente offline",
-        "Para iOS y Android"
-      ],
-      notice: "* La prueba de 30 días está activa directamente en la app al instalarla, sin compromiso de pago previo. Tras la prueba, eliges tu suscripción en App Store o Google Play Store (el precio varía según el país/moneda, aprox. 9,49 € en Android y 9,99 € en iOS en España).",
+      planDesc: "Acceso total a todas las funciones.",
+      features: ["Fichas & notas", "Control de bonos", "Agenda completa", "Caja & recibos PDF", "Informes IVA & CSV", "Sync Google Drive", "Funciona offline", "iOS y Android"],
+      notice: "* La prueba de 30 días está activa directamente en la app al instalarla.",
       cardPre: "Primeros 30 días en la app",
       cardFree: "Gratis",
       cardPost: "Luego menos de 10 € / mes",
@@ -974,37 +1157,25 @@ window.VICLI_TRANSLATIONS = {
     faq: {
       badge: "Preguntas y Respuestas",
       title: "Preguntas frecuentes",
-      subtitle: "¿Tienes alguna duda sobre la aplicación o la suscripción? Estamos aquí para ayudarte.",
+      subtitle: "¿Tienes alguna duda sobre la aplicación?",
       items: [
         {
+          q: "¿Por qué mis datos están más seguros con ViCli? (Cero Datos)",
+          a: "ViCli no almacena datos en un servidor central. Toda tu información se guarda en local en tu dispositivo y se sincroniza a través de tu propia Google Drive. El riesgo de brechas de seguridad es cero."
+        },
+        {
           q: "¿Cómo funciona la prueba gratuita de 30 días?",
-          a: "Comienzas con treinta días tras la instalación con todas las funciones desbloqueadas en la app, sin pago por adelantado. La prueba reside en la propia app. Pasados los 30 días, la app pasa a modo lectura hasta que elijas una suscripción en App Store o Google Play. Tus datos siempre se conservan."
+          a: "Comienzas con 30 días tras la instalación con todas las funciones desbloqueadas sin pago por adelantado."
         },
         {
-          q: "¿Para quién está pensado ViCli?",
-          a: "ViCli está hecho para cualquiera que trabaje con cita previa y clientes recurrentes: peluqueros, manicuristas, esteticistas, podólogos, entrenadores, masajistas y profesionales que no quieren un software de contabilidad pesado."
-        },
-        {
-          q: "¿Cuánto cuesta la suscripción a ViCli?",
-          a: "ViCli cuesta menos de diez euros al mes (unos 9,49 € en Android y 9,99 € en iOS en Europa). El precio exacto lo fija App Store y Google Play según tu país y moneda. No pagas ninguna comisión por cita ni porcentaje."
-        },
-        {
-          q: "¿Puedo usar ViCli en iPhone/iPad y Android?",
-          a: "¡Sí! ViCli cuenta con aplicaciones nativas para iOS y Android. Con una suscripción activa, puedes sincronizar varios dispositivos mediante tu propia cuenta de Google Drive."
-        },
-        {
-          q: "¿Funciona ViCli sin conexión a internet?",
-          a: "Sí, ViCli funciona totalmente sin conexión. Todos los datos se guardan de forma local en tu dispositivo. En cuanto vuelves a tener conexión, se sincroniza automáticamente."
-        },
-        {
-          q: "¿Cómo funciona el envío de mensajes SMS?",
-          a: "ViCli redacta el mensaje por ti (confirmaciones o recordatorios), pero no lo envía solo en segundo plano. Al pulsar enviar, se abre tu app de mensajes habitual con el texto ya escrito."
+          q: "¿Cuánto cuesta la suscripción?",
+          a: "Menos de diez euros al mes (aprox. 9,49 € en Android y 9,99 € en iOS). Sin comisiones."
         }
       ]
     },
     ctaBanner: {
-      title: "¿Listo para simplificar la gestión de tus clientes?",
-      subtitle: "Descarga ViCli hoy en App Store o Google Play Store. Pruébalo 30 días gratis en la app y comprueba lo fácil que es tu día a día.",
+      title: "¿Listo para simplificar tu gestión?",
+      subtitle: "Descarga ViCli hoy y pruébalo 30 días gratis en la app.",
       ctaPrimary: "Probar 30 días gratis en la app",
       ctaWhatsApp: "Preguntar por WhatsApp"
     },
@@ -1019,13 +1190,13 @@ window.VICLI_TRANSLATIONS = {
     }
   },
 
-  // PORTUGUÊS
   pt: {
     langName: "Português",
     flag: "🇵🇹",
     nav: {
       forWhom: "Para quem",
       features: "Funções",
+      tutorial: "Guia Interativo",
       pricing: "Subscrição",
       faq: "Perguntas frequentes",
       trialBadge: "30 dias grátis na app",
@@ -1035,113 +1206,132 @@ window.VICLI_TRANSLATIONS = {
       pill: "✨ Feito para profissionais com clientes habituais",
       title: "Menos papelada, mais tempo para os teus ",
       titleHighlight: "clientes",
-      subtitle: "Sejas cabeleireiro, manicure, esteticista, treinador pessoal ou terapeuta: o ViCli reúne a tua agenda, fichas de clientes, cartões de sessões e recibos numa só aplicação fluida.",
-      ctaPrimary: "Experimentar 30 dias grátis",
-      ctaSecondary: "Ver funcionalidades",
+      subtitle: "O ViCli reúne a tua agenda, fichas de clientes, cartões de sessões e recibos numa só aplicação fluida.",
+      ctaPrimary: "Experimentar 30 dias grátis na app",
+      ctaSecondary: "Ver funções e hotspots",
       badgeTrial: "30 dias grátis na app",
       badgePrice: "Menos de 10 € por mês",
       badgeCommission: "0% comissão por marcação",
       badgePlatform: "Para iOS e Android",
+      badgeZeroData: "100% Local • Sem Dados em Servidores",
       ipadLabel: "Vista iPad e Tablet • Fichas de clientes e Cartões de sessões",
       iphoneLabel: "Vista iPhone e Android • Agenda"
+    },
+    privacyPillar: {
+      badge: "Segurança e Privacidade",
+      title: "O ViCli NÃO guarda dados em servidores",
+      subtitle: "Os teus clientes pertencem-te a ti. Como não existe um servidor central, o risco de fugas de informação é nulo.",
+      points: [
+        { title: "100% local no teu dispositivo", desc: "Todos os dados ficam guardados de forma encriptada no teu telemóvel ou tablet." },
+        { title: "Sync através da tua Google Drive", desc: "A sincronização passa pela tua Google Drive pessoal (drive.appdata). Não temos acesso." },
+        { title: "Sem contas nem rastreamento", desc: "Sem registos nem publicidade. Totalmente em conformidade com o RGPD." }
+      ]
     },
     audience: {
       badge: "Para Profissionais Autónomos",
       title: "Criado para quem trabalha por marcação",
-      subtitle: "Não precisas de um programa de contabilidade pesado. O ViCli dá-te exatamente o que precisas para o teu dia a dia.",
+      subtitle: "O ViCli dá-te exatamente o que precisas para o teu dia a dia.",
       cards: [
-        {
-          title: "Beleza e Salões",
-          desc: "Cabeleireiros, manicures, esteticistas e design de sobrancelhas. Acompanha o histórico, cartões de sessões e preferências.",
-          tag: "Cartões de sessões e caixa"
-        },
-        {
-          title: "Saúde e Bem-estar",
-          desc: "Podologistas, terapeutas, massagistas. Histórico claro e emissão imediata de recibos com IVA discriminado.",
-          tag: "Discriminação de IVA e histórico"
-        },
-        {
-          title: "Treinadores e Coaches",
-          desc: "Personal trainers, instrutores de ioga. Gere pacotes de 10 sessões e presenças sem complicações.",
-          tag: "Pacotes de sessões"
-        },
-        {
-          title: "Especialistas",
-          desc: "Tosquia de animais, fotógrafos e prestadores de serviços. Sem sobreposições de marcações, tudo no telemóvel.",
-          tag: "Agenda e notas de clientes"
-        }
+        { title: "Beleza e Salões", desc: "Cabeleireiros, manicures, esteticistas.", tag: "Sessões e caixa" },
+        { title: "Saúde e Bem-estar", desc: "Podologistas, terapeutas, massagistas.", tag: "IVA e histórico" },
+        { title: "Treinadores e Coaches", desc: "Personal trainers, ioga.", tag: "Pacotes de sessões" },
+        { title: "Especialistas", desc: "Tosquia de animais, fotógrafos.", tag: "Agenda e notas" }
       ]
     },
     features: {
-      badge: "Tudo num só lugar",
-      title: "Principais funções do ViCli",
-      subtitle: "Desenvolvido para rapidez e simplicidade. Sem menus complexos, apenas as ferramentas essenciais para o teu trabalho.",
-      cta: "Começar 30 dias grátis na app",
-      interfaceLabel: "Interface real da aplicação ViCli",
+      badge: "Tour Interativo",
+      title: "Descobre todas as funções com hotspots",
+      subtitle: "Clica numa função para veres o ecrã real. Toca nos círculos para veres as explicações.",
+      cta: "Abrir o guia completo",
+      interfaceLabel: "Interface real do ViCli em Português",
+      hotspotHint: "Toca num círculo numerado para veres detalhes",
       tabs: [
-        {
-          id: "crm",
-          tabTitle: "Clientes e Sessões",
-          tag: "Gestão de Clientes (CRM)",
-          title: "Ficha de cliente com histórico e cartões de sessões",
-          subtitle: "Mantém os teus clientes organizados. Vê contactos, notas, visitas anteriores e saldo de sessões num piscar de olhos.",
-          highlights: [
-            "Visão completa de todos os clientes com telefone e email",
-            "Gestão integrada de cartões de sessões (saldo imediato)",
-            "Notas e preferências individuais sempre à mão",
-            "Pesquisa rápida por barra de pesquisa ou check-in por QR code"
-          ]
-        },
         {
           id: "agenda",
           tabTitle: "Agenda e Marcações",
           tag: "Agenda e Calendário",
           title: "Planeamento diário e semanal sem stress",
-          subtitle: "Marca sessões em segundos. Alterna suavemente entre vista do dia, próximas marcações e histórico.",
-          highlights: [
-            "Visualização limpa de marcações agendadas e concluídas",
-            "Adiciona novas marcações com um simples toque no mais",
-            "Mensagens SMS pré-escritas para lembretes (enviadas pela tua própria app)",
-            "Rápido e fluido em todos os teus dispositivos"
+          subtitle: "Marca sessões em segundos.",
+          imageFile: "1-agenda.png",
+          highlights: ["Filtros Dia, Próximas e Passadas", "Marcação rápida (+)", "SMS pré-escritas", "Rápido e fluido"],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "Filtros", desc: "Alterna entre 'Dia', 'Próximas' e 'Passadas'." },
+            { x: 90, y: 10, number: 2, title: "Nova marcação (+)", desc: "Regista uma sessão rapidamente." },
+            { x: 45, y: 34, number: 3, title: "Cartão de marcação", desc: "Acede aos detalhes e emite recibos." },
+            { x: 50, y: 95, number: 4, title: "Navegação", desc: "Muda de secção com facilidade." }
+          ]
+        },
+        {
+          id: "crm",
+          tabTitle: "Clientes e Sessões",
+          tag: "Gestão de Clientes (CRM)",
+          title: "Ficha de cliente com histórico e sessões",
+          subtitle: "Mantém os teus clientes organizados.",
+          imageFile: "2-klant.png",
+          highlights: ["Pesquisa rápida", "Saldo em dourado", "Notas personalizadas", "Check-in QR"],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Pesquisa", desc: "Procura por nome ou telefone." },
+            { x: 45, y: 25, number: 2, title: "Ficha", desc: "Telefona ou envia SMS de imediato." },
+            { x: 80, y: 25, number: 3, title: "Saldo de sessões", desc: "Sessões restantes em destaque." },
+            { x: 90, y: 9, number: 4, title: "Adicionar (+)", desc: "Cria um cliente em segundos." }
           ]
         },
         {
           id: "pos",
           tabTitle: "Caixa e Recibos",
           tag: "Ponto de Venda (POS)",
-          title: "Caixa rápida com discriminação de IVA, códigos de barras e devoluções",
-          subtitle: "Cobra serviços e produtos em segundos. Emite recibos profissionais com as taxas de IVA corretas.",
-          highlights: [
-            "Adiciona produtos via leitor de código de barras ou pesquisa rápida",
-            "Regista devoluções e reembolsos com facilidade",
-            "Cálculo automático de IVA por escalões",
-            "Envia o recibo por email em PDF ou imprime diretamente"
+          title: "Caixa rápida com discriminação de IVA",
+          subtitle: "Cobra serviços e produtos em segundos.",
+          imageFile: "3-bon.png",
+          highlights: ["Leitor de código de barras", "Registo de devoluções", "Cálculo de IVA automático", "Recibo PDF"],
+          hotspots: [
+            { x: 50, y: 16, number: 1, title: "Dados do recibo", desc: "Número único e data." },
+            { x: 50, y: 38, number: 2, title: "Linhas", desc: "Serviços e produtos com IVA." },
+            { x: 80, y: 55, number: 3, title: "Devoluções", desc: "Processa reembolsos facilmente." },
+            { x: 50, y: 78, number: 4, title: "PDF", desc: "Partilha ou imprime o recibo." }
           ]
         },
         {
           id: "finance",
           tabTitle: "Contabilidade e Exportação",
           tag: "Finanças e Relatórios",
-          title: "Pronto para as tuas obrigações fiscais e contabilista",
-          subtitle: "Não precisas de somar faturas manualmente. O ViCli mantém os teus números em ordem.",
-          highlights: [
-            "Visão imediata da faturação por dia, mês e trimestre",
-            "Exportação em 1 clique de recibos e resumos de IVA em PDF e CSV",
-            "Registos fiáveis e conformes",
-            "Tranquilidade total na tua gestão"
+          title: "Pronto para as tuas obrigações fiscais",
+          subtitle: "O ViCli mantém os teus números em ordem.",
+          imageFile: "4-btw.png",
+          highlights: ["Faturação em direto", "Exportação PDF e CSV", "Registos fiáveis", "Sem complicações"],
+          hotspots: [
+            { x: 50, y: 15, number: 1, title: "Período", desc: "Mês ou trimestre." },
+            { x: 50, y: 30, number: 2, title: "Totais", desc: "Bruto, líquido e IVA." },
+            { x: 50, y: 52, number: 3, title: "Taxas de IVA", desc: "Discriminação por escalão." },
+            { x: 50, y: 75, number: 4, title: "Exportação", desc: "Gera ficheiro para o contabilista." }
+          ]
+        },
+        {
+          id: "sms",
+          tabTitle: "SMS e Modelos",
+          tag: "Lembretes",
+          title: "Modelos prontos sem custos adicionais",
+          subtitle: "Envio através da tua própria app de mensagens.",
+          imageFile: "5-sms.png",
+          highlights: ["Variáveis automáticas", "Sem taxas extra", "Lembretes práticos", "100% privado"],
+          hotspots: [
+            { x: 50, y: 18, number: 1, title: "Modelo", desc: "Confirmação ou lembrete." },
+            { x: 50, y: 40, number: 2, title: "Variáveis", desc: "Nome e hora preenchidos sozinhos." },
+            { x: 50, y: 65, number: 3, title: "Abrir SMS", desc: "Abre a app de mensagens pronta." }
           ]
         },
         {
           id: "sync",
-          tabTitle: "Sincronização",
-          tag: "Nuvem e Dispositivos",
-          title: "Sincronização através da tua própria Google Drive",
-          subtitle: "Trabalha com vários dispositivos em simultâneo: o tablet no balcão e o telemóvel na mão.",
-          highlights: [
-            "Associa dispositivos através de um código QR seguro",
-            "Funciona sem internet: continua operacional mesmo offline",
-            "Cópia de segurança na tua própria Google Drive (drive.appdata)",
-            "Totalmente compatível entre iOS e Android"
+          tabTitle: "Google Drive Sync",
+          tag: "Nuvem",
+          title: "Sync através da Google Drive",
+          subtitle: "Usa no tablet e no telemóvel.",
+          imageFile: "6-sync.png",
+          highlights: ["QR code de grupo", "Modo offline", "Google Drive privada", "iOS e Android"],
+          hotspots: [
+            { x: 50, y: 22, number: 1, title: "Google", desc: "Ligação à tua conta pessoal." },
+            { x: 80, y: 46, number: 2, title: "Auto-sync", desc: "Sincronização em segundo plano." },
+            { x: 50, y: 78, number: 3, title: "Grupo QR", desc: "Conecta dispositivos num instante." }
           ]
         }
       ]
@@ -1149,21 +1339,12 @@ window.VICLI_TRANSLATIONS = {
     pricing: {
       badge: "Acessível e Transparente",
       title: "Um plano completo. Por menos de 10 € por mês.",
-      subtitle: "Sem licenças caras nem comissões por marcação. Começas com 30 dias grátis em que tudo está disponível na app.",
+      subtitle: "Começas com 30 dias grátis em que tudo está disponível na app.",
       planBadge: "✨ Licença tudo-em-um",
       planTitle: "ViCli Completo",
-      planDesc: "Acesso total a todas as funcionalidades: fichas de clientes, cartões de sessões, agenda, caixa com recibos em PDF, leitor de códigos de barras, exportação contabilística e sincronização entre dispositivos.",
-      features: [
-        "Fichas de clientes, histórico e notas",
-        "Controlo de cartões e sessões",
-        "Agenda e marcações completas",
-        "Caixa, recibos em PDF e devoluções",
-        "Resumos de IVA e exportação em CSV",
-        "Sync através da tua Google Drive",
-        "Funciona completamente offline",
-        "Para iOS e Android"
-      ],
-      notice: "* O período de teste de 30 dias fica ativo na app logo após a instalação, sem compromisso de pagamento antecipado. Após o teste, escolhes o teu plano na App Store ou Google Play Store (o preço varia por região/moeda, cerca de 9,49 € em Android e 9,99 € em iOS em Portugal).",
+      planDesc: "Acesso total a todas as funcionalidades.",
+      features: ["Fichas & notas", "Controlo de sessões", "Agenda completa", "Caixa & recibos PDF", "Resumos de IVA & CSV", "Sync Google Drive", "Modo offline", "iOS e Android"],
+      notice: "* O período de teste de 30 dias fica ativo na app logo após a instalação.",
       cardPre: "Primeiros 30 dias na app",
       cardFree: "Grátis",
       cardPost: "Depois menos de 10 € / mês",
@@ -1176,37 +1357,25 @@ window.VICLI_TRANSLATIONS = {
     faq: {
       badge: "Perguntas e Respostas",
       title: "Perguntas frequentes",
-      subtitle: "Tens alguma dúvida sobre a aplicação ou subscrição? Estamos aqui para ajudar.",
+      subtitle: "Tens alguma dúvida sobre a aplicação?",
       items: [
         {
+          q: "Porque é que os meus dados estão mais seguros com o ViCli? (Zero Dados)",
+          a: "O ViCli não tem um servidor de base de dados. Toda a informação fica guardada apenas no teu próprio dispositivo e sincroniza através da tua Google Drive privada. O risco de fugas de informação é zero."
+        },
+        {
           q: "Como funciona o período experimental de 30 dias?",
-          a: "Começas com trinta dias após a instalação com tudo aberto na aplicação, incluindo funções Pro, sem pagamento antecipado. O teste é gerido pela própria app. Ao fim de 30 dias, a app passa para modo só de leitura até subscreveres na App Store ou Google Play. Os teus dados são sempre preservados."
+          a: "Começas com 30 dias após a instalação com tudo aberto na aplicação sem pagamento antecipado."
         },
         {
-          q: "Para quem é o ViCli?",
-          a: "O ViCli foi feito para quem trabalha por marcação com clientes regulares: cabeleireiros, manicures, esteticistas, podologistas, treinadores e profissionais que não querem um programa de faturação pesado."
-        },
-        {
-          q: "Quanto custa a subscrição do ViCli?",
-          a: "O ViCli custa menos de dez euros por mês (cerca de 9,49 € em Android e 9,99 € em iOS na Europa). O valor exato é apresentado pela App Store e Google Play de acordo com o teu país e moeda. Não pagas comissões por marcação."
-        },
-        {
-          q: "Posso usar o ViCli em iPhone/iPad e Android?",
-          a: "Sim! O ViCli tem aplicações nativas para iOS e Android. Com uma subscrição ativa, podes sincronizar vários aparelhos em segurança através da tua própria conta Google Drive."
-        },
-        {
-          q: "O ViCli funciona sem ligação à internet?",
-          a: "Sim, o ViCli funciona totalmente offline. Todos os dados são guardados localmente no teu dispositivo. Assim que tiveres ligação, a sincronização é efetuada."
-        },
-        {
-          q: "Como funciona o envio de mensagens SMS?",
-          a: "O ViCli escreve a mensagem por ti (como confirmações e lembretes), mas não a envia sozinho em segundo plano. Ao tocares em enviar, abre-se a tua aplicação normal de mensagens com o texto já pronto."
+          q: "Quanto custa a subscrição?",
+          a: "Menos de dez euros por mês (cerca de 9,49 € em Android e 9,99 € em iOS). Sem comissões."
         }
       ]
     },
     ctaBanner: {
-      title: "Pronto para simplificar a gestão dos teus clientes?",
-      subtitle: "Descarrega o ViCli hoje na App Store ou Google Play Store. Experimenta 30 dias grátis na app e sente a diferença no teu dia a dia.",
+      title: "Pronto para simplificar a tua gestão?",
+      subtitle: "Descarrega o ViCli hoje e experimenta 30 dias grátis na app.",
       ctaPrimary: "Experimentar 30 dias grátis na app",
       ctaWhatsApp: "Fazer uma pergunta por WhatsApp"
     },
