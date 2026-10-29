@@ -12,8 +12,8 @@ window.VICLI_CONFIG = {
     description: "Alles wat je als zelfstandige dienstverlener nodig hebt: moeiteloos afspraken inplannen, klantenkaarten met strippen bijhouden, snelle kassa-bonnen en sluitende BTW-rapportages. Native gebouwd voor iOS en Android.",
     rating: "4.9 / 5",
     trialDays: "14 dagen gratis",
-    appStoreUrl: "https://apps.apple.com", // Link naar iOS App Store
-    playStoreUrl: "https://play.google.com", // Link naar Google Play Store
+    appStoreUrl: "https://apps.apple.com/app/vicli/id6813818081", // Directe link naar ViCli in de Apple App Store
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.vicli.app", // Directe link naar ViCli in de Google Play Store
   },
 
   contact: {
