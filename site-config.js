@@ -17,8 +17,7 @@ window.VICLI_CONFIG = {
   },
 
   contact: {
-    email: "info@vicli.nl",
-    whatsappUrl: "https://wa.me/31612345678?text=Hallo%20ViCli,%20ik%20heb%20een%20vraag%20over%20de%20app!",
+    email: "visitingclients@gmail.com",
     instagram: "https://instagram.com/vicli.app",
     linkedin: "https://linkedin.com/company/vicli"
   },
