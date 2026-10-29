@@ -19,7 +19,7 @@ window.VICLI_CONFIG = {
   contact: {
     email: "visitingclients@gmail.com",
     instagram: "https://instagram.com/vicli.app",
-    linkedin: "https://linkedin.com/company/vicli"
+    facebook: "https://facebook.com/vicli.app"
   },
 
   hero: {
