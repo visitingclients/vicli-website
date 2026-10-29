@@ -1,0 +1,3 @@
+# Automatisch alle bezoekers van vicli.netlify.app doorsturen naar vicli.nl
+https://vicli.netlify.app/* https://vicli.nl/:splat 301!
+http://vicli.netlify.app/* https://vicli.nl/:splat 301!
